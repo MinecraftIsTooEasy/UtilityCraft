@@ -1,0 +1,24 @@
+item.copper_saber.name=Copper Saber
+item.silver_saber.name=Silver Saber
+item.golden_saber.name=Golden Saber
+item.iron_saber.name=Iron Saber
+item.ancient_metal_saber.name=Ancient Metal Saber
+item.mithril_saber.name=Mithril Saber
+item.adamantium_saber.name=Adamantium Saber
+
+item.copper_rapier.name=Copper Rapier
+item.silver_rapier.name=Silver Rapier
+item.golden_rapier.name=Golden Rapier
+item.iron_rapier.name=Iron Rapier
+item.ancient_metal_rapier.name=Ancient Metal Rapier
+item.mithril_rapier.name=Mithril Rapier
+item.adamantium_rapier.name=Adamantium Rapier
+
+item.obsidian_boat.name=Obsidian Boat
+
+enchantment.sweeping_edge=Sweeping Edge
+
+item.utilitycraft.rapier.tip=§7Hold §eShift§7 for more information
+item.utilitycraft.rapier.desc=§bAttacks faster and ignores 50% of the target's armor.
+item.utilitycraft.saber.tip=§7Hold §eShift§7 for more information
+item.utilitycraft.saber.desc=§bSweeping Damage: %.1f

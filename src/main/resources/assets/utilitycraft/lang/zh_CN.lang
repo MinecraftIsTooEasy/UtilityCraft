@@ -1,0 +1,24 @@
+item.copper_saber.name=铜军刀
+item.silver_saber.name=银军刀
+item.golden_saber.name=金军刀
+item.iron_saber.name=铁军刀
+item.ancient_metal_saber.name=远古金属军刀
+item.mithril_saber.name=秘银军刀
+item.adamantium_saber.name=艾德曼军刀
+
+item.copper_rapier.name=铜刺剑
+item.silver_rapier.name=银刺剑
+item.golden_rapier.name=金刺剑
+item.iron_rapier.name=铁刺剑
+item.ancient_metal_rapier.name=远古金属刺剑
+item.mithril_rapier.name=秘银刺剑
+item.adamantium_rapier.name=艾德曼刺剑
+
+item.obsidian_boat.name=黑曜石船
+
+enchantment.sweeping_edge=横扫之刃
+
+item.utilitycraft.rapier.tip=§7按住§eShift§7查看更多信息
+item.utilitycraft.rapier.desc=§b攻击速度较快且无视目标50%护甲
+item.utilitycraft.saber.tip=§7按住§eShift§7查看更多信息
+item.utilitycraft.saber.desc=§b横扫伤害: %.1f
