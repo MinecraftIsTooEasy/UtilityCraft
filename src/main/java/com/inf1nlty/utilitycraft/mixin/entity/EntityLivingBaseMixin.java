@@ -17,34 +17,81 @@ public abstract class EntityLivingBaseMixin extends Entity {
 
     @Shadow public int maxHurtResistantTime;
 
-    @Unique
-    private static final ThreadLocal<Damage> utilitycraft$currentDamage = new ThreadLocal<>();
-
     public EntityLivingBaseMixin(World par1World) {
         super(par1World);
     }
 
-    @Inject(method = "attackEntityFrom", at = @At("HEAD"))
-    private void utilitycraft$storeDamageContext(Damage damage, CallbackInfoReturnable<EntityDamageResult> cir) {
-        utilitycraft$currentDamage.set(damage);
-    }
-
     @Redirect(method = "getProtectionFromArmor", at = @At(value = "INVOKE", target = "Lnet/minecraft/ItemArmor;getTotalArmorProtection([Lnet/minecraft/ItemStack;Lnet/minecraft/DamageSource;ZLnet/minecraft/EntityLivingBase;)F"))
     private float utilitycraft$halveArmorProtectionForRapier(ItemStack[] armors, DamageSource damage_source, boolean include_enchantments, EntityLivingBase owner) {
-        Damage damage = utilitycraft$currentDamage.get();
+
         float originalProtection = ItemArmor.getTotalArmorProtection(armors, damage_source, include_enchantments, owner);
 
-        if (damage != null) {
-            Entity attacker = damage.getResponsibleEntity();
-            if (attacker instanceof EntityLivingBase) {
-                ItemStack held = ((EntityLivingBase)attacker).getHeldItemStack();
-                if (held != null && held.getItem() instanceof IRapier) {
-                    return originalProtection * 0.5F;
-                }
+        if (damage_source == null) {
+            return originalProtection;
+        }
+        Entity attacker = damage_source.getResponsibleEntity();
+        if (!(attacker instanceof EntityLivingBase)) {
+            return originalProtection;
+        }
+        ItemStack held = ((EntityLivingBase) attacker).getHeldItemStack();
+        if (held == null || !(held.getItem() instanceof IRapier)) {
+            return originalProtection;
+        }
+
+        float maxIgnore = 0.0f;
+        if (armors != null) {
+            for (ItemStack armorStack : armors) {
+                if (armorStack == null) continue;
+                Item item = armorStack.getItem();
+                if (!(item instanceof ItemArmor armorItem)) continue;
+
+                Material mat = armorItem.getArmorMaterial();
+                if (mat == null) continue;
+
+                float ignore = getIgnore(mat);
+                if (ignore > maxIgnore) maxIgnore = ignore;
+                if (maxIgnore >= 1.0f) break;
             }
         }
 
-        return originalProtection;
+        if (maxIgnore <= 0.0f) {
+            return originalProtection;
+        }
+
+        float adjusted = originalProtection * (1.0f - maxIgnore);
+        return Math.max(0.0f, adjusted);
+    }
+
+    @Unique
+    private static float getIgnore(Material mat) {
+
+        // Leather -> 100%
+        // Copper/Silver/Gold -> 50%
+        // Iron/Rusted_iron -> 40%
+        // Ancient_Metal -> 30%
+        // Mithril -> 25%
+        // Adamantium -> 15%
+        if (mat == Material.leather) {
+            return 1.0f;
+
+        } else if (mat == Material.copper || mat == Material.silver || mat == Material.gold) {
+            return 0.5f;
+
+        } else if (mat == Material.iron || mat == Material.rusted_iron) {
+            return 0.4f;
+
+        } else if (mat == Material.ancient_metal) {
+            return 0.3f;
+
+        } else if (mat == Material.mithril) {
+            return 0.25f;
+
+        } else if (mat == Material.adamantium) {
+            return 0.15f;
+
+        } else {
+            return 0.0f;
+        }
     }
 
     @Inject(method = "attackEntityFrom", at = @At("RETURN"))

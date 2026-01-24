@@ -19,6 +19,6 @@ item.obsidian_boat.name=Obsidian Boat
 enchantment.sweeping_edge=Sweeping Edge
 
 item.utilitycraft.rapier.tip=§7Hold §eShift§7 for more information
-item.utilitycraft.rapier.desc=§bAttacks faster and ignores 50% of the target's armor.
+item.utilitycraft.rapier.desc=§bAttacks faster and ignores part of the target's armor.
 item.utilitycraft.saber.tip=§7Hold §eShift§7 for more information
 item.utilitycraft.saber.desc=§bSweeping Damage: %.1f
