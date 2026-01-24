@@ -3,9 +3,11 @@ package com.inf1nlty.utilitycraft.item.rapier;
 import com.inf1nlty.utilitycraft.client.UCSounds;
 import net.minecraft.*;
 import net.xiaoyu233.fml.api.item.SwordItem;
+import org.jetbrains.annotations.NotNull;
 import org.lwjgl.input.Keyboard;
 
 import java.util.List;
+import java.util.regex.Matcher;
 
 public class ItemRapier extends SwordItem implements IRapier {
 
@@ -51,11 +53,60 @@ public class ItemRapier extends SwordItem implements IRapier {
     @Override
     @SuppressWarnings("unchecked")
     public void addInformation(ItemStack item_stack, EntityPlayer player, List info, boolean extended_info, Slot slot) {
+
         if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT)) {
-            info.add(StatCollector.translateToLocal("item.utilitycraft.rapier.desc"));
+            String desc = StatCollector.translateToLocal("item.utilitycraft.rapier.desc");
+            if (desc == null || desc.isEmpty()) {
+                return;
+            }
+
+            String[] lines = desc.split("\\\\n|\\n");
+            for (int i = 0; i < lines.length; ++i) {
+                String line = lines[i];
+                if (line == null) continue;
+                line = line.trim();
+                if (line.isEmpty()) continue;
+
+                if (i == 0) {
+
+                    info.add(line);
+                } else {
+
+                    String preserved = line;
+
+                    java.util.regex.Pattern p = java.util.regex.Pattern.compile("(?i)(?:§[0-9A-FK-OR])*?(\\d+%)");
+                    java.util.regex.Matcher m = p.matcher(preserved);
+                    if (m.find()) {
+                        String colorCode = getColorCode(m);
+
+                        preserved = m.replaceFirst(colorCode + "$1");
+                    }
+                    info.add(preserved);
+                }
+            }
         } else {
             info.add(StatCollector.translateToLocal("item.utilitycraft.rapier.tip"));
         }
+    }
+
+    private static @NotNull String getColorCode(Matcher m) {
+        String numPct = m.group(1);
+        String numStr = numPct.replace("%", "");
+        int val = 0;
+        try {
+            val = Integer.parseInt(numStr);
+        } catch (NumberFormatException ignored) {}
+        String colorCode;
+        if (val >= 90) {
+            colorCode = "§a";
+        } else if (val >= 50) {
+            colorCode = "§e";
+        } else if (val >= 25) {
+            colorCode = "§6";
+        } else {
+            colorCode = "§c";
+        }
+        return colorCode;
     }
 
     public static ItemRapier createCopper(int id) {

@@ -19,6 +19,6 @@ item.obsidian_boat.name=黑曜石船
 enchantment.sweeping_edge=横扫之刃
 
 item.utilitycraft.rapier.tip=§7按住§eShift§7查看更多信息
-item.utilitycraft.rapier.desc=§b攻击速度较快且无视目标部分护甲
+item.utilitycraft.rapier.desc=§b攻击速度更快， 无视护甲比例：\n§6皮革 100%\n§6铜/§f银/§e金 50%\n§7铁/§8锈铁 40%\n§3远古金属 30%\n§b秘银 25%\n§d艾德曼 15%
 item.utilitycraft.saber.tip=§7按住§eShift§7查看更多信息
 item.utilitycraft.saber.desc=§b横扫伤害: %.1f
