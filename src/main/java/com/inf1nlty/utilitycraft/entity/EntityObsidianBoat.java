@@ -48,8 +48,7 @@ public class EntityObsidianBoat extends EntityBoat {
         }
 
         Entity attacker = damage.getResponsibleEntity();
-        if (attacker instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer)attacker;
+        if (attacker instanceof EntityPlayer player) {
 
             if (player.capabilities.isCreativeMode) {
                 EntityDamageResult result = new EntityDamageResult(this);
