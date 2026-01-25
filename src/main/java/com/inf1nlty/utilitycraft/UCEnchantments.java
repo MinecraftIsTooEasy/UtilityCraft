@@ -3,17 +3,21 @@ package com.inf1nlty.utilitycraft;
 import com.inf1nlty.utilitycraft.item.ISweepAttack;
 import net.minecraft.*;
 
+import net.xiaoyu233.fml.reload.utils.IdUtil;
+import net.xiaoyu233.fml.reload.event.EnchantmentRegistryEvent;
+
 public class UCEnchantments extends Enchantment {
 
     public static UCEnchantments sweepingEdge;
-    public static final int SWEEPING_EDGE_ID = 101;
 
     public UCEnchantments(int id, EnumRarity rarity, int difficulty) {
         super(id, rarity, difficulty);
     }
 
-    public static void registerEnchantments() {
-        sweepingEdge = new UCEnchantments(SWEEPING_EDGE_ID, EnumRarity.rare, 10);
+    public static void registerEnchantments(EnchantmentRegistryEvent event) {
+        int id = IdUtil.getNextEnchantmentID();
+        sweepingEdge = new UCEnchantments(id, EnumRarity.rare, 10);
+        event.registerEnchantment(sweepingEdge);
     }
 
     @Override

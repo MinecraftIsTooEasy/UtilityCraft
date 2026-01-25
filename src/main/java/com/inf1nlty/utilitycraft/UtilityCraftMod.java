@@ -12,6 +12,5 @@ public class UtilityCraftMod implements ModInitializer {
     public void onInitialize() {
         ModResourceManager.addResourcePackDomain(NAMESPACE);
         MITEEvents.MITE_EVENT_BUS.register(new UtilityCraftEventListener());
-        UCEnchantments.registerEnchantments();
     }
 }

@@ -7,9 +7,10 @@ import com.inf1nlty.utilitycraft.entity.EntityObsidianBoat;
 import com.inf1nlty.utilitycraft.init.UCRecipes;
 import com.inf1nlty.utilitycraft.item.UCItems;
 
-import net.xiaoyu233.fml.reload.event.EntityRegisterEvent;
 import net.xiaoyu233.fml.reload.event.ItemRegistryEvent;
 import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent;
+import net.xiaoyu233.fml.reload.event.EntityRegisterEvent;
+import net.xiaoyu233.fml.reload.event.EnchantmentRegistryEvent;
 import net.xiaoyu233.fml.reload.event.SoundsRegisterEvent;
 import net.xiaoyu233.fml.reload.utils.IdUtil;
 
@@ -23,6 +24,11 @@ public class UtilityCraftEventListener {
     @Subscribe
     public void onRecipeRegister(RecipeRegistryEvent event) {
         UCRecipes.registerRecipes(event);
+    }
+
+    @Subscribe
+    public void onEnchantmentRegister(EnchantmentRegistryEvent event) {
+        UCEnchantments.registerEnchantments(event);
     }
 
     @Subscribe

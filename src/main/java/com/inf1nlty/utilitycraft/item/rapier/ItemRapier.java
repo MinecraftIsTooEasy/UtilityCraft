@@ -54,6 +54,8 @@ public class ItemRapier extends SwordItem implements IRapier {
     @SuppressWarnings("unchecked")
     public void addInformation(ItemStack item_stack, EntityPlayer player, List info, boolean extended_info, Slot slot) {
 
+        super.addInformation(item_stack, player, info, extended_info, slot);
+
         if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT)) {
             String desc = StatCollector.translateToLocal("item.utilitycraft.rapier.desc");
             if (desc == null || desc.isEmpty()) {

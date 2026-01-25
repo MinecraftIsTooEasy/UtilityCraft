@@ -73,7 +73,11 @@ public class ItemSaber extends SwordItem implements ISaber, ISweepAttack {
     }
 
     @SuppressWarnings("unchecked")
+    @Override
     public void addInformation(ItemStack item_stack, EntityPlayer player, List info, boolean extended_info, Slot slot) {
+
+        super.addInformation(item_stack, player, info, extended_info, slot);
+
         if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT)) {
             int sweepLevel = EnchantmentHelper.getEnchantmentLevel(UCEnchantments.sweepingEdge.effectId, item_stack);
             float baseDamage = this.getDamage() + 1.0F;
