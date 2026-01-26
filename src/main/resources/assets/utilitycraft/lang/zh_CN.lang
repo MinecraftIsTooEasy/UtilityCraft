@@ -27,6 +27,7 @@ item.vibranium_rapier.name=振金迅捷剑
 item.obsidian_boat.name=黑曜石船
 
 enchantment.sweeping_edge=横扫之刃
+enchanted_book.info.enchantment.sweeping_edge=横扫之刃\nRare级，10附魔难度\n一种可以增加军刀的横扫攻击伤害的魔咒,每级提高横扫伤害,可参考原版公式\n最高等级III\n可用于军刀
 
 item.utilitycraft.rapier.tip=§7按住§eShift§7查看更多信息
 item.utilitycraft.rapier.desc=§b攻击速度更快， 无视护甲比例：\n§6皮革 100%\n§6铜/§f银/§e金 50%\n§7铁/§8锈铁 40%\n§3远古金属 30%\n§b秘银 25%\n§d艾德曼 15%

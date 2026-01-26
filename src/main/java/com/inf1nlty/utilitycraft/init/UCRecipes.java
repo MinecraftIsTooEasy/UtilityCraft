@@ -1,5 +1,6 @@
 package com.inf1nlty.utilitycraft.init;
 
+import com.inf1nlty.utilitycraft.compat.UCRecipeCompat;
 import com.inf1nlty.utilitycraft.item.UCItems;
 import net.minecraft.Block;
 import net.minecraft.Item;
@@ -10,6 +11,8 @@ public class UCRecipes {
 
     public static void registerRecipes(RecipeRegistryEvent event) {
         addCraftingRecipes(event);
+
+        UCRecipeCompat.registerCompatRecipes(event);
     }
 
     private static void addCraftingRecipes(RecipeRegistryEvent event) {
