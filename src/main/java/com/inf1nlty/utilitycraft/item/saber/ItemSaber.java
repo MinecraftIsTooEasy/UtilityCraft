@@ -18,7 +18,6 @@ public class ItemSaber extends SwordItem implements ISaber, ISweepAttack {
         super(id, material);
         this.damage = damage;
         this.setUnlocalizedName(name);
-        this.setTextureName("utilitycraft:" + name);
         this.setCreativeTab(CreativeTabs.tabCombat);
     }
 

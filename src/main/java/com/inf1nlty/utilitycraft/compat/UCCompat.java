@@ -1,9 +1,9 @@
-// 修改/替换为此 UCCompat（仅展示关键部分）
 package com.inf1nlty.utilitycraft.compat;
 
 import com.inf1nlty.utilitycraft.item.UCItems;
 import com.inf1nlty.utilitycraft.item.rapier.ItemRapier;
 import com.inf1nlty.utilitycraft.item.saber.ItemSaber;
+import com.inf1nlty.utilitycraft.util.UCDamageUtils;
 import net.minecraft.Item;
 import net.minecraft.Material;
 import net.xiaoyu233.fml.reload.event.ItemRegistryEvent;
@@ -73,12 +73,27 @@ public final class UCCompat {
             Object value = f.get(null);
             if (!(value instanceof Material mat)) return;
 
+            // Register material level explicitly for UCDamageUtils based on known mapping (float levels)
+            try {
+                if (providerClass.equals(ITF_MATERIALS_CLASS)) {
+                    if ("nickel".equals(fieldName)) {
+                        UCDamageUtils.registerMaterialLevel(mat, 1.0F); // nickel
+                    } else if ("tungsten".equals(fieldName)) {
+                        UCDamageUtils.registerMaterialLevel(mat, 2.5F); // tungsten
+                    } else if ("uru".equals(fieldName)) {
+                        UCDamageUtils.registerMaterialLevel(mat, 6.0F); // uru
+                    }
+                } else if (providerClass.equals(BEX_MATERIALS_CLASS) && "enchant".equals(fieldName)) {
+                    UCDamageUtils.registerMaterialLevel(mat, 5.0F); // enchant
+                } else if (providerClass.equals(MITEITE_MATERIALS_CLASS) && "vibranium".equals(fieldName)) {
+                    UCDamageUtils.registerMaterialLevel(mat, 6.0F); // vibranium
+                }
+            } catch (Throwable ignored) {}
+
             // Saber
             ItemSaber saber = new ItemSaber(IdUtil.getNextItemID(), mat, saberDamage, saberFieldName);
             event.register(MOD_NAMESPACE, RES_PREFIX + saberResPath, saberFieldName, saber);
-            // assign to UCItems if possible (existing code)
             assignToUCItemsFieldIfExists(saberFieldName, saber);
-            // also store in UCCompat static field so recipes can reference it
             storeCompatField(saberFieldName, saber);
 
             // Rapier

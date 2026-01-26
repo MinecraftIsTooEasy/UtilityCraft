@@ -1,12 +1,12 @@
 package com.inf1nlty.utilitycraft.mixin.entity;
 
 import com.inf1nlty.utilitycraft.item.rapier.IRapier;
+import com.inf1nlty.utilitycraft.util.UCDamageUtils;
 
 import net.minecraft.*;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -38,60 +38,35 @@ public abstract class EntityLivingBaseMixin extends Entity {
             return originalProtection;
         }
 
-        float maxIgnore = 0.0f;
+        Material rapierMat;
+        try {
+            rapierMat = ((IRapier) held.getItem()).getMaterial();
+        } catch (Throwable t) {
+            return originalProtection;
+        }
+
+        float maxPenetration = 0.0f;
         if (armors != null) {
             for (ItemStack armorStack : armors) {
                 if (armorStack == null) continue;
                 Item item = armorStack.getItem();
                 if (!(item instanceof ItemArmor armorItem)) continue;
 
-                Material mat = armorItem.getArmorMaterial();
-                if (mat == null) continue;
+                Material armorMat = armorItem.getArmorMaterial();
+                if (armorMat == null) continue;
 
-                float ignore = getIgnore(mat);
-                if (ignore > maxIgnore) maxIgnore = ignore;
-                if (maxIgnore >= 1.0f) break;
+                float penetration = UCDamageUtils.getArmorPenetration(rapierMat, armorMat);
+                if (penetration > maxPenetration) maxPenetration = penetration;
+                if (maxPenetration >= 1.0f) break;
             }
         }
 
-        if (maxIgnore <= 0.0f) {
+        if (maxPenetration <= 0.0f) {
             return originalProtection;
         }
 
-        float adjusted = originalProtection * (1.0f - maxIgnore);
+        float adjusted = originalProtection * (1.0f - maxPenetration);
         return Math.max(0.0f, adjusted);
-    }
-
-    @Unique
-    private static float getIgnore(Material mat) {
-
-        // Leather -> 100%
-        // Copper/Silver/Gold -> 50%
-        // Iron/Rusted_iron -> 40%
-        // Ancient_Metal -> 30%
-        // Mithril -> 25%
-        // Adamantium -> 15%
-        if (mat == Material.leather) {
-            return 1.0f;
-
-        } else if (mat == Material.copper || mat == Material.silver || mat == Material.gold) {
-            return 0.5f;
-
-        } else if (mat == Material.iron || mat == Material.rusted_iron) {
-            return 0.4f;
-
-        } else if (mat == Material.ancient_metal) {
-            return 0.3f;
-
-        } else if (mat == Material.mithril) {
-            return 0.25f;
-
-        } else if (mat == Material.adamantium) {
-            return 0.15f;
-
-        } else {
-            return 0.0f;
-        }
     }
 
     @Inject(method = "attackEntityFrom", at = @At("RETURN"))
