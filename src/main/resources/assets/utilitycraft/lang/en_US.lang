@@ -5,6 +5,17 @@ item.iron_saber.name=Iron Saber
 item.ancient_metal_saber.name=Ancient Metal Saber
 item.mithril_saber.name=Mithril Saber
 item.adamantium_saber.name=Adamantium Saber
+item.nickel_saber.name=Nickel Saber
+item.tungsten_saber.name=Tungsten Saber
+item.uru_saber.name=Uru Saber
+item.enchant_saber.name=Experience Saber
+item.vibranium_saber.name=Vibranium Saber
+
+item.nickel_rapier.name=Nickel Rapier
+item.tungsten_rapier.name=Tungsten Rapier
+item.uru_rapier.name=Uru Rapier
+item.enchant_rapier.name=Experience Rapier
+item.vibranium_rapier.name=Vibranium Rapier
 
 item.copper_rapier.name=Copper Rapier
 item.silver_rapier.name=Silver Rapier

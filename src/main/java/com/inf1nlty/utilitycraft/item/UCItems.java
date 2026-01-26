@@ -1,5 +1,6 @@
 package com.inf1nlty.utilitycraft.item;
 
+import com.inf1nlty.utilitycraft.compat.UCCompat;
 import com.inf1nlty.utilitycraft.item.rapier.ItemRapier;
 import com.inf1nlty.utilitycraft.item.saber.ItemSaber;
 import net.minecraft.Item;
@@ -31,6 +32,8 @@ public class UCItems {
     private static final String RES_PREFIX = MOD_NAMESPACE + ":";
 
     public static void registerItems(ItemRegistryEvent event) {
+
+        UCCompat.registerCompatItems(event);
 
         obsidian_boat = new ItemObsidianBoat(IdUtil.getNextItemID());
         event.register(MOD_DISPLAY_NAME, RES_PREFIX + "obsidian_boat", "obsidian_boat", obsidian_boat);

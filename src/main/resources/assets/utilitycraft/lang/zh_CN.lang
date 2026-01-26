@@ -5,14 +5,24 @@ item.iron_saber.name=铁军刀
 item.ancient_metal_saber.name=远古金属军刀
 item.mithril_saber.name=秘银军刀
 item.adamantium_saber.name=艾德曼军刀
+item.nickel_saber.name=镍军刀
+item.tungsten_saber.name=钨钢军刀
+item.uru_saber.name=乌鲁金属军刀
+item.enchant_saber.name=附魔金属军刀
+item.vibranium_saber.name=振金军刀
 
-item.copper_rapier.name=铜刺剑
-item.silver_rapier.name=银刺剑
-item.golden_rapier.name=金刺剑
-item.iron_rapier.name=铁刺剑
-item.ancient_metal_rapier.name=远古金属刺剑
-item.mithril_rapier.name=秘银刺剑
-item.adamantium_rapier.name=艾德曼刺剑
+item.copper_rapier.name=铜迅捷剑
+item.silver_rapier.name=银迅捷剑
+item.golden_rapier.name=金迅捷剑
+item.iron_rapier.name=铁迅捷剑
+item.ancient_metal_rapier.name=远古金属迅捷剑
+item.mithril_rapier.name=秘银迅捷剑
+item.adamantium_rapier.name=艾德曼迅捷剑
+item.nickel_rapier.name=镍迅捷剑
+item.tungsten_rapier.name=钨钢迅捷剑
+item.uru_rapier.name=乌鲁金属迅捷剑
+item.enchant_rapier.name=附魔金属迅捷剑
+item.vibranium_rapier.name=振金迅捷剑
 
 item.obsidian_boat.name=黑曜石船
 
