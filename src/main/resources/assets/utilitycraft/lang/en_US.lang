@@ -32,6 +32,11 @@ item.iron_paxel.name=Iron Paxel
 item.ancient_metal_paxel.name=AnciernMetal Paxel
 item.mithril_paxel.name=Mithril Paxel
 item.adamantium_paxel.name=Adamantium Paxel
+item.nickel_paxel.name=Nickel Paxel
+item.tungsten_paxel.name=Tungsten Paxel
+item.uru_paxel.name=Uru Paxel
+item.enchant_paxel.name=Enchant Paxel
+item.vibranium_paxel.name=Vibranium Paxel
 
 item.obsidian_boat.name=Obsidian Boat
 

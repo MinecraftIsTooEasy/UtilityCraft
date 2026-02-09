@@ -3,6 +3,7 @@ package com.inf1nlty.utilitycraft.compat;
 import com.inf1nlty.utilitycraft.item.UCItems;
 import com.inf1nlty.utilitycraft.item.rapier.ItemRapier;
 import com.inf1nlty.utilitycraft.item.saber.ItemSaber;
+import com.inf1nlty.utilitycraft.item.paxel.ItemPaxel;
 import com.inf1nlty.utilitycraft.util.UCDamageUtils;
 import net.minecraft.Item;
 import net.minecraft.Material;
@@ -33,6 +34,13 @@ public final class UCCompat {
     public static Item enchant_rapier;
     public static Item vibranium_saber;
     public static Item vibranium_rapier;
+
+    // Paxels
+    public static Item nickel_paxel;
+    public static Item tungsten_paxel;
+    public static Item uru_paxel;
+    public static Item enchant_paxel;
+    public static Item vibranium_paxel;
 
     public static void registerCompatItems(ItemRegistryEvent event) {
         tryRegisterFromProvider(ITF_MATERIALS_CLASS,
@@ -102,6 +110,14 @@ public final class UCCompat {
             assignToUCItemsFieldIfExists(rapierFieldName, rapier);
             storeCompatField(rapierFieldName, rapier);
 
+            // Paxel (paxel resource & field names derived from material name)
+            String paxelFieldName = fieldName + "_paxel";
+            String paxelResPath = "paxel/" + paxelFieldName;
+            ItemPaxel paxel = new ItemPaxel(IdUtil.getNextItemID(), mat);
+            event.register(MOD_NAMESPACE, RES_PREFIX + paxelResPath, paxelFieldName, paxel);
+            assignToUCItemsFieldIfExists(paxelFieldName, paxel);
+            storeCompatField(paxelFieldName, paxel);
+
         } catch (NoSuchFieldException | IllegalAccessException ignored) {
             // missing field or inaccessible -> skip this material
         } catch (Throwable t) {
@@ -122,6 +138,14 @@ public final class UCCompat {
                 case "enchant_rapier": enchant_rapier = value; break;
                 case "vibranium_saber": vibranium_saber = value; break;
                 case "vibranium_rapier": vibranium_rapier = value; break;
+
+                // paxels
+                case "nickel_paxel": nickel_paxel = value; break;
+                case "tungsten_paxel": tungsten_paxel = value; break;
+                case "uru_paxel": uru_paxel = value; break;
+                case "enchant_paxel": enchant_paxel = value; break;
+                case "vibranium_paxel": vibranium_paxel = value; break;
+
                 default: break;
             }
         } catch (Throwable ignored) {}

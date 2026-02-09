@@ -3,7 +3,6 @@ package com.inf1nlty.utilitycraft.compat;
 import com.inf1nlty.utilitycraft.item.UCItems;
 import net.minecraft.Item;
 import net.minecraft.ItemStack;
-import net.minecraft.Material;
 import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent;
 
 import java.lang.reflect.Field;
@@ -37,7 +36,16 @@ public final class UCRecipeCompat {
 
         if (forgingNote != null && uruIngot != null) {
 
-            // uru saber
+            if (UCCompat.uru_paxel != null) {
+                try {
+                    event.registerShapelessRecipe(new ItemStack(UCCompat.uru_paxel, 1), false,
+                            forgingNote,
+                            uruIngot,
+                            Item.axeMithril, Item.shovelMithril, Item.pickaxeMithril, Item.ingotMithril
+                    );
+                } catch (Throwable ignored) {}
+            }
+
             if (UCCompat.uru_saber != null && UCItems.mithril_saber != null) {
                 try {
                     event.registerShapelessRecipe(new ItemStack(UCCompat.uru_saber, 1), false,
@@ -46,7 +54,6 @@ public final class UCRecipeCompat {
                 }
             }
 
-            // uru rapier
             if (UCCompat.uru_rapier != null && UCItems.mithril_rapier != null) {
                 try {
                     event.registerShapelessRecipe(new ItemStack(UCCompat.uru_rapier, 1), false,
@@ -56,12 +63,10 @@ public final class UCRecipeCompat {
             }
         }
 
-        // For other ITF metals
-        tryRegisterMetalFromProvider(cls, "nickel", UCCompat.nickel_saber, UCCompat.nickel_rapier, event);
-        tryRegisterMetalFromProvider(cls, "tungsten", UCCompat.tungsten_saber, UCCompat.tungsten_rapier, event);
+        tryRegisterMetalFromProvider(cls, "nickel", UCCompat.nickel_saber, UCCompat.nickel_rapier, UCCompat.nickel_paxel, event);
+        tryRegisterMetalFromProvider(cls, "tungsten", UCCompat.tungsten_saber, UCCompat.tungsten_rapier, UCCompat.tungsten_paxel, event);
     }
 
-    // BEX: replace ingot with BEX enchantIngot (if present) and replace stick with OBSIDIAN_STICK from MITEITE if available
     private static void registerBexCompat(RecipeRegistryEvent event) {
         Item enchantIngot = findItemFromClassName(BEX_ITEMS_CLASS, "enchantIngot");
 
@@ -69,7 +74,7 @@ public final class UCRecipeCompat {
         Item obsidianStick = findItemFromClassName(MITEITE_ITEMS_CLASS, "OBSIDIAN_STICK");
 
         if (enchantIngot != null) {
-            // sabers
+            // saber
             if (UCCompat.enchant_saber != null) {
                 try {
                     event.registerShapedRecipe(new ItemStack(UCCompat.enchant_saber, 1), false,
@@ -83,12 +88,34 @@ public final class UCRecipeCompat {
                             "  C", "CC ", "KC ", 'C', enchantIngot, 'K', obsidianStick != null ? obsidianStick : Item.stick);
                 } catch (Throwable ignored) {}
             }
+
+            if (UCCompat.enchant_paxel != null) {
+                try {
+                    Class<?> bexCls = Class.forName(BEX_ITEMS_CLASS);
+                    Item enchantPickaxe = findItemField(bexCls, "enchantPickaxe");
+                    if (enchantPickaxe != null) {
+                        try {
+                            event.registerShapedRecipe(new ItemStack(UCCompat.enchant_paxel, 1), false,
+                                    "ASP",
+                                    "AA ",
+                                    " K ",
+                                    'A', enchantIngot,
+                                    'S', enchantIngot,
+                                    'P', enchantPickaxe,
+                                    'K', obsidianStick != null ? obsidianStick : Item.stick);
+                        } catch (Throwable ignored) {}
+                    }
+                } catch (ClassNotFoundException ignored) {
+                }
+            }
         }
     }
 
     private static void registerMiteiteCompat(RecipeRegistryEvent event) {
         Item vibraniumIngot = findItemFromClassName(MITEITE_ITEMS_CLASS, "VIBRANIUM_INGOT");
         if (vibraniumIngot == null) return;
+
+        Item obsidianStick = findItemFromClassName(MITEITE_ITEMS_CLASS, "OBSIDIAN_STICK");
 
         Item handle = Item.swordAncientMetal;
 
@@ -106,13 +133,32 @@ public final class UCRecipeCompat {
                         "  C", "CC ", "HC ", 'C', vibraniumIngot, 'H', handle);
             } catch (Throwable ignored) {}
         }
+
+        try {
+            Class<?> miteiteCls = Class.forName(MITEITE_ITEMS_CLASS);
+            // exact names from MITEITE registry
+            Item vibPick = findItemField(miteiteCls, "VIBRANIUM_PICKAXE");
+            Item vibShovel = findItemField(miteiteCls, "VIBRANIUM_SHOVEL");
+            Item vibAxe = findItemField(miteiteCls, "VIBRANIUM_AXE");
+
+            // also check lowercase underscore variants exactly if constants not present
+            if (vibPick == null) vibPick = findItemField(miteiteCls, "vibranium_pickaxe");
+            if (vibShovel == null) vibShovel = findItemField(miteiteCls, "vibranium_shovel");
+            if (vibAxe == null) vibAxe = findItemField(miteiteCls, "vibranium_axe");
+
+            if (UCCompat.vibranium_paxel != null && vibAxe != null && vibShovel != null && vibPick != null) {
+                try {
+                    event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_paxel, 1), false,
+                            "ASP", " K ", " K ", 'A', vibAxe, 'S', vibShovel, 'P', vibPick, 'K', obsidianStick != null ? obsidianStick : Item.stick);
+                } catch (Throwable ignored) {}
+            }
+        } catch (ClassNotFoundException ignored) {}
     }
 
     // Helper: try to get an ingot for a named metal from provider class and register standard shaped recipes
-    private static void tryRegisterMetalFromProvider(Class<?> providerClass, String metalName, Item saberItem, Item rapierItem, RecipeRegistryEvent event) {
-        if (saberItem == null && rapierItem == null) return;
+    private static void tryRegisterMetalFromProvider(Class<?> providerClass, String metalName, Item saberItem, Item rapierItem, Item paxelItem, RecipeRegistryEvent event) {
+        if (saberItem == null && rapierItem == null && paxelItem == null) return;
 
-        // candidate field names to try on provider class
         String[] candidates = new String[] {
                 metalName,
                 metalName + "Ingot",
@@ -127,7 +173,7 @@ public final class UCRecipeCompat {
             if (ingot != null) break;
         }
 
-        if (ingot == null) return;
+        if (ingot == null && (saberItem != null || rapierItem != null)) return;
 
         if (saberItem != null) {
             try {
@@ -139,6 +185,19 @@ public final class UCRecipeCompat {
             try {
                 event.registerShapedRecipe(new ItemStack(rapierItem, 1), false, "  C", "CC ", "KC ", 'C', ingot, 'K', Item.stick);
             } catch (Throwable ignored) {}
+        }
+
+        // Paxel
+        if (paxelItem != null) {
+            Item axe = findToolExactField(providerClass, metalName, "axe");
+            Item shovel = findToolExactField(providerClass, metalName, "shovel");
+            Item pick = findToolExactField(providerClass, metalName, "pickaxe");
+
+            if (axe != null && shovel != null && pick != null) {
+                try {
+                    event.registerShapedRecipe(new ItemStack(paxelItem, 1), false, "ASP", " K ", " K ", 'A', axe, 'S', shovel, 'P', pick, 'K', Item.stick);
+                } catch (Throwable ignored) {}
+            }
         }
     }
 
@@ -163,5 +222,22 @@ public final class UCRecipeCompat {
     private static String capitalize(String s) {
         if (s == null || s.isEmpty()) return s;
         return Character.toUpperCase(s.charAt(0)) + s.substring(1);
+    }
+
+    // Try exact/common variants for provider tool fields (used by generic provider branch)
+    private static Item findToolExactField(Class<?> cls, String metalName, String toolType) {
+        // Try common exact names first
+        String[] exact = new String[] {
+                metalName + "_" + toolType,
+                metalName.toUpperCase(Locale.ROOT) + "_" + toolType.toUpperCase(Locale.ROOT),
+                metalName + toolType,
+                metalName + capitalize(toolType),
+                toolType + capitalize(metalName)
+        };
+        for (String s : exact) {
+            Item it = findItemField(cls, s);
+            if (it != null) return it;
+        }
+        return null;
     }
 }

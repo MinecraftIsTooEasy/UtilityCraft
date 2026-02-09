@@ -97,9 +97,9 @@ public class UCItems {
                 {"silver_paxel",Material.silver},
                 {"golden_paxel",Material.gold},
                 {"iron_paxel",Material.iron},
+                {"ancient_metal_paxel",Material.ancient_metal},
                 {"mithril_paxel",Material.mithril},
-                {"adamantium_paxel",Material.adamantium},
-                {"ancient_metal_paxel",Material.ancient_metal}
+                {"adamantium_paxel",Material.adamantium}
         };
 
         for (Object[] spec : paxelSpecs) {

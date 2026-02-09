@@ -31,6 +31,11 @@ item.iron_paxel.name=铁镐尖斧
 item.ancient_metal_paxel.name=远古金属镐尖斧
 item.mithril_paxel.name=秘银镐尖斧
 item.adamantium_paxel.name=艾德曼镐尖斧
+item.nickel_paxel.name=镍镐尖斧
+item.tungsten_paxel.name=钨镐尖斧
+item.uru_paxel.name=乌鲁金属镐尖斧
+item.enchant_paxel.name=附魔金属镐尖斧
+item.vibranium_paxel.name=振金镐尖斧
 
 item.obsidian_boat.name=黑曜石船
 
