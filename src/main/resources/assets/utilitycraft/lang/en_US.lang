@@ -25,6 +25,14 @@ item.ancient_metal_rapier.name=Ancient Metal Rapier
 item.mithril_rapier.name=Mithril Rapier
 item.adamantium_rapier.name=Adamantium Rapier
 
+item.copper_paxel.name=Copper Paxel
+item.silver_paxel.name=Silver Paxel
+item.golden_paxel.name=Golden Paxel
+item.iron_paxel.name=Iron Paxel
+item.ancient_metal_paxel.name=AnciernMetal Paxel
+item.mithril_paxel.name=Mithril Paxel
+item.adamantium_paxel.name=Adamantium Paxel
+
 item.obsidian_boat.name=Obsidian Boat
 
 enchantment.sweeping_edge=Sweeping Edge

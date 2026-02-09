@@ -24,6 +24,14 @@ item.uru_rapier.name=乌鲁金属迅捷剑
 item.enchant_rapier.name=附魔金属迅捷剑
 item.vibranium_rapier.name=振金迅捷剑
 
+item.copper_paxel.name=铜镐尖斧
+item.silver_paxel.name=银镐尖斧
+item.golden_paxel.name=金镐尖斧
+item.iron_paxel.name=铁镐尖斧
+item.ancient_metal_paxel.name=远古金属镐尖斧
+item.mithril_paxel.name=秘银镐尖斧
+item.adamantium_paxel.name=艾德曼镐尖斧
+
 item.obsidian_boat.name=黑曜石船
 
 enchantment.sweeping_edge=横扫之刃

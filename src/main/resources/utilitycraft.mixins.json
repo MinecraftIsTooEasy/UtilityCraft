@@ -4,6 +4,7 @@
   "package": "com.inf1nlty.utilitycraft.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "enchantment.PaxelEnchantmentMixin",
     "client.WorldMixin",
     "client.render.EffectRendererMixin",
     "entity.EntityBoatMixin",

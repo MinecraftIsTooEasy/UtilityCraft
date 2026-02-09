@@ -21,7 +21,17 @@ repositories {
 loom {
     accessWidenerPath = file("src/main/resources/utilitycraft.accessWidener")
     mergedMinecraftJar()
-    setFML(new File("A:\\MITE-Work\\libs\\FishModLoader-v3.4.2.jar"))
+    setFML(new File("${lib_dir}/${fml_file_name}${fml_version}.jar"))
+    mods {
+        "UtilityCraft" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+tasks.named('runClient', JavaExec).configure { exec ->
+    def user = project.hasProperty('username') ? project.username : 'Dev'
+    exec.setArgs(['--username', user, '--session', '0', '--width', '854', '--height', '480'])
 }
 
 dependencies {

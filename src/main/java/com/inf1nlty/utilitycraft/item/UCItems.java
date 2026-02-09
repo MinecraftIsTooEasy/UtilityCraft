@@ -1,9 +1,11 @@
 package com.inf1nlty.utilitycraft.item;
 
 import com.inf1nlty.utilitycraft.compat.UCCompat;
+import com.inf1nlty.utilitycraft.item.paxel.ItemPaxel;
 import com.inf1nlty.utilitycraft.item.rapier.ItemRapier;
 import com.inf1nlty.utilitycraft.item.saber.ItemSaber;
 import net.minecraft.Item;
+import net.minecraft.Material;
 import net.xiaoyu233.fml.reload.event.ItemRegistryEvent;
 import net.xiaoyu233.fml.reload.utils.IdUtil;
 
@@ -26,6 +28,14 @@ public class UCItems {
     public static ItemRapier ancient_metal_rapier;
     public static ItemRapier mithril_rapier;
     public static ItemRapier adamantium_rapier;
+
+    public static ItemPaxel copper_paxel;
+    public static ItemPaxel silver_paxel;
+    public static ItemPaxel golden_paxel;
+    public static ItemPaxel iron_paxel;
+    public static ItemPaxel ancient_metal_paxel;
+    public static ItemPaxel mithril_paxel;
+    public static ItemPaxel adamantium_paxel;
 
     private static final String MOD_DISPLAY_NAME = "UtilityCraft";
     private static final String MOD_NAMESPACE = "utilitycraft";
@@ -81,5 +91,34 @@ public class UCItems {
 
         adamantium_rapier = ItemRapier.createAdamantium(IdUtil.getNextItemID());
         event.register(MOD_DISPLAY_NAME, RES_PREFIX + "rapier/adamantium_rapier", "adamantium_rapier", adamantium_rapier);
+
+        Object[][] paxelSpecs = new Object[][] {
+                {"copper_paxel",Material.copper},
+                {"silver_paxel",Material.silver},
+                {"golden_paxel",Material.gold},
+                {"iron_paxel",Material.iron},
+                {"mithril_paxel",Material.mithril},
+                {"adamantium_paxel",Material.adamantium},
+                {"ancient_metal_paxel",Material.ancient_metal}
+        };
+
+        for (Object[] spec : paxelSpecs) {
+            String name = (String) spec[0];
+            Material mat = (Material) spec[1];
+
+            ItemPaxel paxel = new ItemPaxel(IdUtil.getNextItemID(), mat);
+
+            event.register(MOD_DISPLAY_NAME, RES_PREFIX + "paxel/" + name, name, paxel);
+
+            switch (name) {
+                case "copper_paxel":        copper_paxel = paxel; break;
+                case "silver_paxel":        silver_paxel = paxel; break;
+                case "golden_paxel":        golden_paxel = paxel; break;
+                case "iron_paxel":          iron_paxel = paxel; break;
+                case "ancient_metal_paxel": ancient_metal_paxel = paxel; break;
+                case "mithril_paxel":       mithril_paxel = paxel; break;
+                case "adamantium_paxel":    adamantium_paxel = paxel; break;
+            }
+        }
     }
 }

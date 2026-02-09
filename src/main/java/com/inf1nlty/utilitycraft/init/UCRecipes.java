@@ -33,5 +33,13 @@ public class UCRecipes {
         event.registerShapedRecipe(new ItemStack(UCItems.ancient_metal_rapier, 1), false, "  A", "AA ", "KA ", 'A', Item.ingotAncientMetal, 'K', Item.stick);
         event.registerShapedRecipe(new ItemStack(UCItems.mithril_rapier, 1), false, "  M", "MM ", "KM ", 'M', Item.ingotMithril, 'K', Item.stick);
         event.registerShapedRecipe(new ItemStack(UCItems.adamantium_rapier, 1), false, "  A", "AA ", "KA ", 'A', Item.ingotAdamantium, 'K', Item.stick);
+
+        event.registerShapedRecipe(new ItemStack(UCItems.copper_paxel, 1), false, "ASP", " K ", " K ", 'A', Item.axeCopper, 'S', Item.shovelCopper, 'P', Item.pickaxeCopper, 'K', Item.stick);
+        event.registerShapedRecipe(new ItemStack(UCItems.silver_paxel, 1), false, "ASP", " K ", " K ", 'A', Item.axeSilver, 'S', Item.shovelSilver, 'P', Item.pickaxeSilver, 'K', Item.stick);
+        event.registerShapedRecipe(new ItemStack(UCItems.golden_paxel, 1), false, "ASP", " K ", " K ", 'A', Item.axeGold, 'S', Item.shovelGold, 'P', Item.pickaxeGold, 'K', Item.stick);
+        event.registerShapedRecipe(new ItemStack(UCItems.iron_paxel, 1), false, "ASP", " K ", " K ", 'A', Item.axeIron, 'S', Item.shovelIron, 'P', Item.pickaxeIron, 'K', Item.stick);
+        event.registerShapedRecipe(new ItemStack(UCItems.ancient_metal_paxel, 1), false, "ASP", " K ", " K ", 'A', Item.axeAncientMetal, 'S', Item.shovelAncientMetal, 'P', Item.pickaxeAncientMetal, 'K', Item.stick);
+        event.registerShapedRecipe(new ItemStack(UCItems.mithril_paxel, 1), false, "ASP", " K ", " K ", 'A', Item.axeMithril, 'S', Item.shovelMithril, 'P', Item.pickaxeMithril, 'K', Item.stick);
+        event.registerShapedRecipe(new ItemStack(UCItems.adamantium_paxel, 1), false, "ASP", " K ", " K ", 'A', Item.axeAdamantium, 'S', Item.shovelAdamantium, 'P', Item.pickaxeAdamantium, 'K', Item.stick);
     }
 }
