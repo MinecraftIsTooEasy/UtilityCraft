@@ -39,6 +39,10 @@ item.vibranium_paxel.name=振金镐尖斧
 
 item.obsidian_boat.name=黑曜石船
 
+tile.ancientmetalchest.name=远古金属箱子
+container.ancientmetalchest=远古金属箱子
+container.inventory=物品栏
+
 enchantment.sweeping_edge=横扫之刃
 enchanted_book.info.enchantment.sweeping_edge=横扫之刃\nRare级，10附魔难度\n一种可以增加军刀的横扫攻击伤害的魔咒,每级提高横扫伤害,可参考原版公式\n最高等级III\n可用于军刀
 

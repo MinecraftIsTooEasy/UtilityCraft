@@ -2,16 +2,13 @@ package com.inf1nlty.utilitycraft;
 
 import com.google.common.eventbus.Subscribe;
 
+import com.inf1nlty.utilitycraft.block.UCBlocks;
 import com.inf1nlty.utilitycraft.client.UCSounds;
 import com.inf1nlty.utilitycraft.entity.EntityObsidianBoat;
 import com.inf1nlty.utilitycraft.init.UCRecipes;
 import com.inf1nlty.utilitycraft.item.UCItems;
 
-import net.xiaoyu233.fml.reload.event.ItemRegistryEvent;
-import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent;
-import net.xiaoyu233.fml.reload.event.EntityRegisterEvent;
-import net.xiaoyu233.fml.reload.event.EnchantmentRegistryEvent;
-import net.xiaoyu233.fml.reload.event.SoundsRegisterEvent;
+import net.xiaoyu233.fml.reload.event.*;
 import net.xiaoyu233.fml.reload.utils.IdUtil;
 
 public class UtilityCraftEventListener {
@@ -19,6 +16,11 @@ public class UtilityCraftEventListener {
     @Subscribe
     public void onItemRegister(ItemRegistryEvent event) {
         UCItems.registerItems(event);
+    }
+
+    @Subscribe
+    public void onBlockRegister(BlockRegistryEvent event) {
+        UCBlocks.registerBlocks(event);
     }
 
     @Subscribe
