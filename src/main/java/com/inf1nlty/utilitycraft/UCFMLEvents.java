@@ -5,13 +5,12 @@ import com.google.common.eventbus.Subscribe;
 import com.inf1nlty.utilitycraft.block.UCBlocks;
 import com.inf1nlty.utilitycraft.client.UCSounds;
 import com.inf1nlty.utilitycraft.entity.EntityObsidianBoat;
-import com.inf1nlty.utilitycraft.init.UCRecipes;
 import com.inf1nlty.utilitycraft.item.UCItems;
 
 import net.xiaoyu233.fml.reload.event.*;
 import net.xiaoyu233.fml.reload.utils.IdUtil;
 
-public class UtilityCraftEventListener {
+public class UCFMLEvents {
 
     @Subscribe
     public void onItemRegister(ItemRegistryEvent event) {
@@ -21,11 +20,6 @@ public class UtilityCraftEventListener {
     @Subscribe
     public void onBlockRegister(BlockRegistryEvent event) {
         UCBlocks.registerBlocks(event);
-    }
-
-    @Subscribe
-    public void onRecipeRegister(RecipeRegistryEvent event) {
-        UCRecipes.registerRecipes(event);
     }
 
     @Subscribe

@@ -3,20 +3,24 @@ package com.inf1nlty.utilitycraft.init;
 import com.inf1nlty.utilitycraft.block.UCBlocks;
 import com.inf1nlty.utilitycraft.compat.UCRecipeCompat;
 import com.inf1nlty.utilitycraft.item.UCItems;
+
 import net.minecraft.Block;
 import net.minecraft.Item;
 import net.minecraft.ItemStack;
-import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent;
 
-public class UCRecipes {
+import moddedmite.rustedironcore.api.event.events.CraftingRecipeRegisterEvent;
 
-    public static void registerRecipes(RecipeRegistryEvent event) {
+import java.util.function.Consumer;
+
+public class UCRecipes implements Consumer<CraftingRecipeRegisterEvent> {
+
+    @Override
+    public void accept(CraftingRecipeRegisterEvent event) {
         addCraftingRecipes(event);
-
         UCRecipeCompat.registerCompatRecipes(event);
     }
 
-    private static void addCraftingRecipes(RecipeRegistryEvent event) {
+    private static void addCraftingRecipes(CraftingRecipeRegisterEvent event) {
 
         event.registerShapedRecipe(new ItemStack(UCBlocks.steelAncientMetal, 1), false, "AAA", "ACA", "AAA", 'A', Item.ingotAncientMetal, 'C', Block.chest);
 
@@ -37,6 +41,22 @@ public class UCRecipes {
         event.registerShapedRecipe(new ItemStack(UCItems.ancient_metal_rapier, 1), false, "  A", "AA ", "KA ", 'A', Item.ingotAncientMetal, 'K', Item.stick);
         event.registerShapedRecipe(new ItemStack(UCItems.mithril_rapier, 1), false, "  M", "MM ", "KM ", 'M', Item.ingotMithril, 'K', Item.stick);
         event.registerShapedRecipe(new ItemStack(UCItems.adamantium_rapier, 1), false, "  A", "AA ", "KA ", 'A', Item.ingotAdamantium, 'K', Item.stick);
+
+        event.registerShapedRecipe(new ItemStack(UCItems.iron_saber, 1), false, " I ", " I ", "IK ", 'I', Item.ingotIron, 'K', UCItems.copper_saber).extendsNBT().keepQuality();
+        event.registerShapedRecipe(new ItemStack(UCItems.iron_saber, 1), false, " I ", " I ", "IK ", 'I', Item.ingotIron, 'K', UCItems.silver_saber).extendsNBT().keepQuality();
+        event.registerShapedRecipe(new ItemStack(UCItems.iron_saber, 1), false, " I ", " I ", "IK ", 'I', Item.ingotIron, 'K', UCItems.golden_saber).extendsNBT().keepQuality();
+
+        event.registerShapedRecipe(new ItemStack(UCItems.ancient_metal_saber, 1), false, " A ", " A ", "AK ", 'A', Item.ingotAncientMetal, 'K', UCItems.iron_saber).extendsNBT().keepQuality();
+        event.registerShapedRecipe(new ItemStack(UCItems.mithril_saber, 1), false, " M ", " M ", "MK ", 'M', Item.ingotMithril, 'K', UCItems.ancient_metal_saber).extendsNBT().keepQuality();
+        event.registerShapedRecipe(new ItemStack(UCItems.adamantium_saber, 1), false, " A ", " A ", "AK ", 'A', Item.ingotAdamantium, 'K', UCItems.mithril_saber).extendsNBT().keepQuality();
+
+        event.registerShapedRecipe(new ItemStack(UCItems.iron_rapier, 1), false, "  I", "II ", "KI ", 'I', Item.ingotIron, 'K', UCItems.copper_rapier).extendsNBT().keepQuality();
+        event.registerShapedRecipe(new ItemStack(UCItems.iron_rapier, 1), false, "  I", "II ", "KI ", 'I', Item.ingotIron, 'K', UCItems.silver_rapier).extendsNBT().keepQuality();
+        event.registerShapedRecipe(new ItemStack(UCItems.iron_rapier, 1), false, "  I", "II ", "KI ", 'I', Item.ingotIron, 'K', UCItems.golden_rapier).extendsNBT().keepQuality();
+
+        event.registerShapedRecipe(new ItemStack(UCItems.ancient_metal_rapier, 1), false, "  A", "AA ", "KA ", 'A', Item.ingotAncientMetal, 'K', UCItems.iron_rapier).extendsNBT().keepQuality();
+        event.registerShapedRecipe(new ItemStack(UCItems.mithril_rapier, 1), false, "  M", "MM ", "KM ", 'M', Item.ingotMithril, 'K', UCItems.ancient_metal_rapier).extendsNBT().keepQuality();
+        event.registerShapedRecipe(new ItemStack(UCItems.adamantium_rapier, 1), false, "  A", "AA ", "KA ", 'A', Item.ingotAdamantium, 'K', UCItems.mithril_rapier).extendsNBT().keepQuality();
 
         event.registerShapedRecipe(new ItemStack(UCItems.copper_paxel, 1), false, "ASP", " K ", " K ", 'A', Item.axeCopper, 'S', Item.shovelCopper, 'P', Item.pickaxeCopper, 'K', Item.stick);
         event.registerShapedRecipe(new ItemStack(UCItems.silver_paxel, 1), false, "ASP", " K ", " K ", 'A', Item.axeSilver, 'S', Item.shovelSilver, 'P', Item.pickaxeSilver, 'K', Item.stick);

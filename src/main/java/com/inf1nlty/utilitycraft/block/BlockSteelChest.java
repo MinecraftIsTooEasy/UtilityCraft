@@ -3,8 +3,6 @@ package com.inf1nlty.utilitycraft.block;
 import com.inf1nlty.utilitycraft.block.tileentity.TileEntitySteelChest;
 import com.inf1nlty.utilitycraft.inventory.ContainerSteelChest;
 import com.inf1nlty.utilitycraft.network.SteelChestNet;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.*;
 
 import java.io.ByteArrayOutputStream;
@@ -202,11 +200,6 @@ public class BlockSteelChest extends BlockContainer {
     public int isProvidingStrongPower(IBlockAccess acc,int x,int y,int z,int side){
         return side==1?isProvidingWeakPower(acc,x,y,z,side):0;
     }
-
-//    @Environment(EnvType.CLIENT)
-//    public boolean renderBlock(RenderBlocks rb, int i, int j, int k) {
-//        return false;
-//    }
 
     @Override
     public void registerIcons(IconRegister reg){

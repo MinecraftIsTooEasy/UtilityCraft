@@ -4,8 +4,10 @@ import com.inf1nlty.utilitycraft.compat.UCCompat;
 import com.inf1nlty.utilitycraft.item.paxel.ItemPaxel;
 import com.inf1nlty.utilitycraft.item.rapier.ItemRapier;
 import com.inf1nlty.utilitycraft.item.saber.ItemSaber;
+
 import net.minecraft.Item;
 import net.minecraft.Material;
+
 import net.xiaoyu233.fml.reload.event.ItemRegistryEvent;
 import net.xiaoyu233.fml.reload.utils.IdUtil;
 

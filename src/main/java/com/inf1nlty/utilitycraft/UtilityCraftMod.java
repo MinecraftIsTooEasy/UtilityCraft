@@ -13,7 +13,10 @@ public class UtilityCraftMod implements ModInitializer {
     public void onInitialize() {
         ModResourceManager.addResourcePackDomain(NAMESPACE);
 
+        UCRICEvents.register();
+
         SteelChestNet.register("utilitycraft");
-        MITEEvents.MITE_EVENT_BUS.register(new UtilityCraftEventListener());
+
+        MITEEvents.MITE_EVENT_BUS.register(new UCFMLEvents());
     }
 }

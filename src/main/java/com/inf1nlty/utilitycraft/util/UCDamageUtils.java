@@ -1,8 +1,9 @@
 package com.inf1nlty.utilitycraft.util;
 
 import net.minecraft.Material;
+import net.oilcake.mitelros.material.Materials;
+import net.moddedmite.mitemod.bex.register.BEXMaterials;
 
-import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,45 +32,28 @@ public class UCDamageUtils {
         // (BEX) enchant = 5.0
         // vibranium / uru = 6.0
 
-        try { MATERIAL_LEVELS.put(Material.copper, 0.0F); } catch (Throwable ignored) {}
-        try { MATERIAL_LEVELS.put(Material.silver, 0.0F); } catch (Throwable ignored) {}
-        try { MATERIAL_LEVELS.put(Material.gold, 0.0F); } catch (Throwable ignored) {}
+        MATERIAL_LEVELS.put(Material.copper, 0.0F);
+        MATERIAL_LEVELS.put(Material.silver, 0.0F);
+        MATERIAL_LEVELS.put(Material.gold, 0.0F);
 
-        try { MATERIAL_LEVELS.put(Material.iron, 1.0F); } catch (Throwable ignored) {}
-        try { MATERIAL_LEVELS.put(Material.ancient_metal, 1.0F); } catch (Throwable ignored) {}
+        MATERIAL_LEVELS.put(Material.rusted_iron, 0.5F);
 
-        try { MATERIAL_LEVELS.put(Material.mithril, 2.0F); } catch (Throwable ignored) {}
-        try { MATERIAL_LEVELS.put(Material.adamantium, 3.0F); } catch (Throwable ignored) {}
+        MATERIAL_LEVELS.put(Material.iron, 1.0F);
+        MATERIAL_LEVELS.put(Material.ancient_metal, 1.0F);
 
-        // ITF materials: nickel (1.0), tungsten (3.0), uru (6.0)
-        try {
-            Class<?> itfMaterials = Class.forName("net.oilcake.mitelros.material.Materials");
-            tryAddMaterialFieldLevel(itfMaterials, "nickel", 1.0F);
-            tryAddMaterialFieldLevel(itfMaterials, "tungsten", 2.5F);
-            tryAddMaterialFieldLevel(itfMaterials, "uru", 6.0F);
-        } catch (ClassNotFoundException ignored) {}
+        MATERIAL_LEVELS.put(Material.mithril, 2.0F);
+        MATERIAL_LEVELS.put(Material.adamantium, 3.0F);
+
+        // ITF materials: nickel (1.0), tungsten (2.5), uru (6.0)
+        MATERIAL_LEVELS.put(Materials.nickel, 1.0F);
+        MATERIAL_LEVELS.put(Materials.tungsten, 2.5F);
+        MATERIAL_LEVELS.put(Materials.uru, 6.0F);
 
         // BEX enchant -> 5.0
-        try {
-            Class<?> bexMaterials = Class.forName("net.moddedmite.mitemod.bex.register.BEXMaterials");
-            tryAddMaterialFieldLevel(bexMaterials, "enchant", 5.0F);
-        } catch (ClassNotFoundException ignored) {}
+        MATERIAL_LEVELS.put(BEXMaterials.enchant, 5.0F);
 
         // MITE-ITE vibranium -> 6.0
-        try {
-            Class<?> miteiteMaterials = Class.forName("net.xiaoyu233.mitemod.miteite.item.material.Materials");
-            tryAddMaterialFieldLevel(miteiteMaterials, "vibranium", 6.0F);
-        } catch (ClassNotFoundException ignored) {}
-    }
-
-    private static void tryAddMaterialFieldLevel(Class<?> cls, String fieldName, float level) {
-        try {
-            Field f = cls.getField(fieldName);
-            Object v = f.get(null);
-            if (v instanceof Material) {
-                MATERIAL_LEVELS.put((Material) v, level);
-            }
-        } catch (Throwable ignored) {}
+        MATERIAL_LEVELS.put(net.xiaoyu233.mitemod.miteite.item.material.Materials.vibranium, 6.0F);
     }
 
     public static void registerMaterialLevel(Material mat, float level) {

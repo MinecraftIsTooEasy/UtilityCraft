@@ -6,7 +6,7 @@
   "icon": "assets/utilitycraft/icon.png",
 
   "depends": {
-    "minecraft": "1.6.4-mite",
+    "rusted_iron_core": ">=1.5.0",
     "fishmodloader": ">=3.4.1"
   },
 

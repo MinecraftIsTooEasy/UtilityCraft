@@ -1,24 +1,27 @@
 package com.inf1nlty.utilitycraft.compat;
 
 import com.inf1nlty.utilitycraft.item.UCItems;
+
 import net.minecraft.Item;
 import net.minecraft.ItemStack;
+
 import net.moddedmite.mitemod.bex.register.BEXItems;
 import net.oilcake.mitelros.registry.item.Items;
-import net.xiaoyu233.fml.reload.event.RecipeRegistryEvent;
 import net.xiaoyu233.mitemod.miteite.item.MITEITEItemRegistryInit;
+
+import moddedmite.rustedironcore.api.event.events.CraftingRecipeRegisterEvent;
 
 public final class UCRecipeCompat {
 
     private UCRecipeCompat() {}
 
-    public static void registerCompatRecipes(RecipeRegistryEvent event) {
+    public static void registerCompatRecipes(CraftingRecipeRegisterEvent event) {
         registerItfCompat(event);
         registerBexCompat(event);
         registerMiteiteCompat(event);
     }
 
-    private static void registerItfCompat(RecipeRegistryEvent event) {
+    private static void registerItfCompat(CraftingRecipeRegisterEvent event) {
 
         if (!ModChecker.HAS_ITFRB) return;
 
@@ -76,7 +79,7 @@ public final class UCRecipeCompat {
         }
     }
 
-    private static void registerBexCompat(RecipeRegistryEvent event) {
+    private static void registerBexCompat(CraftingRecipeRegisterEvent event) {
 
         if (!ModChecker.HAS_BEX) return;
 
@@ -113,7 +116,7 @@ public final class UCRecipeCompat {
         }
     }
 
-    private static void registerMiteiteCompat(RecipeRegistryEvent event) {
+    private static void registerMiteiteCompat(CraftingRecipeRegisterEvent event) {
 
         if (!ModChecker.HAS_ITE) return;
 
@@ -122,23 +125,29 @@ public final class UCRecipeCompat {
         Item vibShovel = MITEITEItemRegistryInit.VIBRANIUM_SHOVEL;
         Item vibAxe = MITEITEItemRegistryInit.VIBRANIUM_AXE;
         Item obsidianStick = MITEITEItemRegistryInit.OBSIDIAN_STICK;
-        Item handle = Item.swordAncientMetal;
+        Item handleSword = Item.swordAncientMetal;
+        Item handleSaber = UCItems.ancient_metal_saber;
+        Item handleRapier = UCItems.ancient_metal_rapier;
 
         if (vibraniumIngot != null) {
 
             if (UCCompat.vibranium_saber != null) {
                 event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_saber, 1), false,
-                        " C ", " C ", "CH ", 'C', vibraniumIngot, 'H', handle);
+                        " C ", " C ", "CH ", 'C', vibraniumIngot, 'H', handleSword).extendsNBT().keepQuality();
+                event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_saber, 1), false,
+                        " C ", " C ", "CH ", 'C', vibraniumIngot, 'H', handleSaber).extendsNBT().keepQuality();
             }
 
             if (UCCompat.vibranium_rapier != null) {
                 event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_rapier, 1), false,
-                        "  C", "CC ", "HC ", 'C', vibraniumIngot, 'H', handle);
+                        "  C", "CC ", "HC ", 'C', vibraniumIngot, 'H', handleSword).extendsNBT().keepQuality();
+                event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_rapier, 1), false,
+                        "  C", "CC ", "HC ", 'C', vibraniumIngot, 'H', handleRapier).extendsNBT().keepQuality();
             }
 
             if (UCCompat.vibranium_paxel != null && vibAxe != null && vibShovel != null && vibPick != null) {
                 event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_paxel, 1), false,
-                        "ASP", " K ", " K ", 'A', vibAxe, 'S', vibShovel, 'P', vibPick, 'K', obsidianStick != null ? obsidianStick : Item.stick);
+                        "ASP", " K ", " K ", 'A', vibAxe, 'S', vibShovel, 'P', vibPick, 'K', obsidianStick != null ? obsidianStick : Item.stick).extendsNBT().keepQuality();
             }
         }
     }
