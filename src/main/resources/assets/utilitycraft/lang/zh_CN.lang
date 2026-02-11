@@ -39,8 +39,8 @@ item.vibranium_paxel.name=振金镐尖斧
 
 item.obsidian_boat.name=黑曜石船
 
-tile.ancientmetalchest.name=远古金属箱子
-container.ancientmetalchest=远古金属箱子
+tile.ancientmetalchest.name=古代金属储物箱
+container.ancientmetalchest=古代金属储物箱
 container.inventory=物品栏
 
 enchantment.sweeping_edge=横扫之刃

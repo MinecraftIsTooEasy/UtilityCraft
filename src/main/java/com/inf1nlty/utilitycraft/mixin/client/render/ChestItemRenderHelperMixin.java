@@ -18,7 +18,7 @@ public abstract class ChestItemRenderHelperMixin {
 
     @Inject(method = "renderChest", at = @At("HEAD"),cancellable = true)
     private void renderSteelChestItem(Block block, int f, float par3, CallbackInfo ci){
-        if(block.blockID == UCBlocks.steelChest.blockID){
+        if(block.blockID == UCBlocks.steelAncientMetal.blockID){
             TileEntityRenderer.instance.renderTileEntityAt(this.steelChest, 0.0, 0.0, 0.0, 0.0f);
             ci.cancel();
         }

@@ -10,7 +10,7 @@ import org.lwjgl.opengl.GL12;
 @Environment(value= EnvType.CLIENT)
 
 public class TileEntitySteelChestRenderer extends TileEntitySpecialRenderer {
-    private static final ResourceLocation RES_NORMAL = new ResourceLocation("utilitycraft:textures/blocks/chest/chestSteel.png");
+    private static final ResourceLocation RES_NORMAL = new ResourceLocation("utilitycraft:textures/blocks/chest/chestAncientMetal.png");
 
     private final ModelChest chestModel = new ModelChest();
 

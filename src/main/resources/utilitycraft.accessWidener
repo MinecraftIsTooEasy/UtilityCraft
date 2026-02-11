@@ -6,3 +6,4 @@ accessible method net/minecraft/Damage getResponsibleEntity ()Lnet/minecraft/Ent
 accessible field net/minecraft/Entity rand Ljava/util/Random;
 accessible field net/minecraft/NetClientHandler worldClient Lnet/minecraft/WorldClient;
 accessible field net/minecraft/ServerPlayer currentWindowId I
+accessible method net/minecraft/TileEntity addMapping (Ljava/lang/Class;Ljava/lang/String;)V

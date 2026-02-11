@@ -1,5 +1,6 @@
 package com.inf1nlty.utilitycraft.init;
 
+import com.inf1nlty.utilitycraft.block.UCBlocks;
 import com.inf1nlty.utilitycraft.compat.UCRecipeCompat;
 import com.inf1nlty.utilitycraft.item.UCItems;
 import net.minecraft.Block;
@@ -16,6 +17,9 @@ public class UCRecipes {
     }
 
     private static void addCraftingRecipes(RecipeRegistryEvent event) {
+
+        event.registerShapedRecipe(new ItemStack(UCBlocks.steelAncientMetal, 1), false, "AAA", "ACA", "AAA", 'A', Item.ingotAncientMetal, 'C', Block.chest);
+
         event.registerShapedRecipe(new ItemStack(UCItems.obsidian_boat, 1), false, "   ", "OMO", "OOO", 'O', Block.obsidian, 'M', Item.magmaCream);
 
         event.registerShapedRecipe(new ItemStack(UCItems.copper_saber, 1), false, " C ", " C ", "CK ", 'C', Item.ingotCopper, 'K', Item.stick);

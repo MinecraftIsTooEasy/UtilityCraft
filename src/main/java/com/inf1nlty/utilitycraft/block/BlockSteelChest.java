@@ -20,11 +20,10 @@ public class BlockSteelChest extends BlockContainer {
         super(id, Material.ancient_metal, new BlockConstants(){ public void validate(Block b){} public boolean neverHidesAdjacentFaces(){return false;} public Boolean connectsWithFence(){return null;} public boolean isAlwaysLegal(){return false;} public boolean isAlwaysImmutable(){return false;} public boolean usesNewSandPhysics(){return false;} });
         this.chestType = type;
         setCreativeTab(CreativeTabs.tabDecorations);
-        setHardness(50f);
+        setHardness(3.0F);
         setResistance(2000f);
         setBlockBoundsForAllThreads(0.0625F, 0, 0.0625F, 0.9375F, 0.875F, 0.9375F);
         setStepSound(soundMetalFootstep);
-        setTextureName("utilitycraft:chest/chestAncientMetal");
         setUnlocalizedName("ancientmetalchest");
     }
 
@@ -32,11 +31,6 @@ public class BlockSteelChest extends BlockContainer {
     public boolean isStandardFormCube(boolean[] is_standard_form_cube, int metadata) {
         return false;
     }
-
-//    @Override
-//    public boolean renderAsNormalBlock(){
-//        return false;
-//    }
 
     @Override
     public int getRenderType() {
@@ -87,19 +81,19 @@ public class BlockSteelChest extends BlockContainer {
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, EnumFace face, float offset_x, float offset_y, float offset_z) {
 
-        TileEntity te = world.getBlockTileEntity(x,y,z);
+        TileEntity te = world.getBlockTileEntity(x, y, z);
 
         if (!(te instanceof TileEntitySteelChest chest)) return false;
 
         if (world.isRemote) return true;
 
-        ServerPlayer sp = (ServerPlayer)player;
+        ServerPlayer sp = (ServerPlayer) player;
 
-        int windowId = sp.currentWindowId;
+        int windowId = ++sp.currentWindowId;
 
         ContainerSteelChest container = new ContainerSteelChest(sp.inventory, chest);
         container.windowId = windowId;
-
+        sp.openContainer = container;
         sp.playerNetServerHandler.sendPacketToPlayer(
                 new Packet100OpenWindow(
                         windowId,
@@ -113,8 +107,8 @@ public class BlockSteelChest extends BlockContainer {
         sendCoordSupplement(sp, windowId, x, y, z);
 
         chest.openChest();
-        sp.openContainer = container;
         container.addCraftingToCrafters(sp);
+
         return true;
     }
 
