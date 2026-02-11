@@ -32,6 +32,11 @@ public class ItemRapier extends SwordItem implements IRapier {
     }
 
     @Override
+    public int getNumComponentsForDurability() {
+        return 4;
+    }
+
+    @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         return super.hitEntity(stack, target, attacker);
     }

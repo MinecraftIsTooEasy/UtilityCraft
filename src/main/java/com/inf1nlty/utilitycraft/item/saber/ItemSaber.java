@@ -28,6 +28,11 @@ public class ItemSaber extends SwordItem implements ISaber, ISweepAttack {
     }
 
     @Override
+    public int getNumComponentsForDurability() {
+        return 3;
+    }
+
+    @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         if (attacker instanceof EntityPlayer player) {
             onSweepAttack(player, target);
