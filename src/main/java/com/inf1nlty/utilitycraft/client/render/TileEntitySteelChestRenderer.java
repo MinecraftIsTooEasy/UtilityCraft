@@ -8,9 +8,7 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
 @Environment(value= EnvType.CLIENT)
-
 public class TileEntitySteelChestRenderer extends TileEntitySpecialRenderer {
-    private static final ResourceLocation RES_NORMAL = new ResourceLocation("utilitycraft:textures/blocks/chest/chestAncientMetal.png");
 
     private final ModelChest chestModel = new ModelChest();
 
@@ -22,13 +20,26 @@ public class TileEntitySteelChestRenderer extends TileEntitySpecialRenderer {
         renderChest((TileEntitySteelChest) tileEntity, x, y, z, partialTicks);
     }
 
+    private ResourceLocation getTextureForType(int type) {
+        return switch (type) {
+            case 2 -> new ResourceLocation("utilitycraft:textures/blocks/chest/chestSilver.png");
+            case 3 -> new ResourceLocation("utilitycraft:textures/blocks/chest/chestGold.png");
+            case 4 -> new ResourceLocation("utilitycraft:textures/blocks/chest/chestIron.png");
+            case 5 -> new ResourceLocation("utilitycraft:textures/blocks/chest/chestAncientMetal.png");
+            case 6 -> new ResourceLocation("utilitycraft:textures/blocks/chest/chestMithril.png");
+            case 7 -> new ResourceLocation("utilitycraft:textures/blocks/chest/chestAdamantium.png");
+            default ->new ResourceLocation("utilitycraft:textures/blocks/chest/chestCopper.png");
+        };
+    }
+
     private void renderChest(TileEntitySteelChest chest, double x, double y, double z, float partialTicks) {
 
         float lidProgress = chest.prevLidAngle + (chest.lidAngle - chest.prevLidAngle) * partialTicks;
         lidProgress = 1.0f - lidProgress;
         lidProgress = 1.0f - lidProgress * lidProgress * lidProgress;
 
-        this.bindTexture(RES_NORMAL);
+        ResourceLocation tex = getTextureForType(chest.chestType);
+        this.bindTexture(tex);
 
         GL11.glPushMatrix();
         GL11.glEnable(GL12.GL_RESCALE_NORMAL);

@@ -39,8 +39,27 @@ item.vibranium_paxel.name=振金镐尖斧
 
 item.obsidian_boat.name=黑曜石船
 
+tile.copperchest.name=铜储物箱
+container.copperchest=铜储物箱
+
+tile.silverchest.name=银储物箱
+container.silverchest=银储物箱
+
+tile.goldchest.name=金储物箱
+container.goldchest=金储物箱
+
+tile.ironchest.name=铁储物箱
+container.ironchest=铁储物箱
+
 tile.ancientmetalchest.name=古代金属储物箱
 container.ancientmetalchest=古代金属储物箱
+
+tile.mithrilchest.name=秘银储物箱
+container.mithrilchest=秘银储物箱
+
+tile.adamantiumchest.name=艾德曼储物箱
+container.adamantiumchest=艾德曼储物箱
+
 container.inventory=物品栏
 
 enchantment.sweeping_edge=横扫之刃

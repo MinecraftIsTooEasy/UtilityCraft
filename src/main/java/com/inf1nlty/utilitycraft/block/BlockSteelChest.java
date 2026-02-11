@@ -15,14 +15,58 @@ public class BlockSteelChest extends BlockContainer {
     public final int chestType;
 
     public BlockSteelChest(int id, int type) {
-        super(id, Material.ancient_metal, new BlockConstants(){ public void validate(Block b){} public boolean neverHidesAdjacentFaces(){return false;} public Boolean connectsWithFence(){return null;} public boolean isAlwaysLegal(){return false;} public boolean isAlwaysImmutable(){return false;} public boolean usesNewSandPhysics(){return false;} });
+        super(id, materialForType(type), new BlockConstants(){ public void validate(Block b){} public boolean neverHidesAdjacentFaces(){return false;} public Boolean connectsWithFence(){return null;} public boolean isAlwaysLegal(){return false;} public boolean isAlwaysImmutable(){return false;} public boolean usesNewSandPhysics(){return false;} });
         this.chestType = type;
         setCreativeTab(CreativeTabs.tabDecorations);
-        setHardness(3.0F);
-        setResistance(2000f);
+        setHardness(hardnessForType(type));
+        setResistance(resistanceForType());
         setBlockBoundsForAllThreads(0.0625F, 0, 0.0625F, 0.9375F, 0.875F, 0.9375F);
         setStepSound(soundMetalFootstep);
-        setUnlocalizedName("ancientmetalchest");
+        setUnlocalizedName(unlocalizedNameForType(type));
+    }
+
+    private static Material materialForType(int type) {
+        return switch (type) {
+            case 2 -> Material.silver;
+            case 3 -> Material.gold;
+            case 4 -> Material.iron;
+            case 5 -> Material.ancient_metal;
+            case 6 -> Material.mithril;
+            case 7 -> Material.adamantium;
+            default -> Material.copper;
+        };
+    }
+
+    private static float hardnessForType(int type) {
+        return switch (type) {
+            case 1,2,3 -> 2.4F; // copper, silver, gold
+            case 4 -> 4.8F;   // iron
+            case 5 -> 4.8F;   // ancient metal
+            case 6 -> 9.6F;   // mithril
+            case 7 -> 19.2F;   // adamantium
+            default -> 4.8F;
+        };
+    }
+
+    @Override
+    public boolean isPortable(World world, EntityLivingBase entity_living_base, int x, int y, int z) {
+        return false;
+    }
+
+    private static float resistanceForType() {
+        return 20.0F;
+    }
+
+    private static String unlocalizedNameForType(int type) {
+        return switch (type) {
+            case 2 -> "silverchest";
+            case 3 -> "goldchest";
+            case 4 -> "ironchest";
+            case 5 -> "ancientmetalchest";
+            case 6 -> "mithrilchest";
+            case 7 -> "adamantiumchest";
+            default -> "copperchest";
+        };
     }
 
     @Override
@@ -73,6 +117,12 @@ public class BlockSteelChest extends BlockContainer {
                 chest.setChestGuiName(stack.getDisplayName());
             }
         }
+
+        TileEntity te = world.getBlockTileEntity(x, y, z);
+        if (te instanceof TileEntitySteelChest chest) {
+            chest.chestType = this.chestType;
+        }
+
         return true;
     }
 
@@ -166,20 +216,24 @@ public class BlockSteelChest extends BlockContainer {
     }
 
     @Override
-    public TileEntity createNewTileEntity(World w){ return new TileEntitySteelChest(); }
+    public TileEntity createNewTileEntity(World world){
+        TileEntitySteelChest te = new TileEntitySteelChest();
+        te.chestType = this.chestType;
+        return te;
+    }
 
-    private static boolean isOcelotBlockingChest(World w,int x,int y,int z){
-        for (Object o: w.getEntitiesWithinAABB(EntityOcelot.class,
+    private static boolean isOcelotBlockingChest(World world,int x,int y,int z){
+        for (Object object: world.getEntitiesWithinAABB(EntityOcelot.class,
                 AxisAlignedBB.getAABBPool().getAABB(x,y+1,z,x+1,y+2,z+1))){
-            if (((EntityOcelot)o).isSitting()) return true;
+            if (((EntityOcelot)object).isSitting()) return true;
         }
         return false;
     }
 
     @Override public boolean hasComparatorInputOverride(){ return true; }
     @Override
-    public int getComparatorInputOverride(World w,int x,int y,int z,int side){
-        return Container.calcRedstoneFromInventory(getInventory(w,x,y,z));
+    public int getComparatorInputOverride(World world,int x,int y,int z,int side){
+        return Container.calcRedstoneFromInventory(getInventory(world,x,y,z));
     }
 
     public boolean canProvidePower() {
@@ -203,7 +257,16 @@ public class BlockSteelChest extends BlockContainer {
 
     @Override
     public void registerIcons(IconRegister reg){
-        this.blockIcon = reg.registerIcon("utilitycraft:chest/chestAncientMetal_particle");
+        String type = switch (chestType) {
+            case 2 -> "chestSilver_particle";
+            case 3 -> "chestGold_particle";
+            case 4 -> "chestIron_particle";
+            case 5 -> "chestAncientMetal_particle";
+            case 6 -> "chestMithril_particle";
+            case 7 -> "chestAdamantium_particle";
+            default -> "chestCopper_particle";
+        };
+        this.blockIcon = reg.registerIcon("utilitycraft:chest/" + type);
     }
 
     @Override

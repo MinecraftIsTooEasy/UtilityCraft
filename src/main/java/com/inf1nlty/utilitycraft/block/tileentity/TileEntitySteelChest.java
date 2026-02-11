@@ -16,6 +16,8 @@ public class TileEntitySteelChest extends TileEntity implements IInventory {
     private int ticksSinceSync;
     private ItemStack[] chestContents = new ItemStack[SLOT_TOTAL];
 
+    public int chestType = -1;
+
     @Override public int getSizeInventory() { return SLOT_TOTAL; }
     @Override public ItemStack getStackInSlot(int i) { return chestContents[i]; }
 
@@ -56,7 +58,23 @@ public class TileEntitySteelChest extends TileEntity implements IInventory {
 
     @Override
     public String getUnlocalizedInvName() {
-        return "container.ancientmetalchest";
+        int type = chestType;
+        if (type == -1) {
+            Block block = getBlockType();
+            if (block instanceof com.inf1nlty.utilitycraft.block.BlockSteelChest bs) {
+                type = bs.chestType;
+            }
+        }
+
+        return switch (type) {
+            case 2 -> "container.silverchest";
+            case 3 -> "container.goldchest";
+            case 4 -> "container.ironchest";
+            case 5 -> "container.ancientmetalchest";
+            case 6 -> "container.mithrilchest";
+            case 7 -> "container.adamantiumchest";
+            default -> "container.copperchest";
+        };
     }
 
     public void setChestGuiName(String name) {
@@ -87,6 +105,8 @@ public class TileEntitySteelChest extends TileEntity implements IInventory {
         if (nbt.hasKey("CustomName"))
             setCustomInvName(nbt.getString("CustomName"));
 
+        if (nbt.hasKey("ChestType")) chestType = nbt.getInteger("ChestType");
+
         NBTTagList list = nbt.getTagList("Items");
         for (int i=0;i<list.tagCount();i++) {
             NBTTagCompound tag = (NBTTagCompound)list.tagAt(i);
@@ -100,6 +120,7 @@ public class TileEntitySteelChest extends TileEntity implements IInventory {
     @Override
     public void writeToNBT(NBTTagCompound nbt) {
         super.writeToNBT(nbt);
+        if (chestType != -1) nbt.setInteger("ChestType", chestType);
         NBTTagList list = new NBTTagList();
         for (int i=0;i<chestContents.length;i++) {
             if (chestContents[i] != null) {

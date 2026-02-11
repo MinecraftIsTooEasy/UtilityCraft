@@ -1,6 +1,6 @@
 package com.inf1nlty.utilitycraft.mixin.client.render;
 
-import com.inf1nlty.utilitycraft.block.UCBlocks;
+import com.inf1nlty.utilitycraft.block.BlockSteelChest;
 import com.inf1nlty.utilitycraft.block.tileentity.TileEntitySteelChest;
 import net.minecraft.Block;
 import net.minecraft.ChestItemRenderHelper;
@@ -18,7 +18,8 @@ public abstract class ChestItemRenderHelperMixin {
 
     @Inject(method = "renderChest", at = @At("HEAD"),cancellable = true)
     private void renderSteelChestItem(Block block, int f, float par3, CallbackInfo ci){
-        if(block.blockID == UCBlocks.steelAncientMetal.blockID){
+        if (block instanceof BlockSteelChest bsc) {
+            this.steelChest.chestType = bsc.chestType;
             TileEntityRenderer.instance.renderTileEntityAt(this.steelChest, 0.0, 0.0, 0.0, 0.0f);
             ci.cancel();
         }

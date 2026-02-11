@@ -40,8 +40,27 @@ item.vibranium_paxel.name=Vibranium Paxel
 
 item.obsidian_boat.name=Obsidian Boat
 
+tile.copperchest.name=Copper Chest
+container.copperchest=Copper Chest
+
+tile.silverchest.name=Silver Chest
+container.silverchest=Silver Chest
+
+tile.goldchest.name=Gold Chest
+container.goldchest=Gold Chest
+
+tile.ironchest.name=Iron Chest
+container.ironchest=Iron Chest
+
 tile.ancientmetalchest.name=Ancient Metal Chest
 container.ancientmetalchest=Ancient Metal Chest
+
+tile.mithrilchest.name=Mithril Chest
+container.mithrilchest=Mithril Chest
+
+tile.adamantiumchest.name=Adamantium Chest
+container.adamantiumchest=Adamantium Chest
+
 container.inventory=Inventory
 
 enchantment.sweeping_edge=Sweeping Edge

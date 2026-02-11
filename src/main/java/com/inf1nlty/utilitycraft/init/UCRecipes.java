@@ -22,7 +22,13 @@ public class UCRecipes implements Consumer<CraftingRecipeRegisterEvent> {
 
     private static void addCraftingRecipes(CraftingRecipeRegisterEvent event) {
 
-        event.registerShapedRecipe(new ItemStack(UCBlocks.steelAncientMetal, 1), false, "AAA", "ACA", "AAA", 'A', Item.ingotAncientMetal, 'C', Block.chest);
+        event.registerShapedRecipe(new ItemStack(UCBlocks.chestCopper, 1), false, "AAA", "ACA", "AAA", 'A', Item.ingotCopper, 'C', Block.chest);
+        event.registerShapedRecipe(new ItemStack(UCBlocks.chestSilver, 1), false, "AAA", "ACA", "AAA", 'A', Item.ingotSilver, 'C', Block.chest);
+        event.registerShapedRecipe(new ItemStack(UCBlocks.chestGold, 1), false, "AAA", "ACA", "AAA", 'A', Item.ingotGold, 'C', Block.chest);
+        event.registerShapedRecipe(new ItemStack(UCBlocks.chestIron, 1), false, "AAA", "ACA", "AAA", 'A', Item.ingotIron, 'C', Block.chest);
+        event.registerShapedRecipe(new ItemStack(UCBlocks.chestAncientMetal, 1), false, "AAA", "ACA", "AAA", 'A', Item.ingotAncientMetal, 'C', Block.chest);
+        event.registerShapedRecipe(new ItemStack(UCBlocks.chestMithril, 1), false, "AAA", "ACA", "AAA", 'A', Item.ingotMithril, 'C', Block.chest);
+        event.registerShapedRecipe(new ItemStack(UCBlocks.chestAdamantium, 1), false, "AAA", "ACA", "AAA", 'A', Item.ingotAdamantium, 'C', Block.chest);
 
         event.registerShapedRecipe(new ItemStack(UCItems.obsidian_boat, 1), false, "   ", "OMO", "OOO", 'O', Block.obsidian, 'M', Item.magmaCream);
 
