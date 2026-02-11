@@ -1,8 +1,6 @@
 package com.inf1nlty.utilitycraft.util;
 
 import net.minecraft.Material;
-import net.oilcake.mitelros.material.Materials;
-import net.moddedmite.mitemod.bex.register.BEXMaterials;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,14 +22,6 @@ public class UCDamageUtils {
     private static final Map<Material, Float> MATERIAL_LEVELS = new HashMap<>();
 
     static {
-        // copper/silver/gold = 0.0
-        // iron / (ITF) nickel / ancient_metal = 1.0
-        // mithril = 2.0
-        // (ITF) tungsten = 2.5
-        // adamantium = 3.0
-        // (BEX) enchant = 5.0
-        // vibranium / uru = 6.0
-
         MATERIAL_LEVELS.put(Material.copper, 0.0F);
         MATERIAL_LEVELS.put(Material.silver, 0.0F);
         MATERIAL_LEVELS.put(Material.gold, 0.0F);
@@ -44,16 +34,6 @@ public class UCDamageUtils {
         MATERIAL_LEVELS.put(Material.mithril, 2.0F);
         MATERIAL_LEVELS.put(Material.adamantium, 3.0F);
 
-        // ITF materials: nickel (1.0), tungsten (2.5), uru (6.0)
-        MATERIAL_LEVELS.put(Materials.nickel, 1.0F);
-        MATERIAL_LEVELS.put(Materials.tungsten, 2.5F);
-        MATERIAL_LEVELS.put(Materials.uru, 6.0F);
-
-        // BEX enchant -> 5.0
-        MATERIAL_LEVELS.put(BEXMaterials.enchant, 5.0F);
-
-        // MITE-ITE vibranium -> 6.0
-        MATERIAL_LEVELS.put(net.xiaoyu233.mitemod.miteite.item.material.Materials.vibranium, 6.0F);
     }
 
     public static void registerMaterialLevel(Material mat, float level) {

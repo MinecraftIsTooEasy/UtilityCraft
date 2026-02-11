@@ -1,13 +1,12 @@
 package com.inf1nlty.utilitycraft.item.rapier;
 
 import com.inf1nlty.utilitycraft.client.UCSounds;
+import com.inf1nlty.utilitycraft.creativetab.UCCreativeTab;
 import net.minecraft.*;
 import net.xiaoyu233.fml.api.item.SwordItem;
-import org.jetbrains.annotations.NotNull;
 import org.lwjgl.input.Keyboard;
 
 import java.util.List;
-import java.util.regex.Matcher;
 
 public class ItemRapier extends SwordItem implements IRapier {
 
@@ -19,7 +18,7 @@ public class ItemRapier extends SwordItem implements IRapier {
         this.damage = damage;
         this.material = material;
         this.setUnlocalizedName(name);
-        this.setCreativeTab(CreativeTabs.tabCombat);
+        this.setCreativeTab(UCCreativeTab.TAB);
     }
 
     @Override

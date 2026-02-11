@@ -2,6 +2,7 @@ package com.inf1nlty.utilitycraft.item.saber;
 
 import com.inf1nlty.utilitycraft.UCEnchantments;
 import com.inf1nlty.utilitycraft.client.UCSounds;
+import com.inf1nlty.utilitycraft.creativetab.UCCreativeTab;
 import com.inf1nlty.utilitycraft.item.ISweepAttack;
 import com.inf1nlty.utilitycraft.util.UCDamageUtils;
 import net.minecraft.*;
@@ -18,7 +19,7 @@ public class ItemSaber extends SwordItem implements ISaber, ISweepAttack {
         super(id, material);
         this.damage = damage;
         this.setUnlocalizedName(name);
-        this.setCreativeTab(CreativeTabs.tabCombat);
+        this.setCreativeTab(UCCreativeTab.TAB);
     }
 
     @Override

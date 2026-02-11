@@ -1,5 +1,6 @@
 package com.inf1nlty.utilitycraft.item;
 
+import com.inf1nlty.utilitycraft.creativetab.UCCreativeTab;
 import com.inf1nlty.utilitycraft.entity.EntityObsidianBoat;
 import net.minecraft.*;
 
@@ -9,7 +10,7 @@ public class ItemObsidianBoat extends Item {
     public ItemObsidianBoat(int id) {
         super(id, Material.obsidian, "obsidian_boat");
         this.setMaxStackSize(1);
-        this.setCreativeTab(CreativeTabs.tabTransport);
+        this.setCreativeTab(UCCreativeTab.TAB);
     }
 
     @Override

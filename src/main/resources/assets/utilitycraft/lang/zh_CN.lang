@@ -62,6 +62,8 @@ container.adamantiumchest=艾德曼储物箱
 
 container.inventory=物品栏
 
+itemGroup.UtilityCraft=实用工艺
+
 enchantment.sweeping_edge=横扫之刃
 enchanted_book.info.enchantment.sweeping_edge=横扫之刃\nRare级，10附魔难度\n一种可以增加军刀的横扫攻击伤害的魔咒,每级提高横扫伤害,可参考原版公式\n最高等级III\n可用于军刀
 

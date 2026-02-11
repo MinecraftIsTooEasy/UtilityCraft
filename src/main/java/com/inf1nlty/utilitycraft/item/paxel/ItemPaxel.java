@@ -1,5 +1,6 @@
 package com.inf1nlty.utilitycraft.item.paxel;
 
+import com.inf1nlty.utilitycraft.creativetab.UCCreativeTab;
 import net.minecraft.*;
 
 public class ItemPaxel extends ItemTool implements IPaxel {
@@ -36,6 +37,7 @@ public class ItemPaxel extends ItemTool implements IPaxel {
         }
 
         this.setMaxDamage(this.getMultipliedDurability());
+        this.setCreativeTab(UCCreativeTab.TAB);
     }
 
     @Override

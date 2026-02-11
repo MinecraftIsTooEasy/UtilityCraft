@@ -1,6 +1,7 @@
 package com.inf1nlty.utilitycraft.block;
 
 import com.inf1nlty.utilitycraft.block.tileentity.TileEntitySteelChest;
+import com.inf1nlty.utilitycraft.creativetab.UCCreativeTab;
 import com.inf1nlty.utilitycraft.inventory.ContainerSteelChest;
 import com.inf1nlty.utilitycraft.network.SteelChestNet;
 import net.minecraft.*;
@@ -17,7 +18,7 @@ public class BlockSteelChest extends BlockContainer {
     public BlockSteelChest(int id, int type) {
         super(id, materialForType(type), new BlockConstants(){ public void validate(Block b){} public boolean neverHidesAdjacentFaces(){return false;} public Boolean connectsWithFence(){return null;} public boolean isAlwaysLegal(){return false;} public boolean isAlwaysImmutable(){return false;} public boolean usesNewSandPhysics(){return false;} });
         this.chestType = type;
-        setCreativeTab(CreativeTabs.tabDecorations);
+        this.setCreativeTab(UCCreativeTab.TAB);
         setHardness(hardnessForType(type));
         setResistance(resistanceForType());
         setBlockBoundsForAllThreads(0.0625F, 0, 0.0625F, 0.9375F, 0.875F, 0.9375F);

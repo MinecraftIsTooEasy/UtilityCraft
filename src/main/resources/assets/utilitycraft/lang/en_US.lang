@@ -63,6 +63,8 @@ container.adamantiumchest=Adamantium Chest
 
 container.inventory=Inventory
 
+itemGroup.UtilityCraft=Utility Craft
+
 enchantment.sweeping_edge=Sweeping Edge
 enchanted_book.info.enchantment.sweeping_edge=Sweeping Edge\nRarity: Rare, Enchantment difficulty: 10\nAn enchantment that increases a saber's sweeping attack damage. Each level increases sweeping damage; follows the vanilla formula as a reference.\nMax Level: III\nApplicable to: sabers
 
