@@ -1,8 +1,8 @@
 package com.inf1nlty.utilitycraft.block;
 
-import com.inf1nlty.utilitycraft.block.tileentity.TileEntitySteelChest;
+import com.inf1nlty.utilitycraft.block.tileentity.TileEntityLocker;
 import com.inf1nlty.utilitycraft.creativetab.UCCreativeTab;
-import com.inf1nlty.utilitycraft.inventory.ContainerSteelChest;
+import com.inf1nlty.utilitycraft.inventory.ContainerLocker;
 import com.inf1nlty.utilitycraft.network.UCChestNet;
 import net.minecraft.*;
 
@@ -10,12 +10,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.util.Random;
 
-public class BlockSteelChest extends BlockContainer {
+public class BlockLocker extends BlockContainer {
     private final Random random = new Random();
     public static final int CUSTOM_WINDOW_TYPE = 41;
     public final int chestType;
 
-    public BlockSteelChest(int id, int type) {
+    public BlockLocker(int id, int type) {
         super(id, materialForType(type), new BlockConstants(){ public void validate(Block b){} public boolean neverHidesAdjacentFaces(){return false;} public Boolean connectsWithFence(){return null;} public boolean isAlwaysLegal(){return false;} public boolean isAlwaysImmutable(){return false;} public boolean usesNewSandPhysics(){return false;} });
         this.chestType = type;
         this.setCreativeTab(UCCreativeTab.TAB);
@@ -114,13 +114,13 @@ public class BlockSteelChest extends BlockContainer {
 
         if (stack.hasDisplayName()) {
             TileEntity te = world.getBlockTileEntity(x, y, z);
-            if (te instanceof TileEntitySteelChest chest) {
+            if (te instanceof TileEntityLocker chest) {
                 chest.setChestGuiName(stack.getDisplayName());
             }
         }
 
         TileEntity te = world.getBlockTileEntity(x, y, z);
-        if (te instanceof TileEntitySteelChest chest) {
+        if (te instanceof TileEntityLocker chest) {
             chest.chestType = this.chestType;
         }
 
@@ -132,7 +132,7 @@ public class BlockSteelChest extends BlockContainer {
 
         TileEntity te = world.getBlockTileEntity(x, y, z);
 
-        if (!(te instanceof TileEntitySteelChest chest)) return false;
+        if (!(te instanceof TileEntityLocker chest)) return false;
 
         if (world.isRemote) return true;
 
@@ -140,7 +140,7 @@ public class BlockSteelChest extends BlockContainer {
 
         int windowId = ++sp.currentWindowId;
 
-        ContainerSteelChest container = new ContainerSteelChest(sp.inventory, chest);
+        ContainerLocker container = new ContainerLocker(sp.inventory, chest);
         container.windowId = windowId;
         sp.openContainer = container;
         sp.playerNetServerHandler.sendPacketToPlayer(
@@ -177,7 +177,7 @@ public class BlockSteelChest extends BlockContainer {
 
     @Override
     public void breakBlock(World world,int x,int y,int z,int p5,int p6){
-        TileEntitySteelChest te = (TileEntitySteelChest)world.getBlockTileEntity(x,y,z);
+        TileEntityLocker te = (TileEntityLocker)world.getBlockTileEntity(x,y,z);
         if (te != null){
             for (int i=0;i<te.getSizeInventory();i++){
                 ItemStack st = te.getStackInSlot(i);
@@ -209,7 +209,7 @@ public class BlockSteelChest extends BlockContainer {
 
     public IInventory getInventory(World world,int x,int y,int z){
         TileEntity tile = world.getBlockTileEntity(x,y,z);
-        if (!(tile instanceof TileEntitySteelChest chest)) return null;
+        if (!(tile instanceof TileEntityLocker chest)) return null;
         int aboveId = world.getBlockId(x, y + 1, z);
         if (Block.isNormalCube(aboveId)) return null;
         if (isOcelotBlockingChest(world,x,y,z)) return null;
@@ -218,7 +218,7 @@ public class BlockSteelChest extends BlockContainer {
 
     @Override
     public TileEntity createNewTileEntity(World world){
-        TileEntitySteelChest te = new TileEntitySteelChest();
+        TileEntityLocker te = new TileEntityLocker();
         te.chestType = this.chestType;
         return te;
     }
@@ -245,7 +245,7 @@ public class BlockSteelChest extends BlockContainer {
     public int isProvidingWeakPower(IBlockAccess acc,int x,int y,int z,int side){
         if (!canProvidePower()) return 0;
         TileEntity te = acc.getBlockTileEntity(x,y,z);
-        if (te instanceof TileEntitySteelChest chest){
+        if (te instanceof TileEntityLocker chest){
             return MathHelper.clamp_int(chest.numUsingPlayers,0,15);
         }
         return 0;

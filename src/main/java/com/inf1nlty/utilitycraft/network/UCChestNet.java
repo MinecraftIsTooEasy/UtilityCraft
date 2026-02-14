@@ -1,7 +1,7 @@
 package com.inf1nlty.utilitycraft.network;
 
-import com.inf1nlty.utilitycraft.inventory.ContainerSteelChest;
-import com.inf1nlty.utilitycraft.block.tileentity.TileEntitySteelChest;
+import com.inf1nlty.utilitycraft.inventory.ContainerLocker;
+import com.inf1nlty.utilitycraft.block.tileentity.TileEntityLocker;
 import net.minecraft.*;
 
 import java.io.ByteArrayInputStream;
@@ -42,11 +42,11 @@ public final class UCChestNet {
         if ( (windowId & 0xFF) != (player.openContainer.windowId & 0xFF) ) return;
 
         TileEntity te = player.worldObj.getBlockTileEntity(x,y,z);
-        if (!(te instanceof TileEntitySteelChest chest)) return;
+        if (!(te instanceof TileEntityLocker chest)) return;
 
         Container oldC = player.openContainer;
         IInventory oldInv = null;
-        if (oldC instanceof ContainerSteelChest scOld) {
+        if (oldC instanceof ContainerLocker scOld) {
             oldInv = scOld.getChestInventory();
         }
 
@@ -62,7 +62,7 @@ public final class UCChestNet {
 
         int wid = player.openContainer.windowId;
 
-        ContainerSteelChest newC = new ContainerSteelChest(player.inventory, chest);
+        ContainerLocker newC = new ContainerLocker(player.inventory, chest);
         newC.windowId = wid;
 
         if (Minecraft.getMinecraft().currentScreen instanceof GuiContainer gui){

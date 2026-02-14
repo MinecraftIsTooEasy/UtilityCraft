@@ -1,6 +1,6 @@
 package com.inf1nlty.utilitycraft.mixin.client.render;
 
-import com.inf1nlty.utilitycraft.block.tileentity.TileEntitySteelChest;
+import com.inf1nlty.utilitycraft.block.tileentity.TileEntityLocker;
 import com.inf1nlty.utilitycraft.client.render.TileEntityLockerRenderer;
 import net.minecraft.TileEntityRenderer;
 import net.minecraft.TileEntitySpecialRenderer;
@@ -20,12 +20,12 @@ public abstract class TileEntityRendererMixin {
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void customChestRendering(CallbackInfo ci) {
-        specialRendererMap.put(TileEntitySteelChest.class, new TileEntityLockerRenderer());
+        specialRendererMap.put(TileEntityLocker.class, new TileEntityLockerRenderer());
         TileEntityRenderer thisObj = (TileEntityRenderer) (Object) this;
 
         for (TileEntitySpecialRenderer renderer : specialRendererMap.values()) {
             renderer.setTileEntityRenderer(thisObj);
         }
-        specialRendererMap.get(TileEntitySteelChest.class).setTileEntityRenderer(thisObj);
+        specialRendererMap.get(TileEntityLocker.class).setTileEntityRenderer(thisObj);
     }
 }

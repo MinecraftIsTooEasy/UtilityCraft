@@ -1,6 +1,6 @@
 package com.inf1nlty.utilitycraft.mixin.client;
 
-import com.inf1nlty.utilitycraft.block.BlockSteelChest;
+import com.inf1nlty.utilitycraft.block.BlockLocker;
 import com.inf1nlty.utilitycraft.client.gui.GuiLocker;
 import com.inf1nlty.utilitycraft.entity.EntityObsidianBoat;
 import com.inf1nlty.utilitycraft.network.UCChestNet;
@@ -16,7 +16,7 @@ public abstract class NetClientHandlerMixin {
 
     @Inject(method = "handleOpenWindow", at = @At("HEAD"), cancellable = true)
     private void utilitycraft$handleOpenWindow(Packet100OpenWindow packet, CallbackInfo ci) {
-        if (packet.inventoryType != BlockSteelChest.CUSTOM_WINDOW_TYPE) return;
+        if (packet.inventoryType != BlockLocker.CUSTOM_WINDOW_TYPE) return;
 
         Minecraft mc = Minecraft.getMinecraft();
         EntityClientPlayerMP player = mc.thePlayer;

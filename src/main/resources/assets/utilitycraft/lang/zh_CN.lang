@@ -71,3 +71,19 @@ item.utilitycraft.rapier.tip=§7按住§eShift§7查看更多信息
 item.utilitycraft.rapier.desc=§b攻击速度更快， 无视护甲比例取决于材质等级差
 item.utilitycraft.saber.tip=§7按住§eShift§7查看更多信息
 item.utilitycraft.saber.desc=§b横扫伤害: %.1f
+
+utilitycraft.workbench.need_next_tier.group1=无法升级：需要 铜锭/银锭/金锭 来升级
+utilitycraft.workbench.need_next_tier.group2=无法升级：需要 铁锭 来升级
+utilitycraft.workbench.need_next_tier.group3=无法升级：需要 远古金属锭 来升级
+utilitycraft.workbench.need_next_tier.group4=无法升级：需要 秘银锭 来升级
+utilitycraft.workbench.need_next_tier.group5=无法升级：需要 艾德曼锭 来升级
+utilitycraft.workbench.need_next_tier.default=无法升级：需要 合适的材料 来升级
+
+utilitycraft.workbench.upgraded.copper=工作台已升级为：铜工作台
+utilitycraft.workbench.upgraded.silver=工作台已升级为：银工作台
+utilitycraft.workbench.upgraded.gold=工作台已升级为：金工作台
+utilitycraft.workbench.upgraded.iron=工作台已升级为：铁工作台
+utilitycraft.workbench.upgraded.ancient_metal=工作台已升级为：远古金属工作台
+utilitycraft.workbench.upgraded.mithril=工作台已升级为：秘银工作台
+utilitycraft.workbench.upgraded.adamantium=工作台已升级为：艾德曼工作台
+utilitycraft.workbench.upgraded.unknown=工作台已升级为：

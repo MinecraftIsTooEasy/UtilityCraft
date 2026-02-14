@@ -1,6 +1,6 @@
 package com.inf1nlty.utilitycraft.client.render;
 
-import com.inf1nlty.utilitycraft.block.tileentity.TileEntitySteelChest;
+import com.inf1nlty.utilitycraft.block.tileentity.TileEntityLocker;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.*;
@@ -14,10 +14,10 @@ public class TileEntityLockerRenderer extends TileEntitySpecialRenderer {
 
     @Override
     public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float partialTicks) {
-        if (!(tileEntity instanceof TileEntitySteelChest)) {
+        if (!(tileEntity instanceof TileEntityLocker)) {
             return;
         }
-        renderChest((TileEntitySteelChest) tileEntity, x, y, z, partialTicks);
+        renderChest((TileEntityLocker) tileEntity, x, y, z, partialTicks);
     }
 
     private ResourceLocation getTextureForType(int type) {
@@ -32,7 +32,7 @@ public class TileEntityLockerRenderer extends TileEntitySpecialRenderer {
         };
     }
 
-    private void renderChest(TileEntitySteelChest chest, double x, double y, double z, float partialTicks) {
+    private void renderChest(TileEntityLocker chest, double x, double y, double z, float partialTicks) {
 
         float lidProgress = chest.prevLidAngle + (chest.lidAngle - chest.prevLidAngle) * partialTicks;
         lidProgress = 1.0f - lidProgress;

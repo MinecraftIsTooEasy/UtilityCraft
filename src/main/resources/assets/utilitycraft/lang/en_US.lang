@@ -72,3 +72,19 @@ item.utilitycraft.rapier.tip=§7Hold §eShift§7 for more information
 item.utilitycraft.rapier.desc=§bAttacks faster. Armor penetration depends on the material level difference.
 item.utilitycraft.saber.tip=§7Hold §eShift§7 for more information
 item.utilitycraft.saber.desc=§bSweeping Damage: %.1f
+
+utilitycraft.workbench.need_next_tier.group1=Cannot upgrade: need Copper/Silver/Gold ingot to upgrade
+utilitycraft.workbench.need_next_tier.group2=Cannot upgrade: need Iron ingot to upgrade
+utilitycraft.workbench.need_next_tier.group3=Cannot upgrade: need Ancient Metal ingot to upgrade
+utilitycraft.workbench.need_next_tier.group4=Cannot upgrade: need Mithril ingot to upgrade
+utilitycraft.workbench.need_next_tier.group5=Cannot upgrade: need Adamantium ingot to upgrade
+utilitycraft.workbench.need_next_tier.default=Cannot upgrade: need appropriate material to upgrade
+
+utilitycraft.workbench.upgraded.copper=Workbench upgraded to: Copper workbench
+utilitycraft.workbench.upgraded.silver=Workbench upgraded to: Silver workbench
+utilitycraft.workbench.upgraded.gold=Workbench upgraded to: Gold workbench
+utilitycraft.workbench.upgraded.iron=Workbench upgraded to: Iron workbench
+utilitycraft.workbench.upgraded.ancient_metal=Workbench upgraded to: Ancient Metal workbench
+utilitycraft.workbench.upgraded.mithril=Workbench upgraded to: Mithril workbench
+utilitycraft.workbench.upgraded.adamantium=Workbench upgraded to: Adamantium workbench
+utilitycraft.workbench.upgraded.unknown=Workbench upgraded to:

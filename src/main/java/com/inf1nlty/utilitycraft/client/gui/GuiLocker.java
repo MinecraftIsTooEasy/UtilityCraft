@@ -1,6 +1,6 @@
 package com.inf1nlty.utilitycraft.client.gui;
 
-import com.inf1nlty.utilitycraft.inventory.ContainerSteelChest;
+import com.inf1nlty.utilitycraft.inventory.ContainerLocker;
 import net.minecraft.*;
 import org.lwjgl.opengl.GL11;
 
@@ -22,7 +22,7 @@ public class GuiLocker extends GuiContainer {
     private final IInventory inv;
 
     public GuiLocker(InventoryPlayer playerInv, IInventory inv) {
-        super(new ContainerSteelChest(playerInv, inv));
+        super(new ContainerLocker(playerInv, inv));
         this.inv = inv;
         this.xSize = GUI_WIDTH;
         this.ySize = GUI_HEIGHT;

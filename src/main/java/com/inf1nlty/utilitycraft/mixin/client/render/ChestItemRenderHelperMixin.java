@@ -1,7 +1,7 @@
 package com.inf1nlty.utilitycraft.mixin.client.render;
 
-import com.inf1nlty.utilitycraft.block.BlockSteelChest;
-import com.inf1nlty.utilitycraft.block.tileentity.TileEntitySteelChest;
+import com.inf1nlty.utilitycraft.block.BlockLocker;
+import com.inf1nlty.utilitycraft.block.tileentity.TileEntityLocker;
 import net.minecraft.Block;
 import net.minecraft.ChestItemRenderHelper;
 import net.minecraft.TileEntityRenderer;
@@ -14,11 +14,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ChestItemRenderHelper.class)
 public abstract class ChestItemRenderHelperMixin {
 
-    @Unique private final TileEntitySteelChest steelChest = new TileEntitySteelChest();
+    @Unique private final TileEntityLocker steelChest = new TileEntityLocker();
 
     @Inject(method = "renderChest", at = @At("HEAD"),cancellable = true)
     private void renderSteelChestItem(Block block, int f, float par3, CallbackInfo ci){
-        if (block instanceof BlockSteelChest bsc) {
+        if (block instanceof BlockLocker bsc) {
             this.steelChest.chestType = bsc.chestType;
             TileEntityRenderer.instance.renderTileEntityAt(this.steelChest, 0.0, 0.0, 0.0, 0.0f);
             ci.cancel();

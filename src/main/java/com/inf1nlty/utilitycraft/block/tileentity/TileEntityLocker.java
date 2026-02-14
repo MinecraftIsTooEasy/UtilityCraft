@@ -1,10 +1,10 @@
 package com.inf1nlty.utilitycraft.block.tileentity;
 
-import com.inf1nlty.utilitycraft.block.BlockSteelChest;
-import com.inf1nlty.utilitycraft.inventory.ContainerSteelChest;
+import com.inf1nlty.utilitycraft.block.BlockLocker;
+import com.inf1nlty.utilitycraft.inventory.ContainerLocker;
 import net.minecraft.*;
 
-public class TileEntitySteelChest extends TileEntity implements IInventory {
+public class TileEntityLocker extends TileEntity implements IInventory {
 
     public static final int SLOT_COLS = 19;
     public static final int SLOT_ROWS = 7;
@@ -61,7 +61,7 @@ public class TileEntitySteelChest extends TileEntity implements IInventory {
         int type = chestType;
         if (type == -1) {
             Block block = getBlockType();
-            if (block instanceof com.inf1nlty.utilitycraft.block.BlockSteelChest bs) {
+            if (block instanceof BlockLocker bs) {
                 type = bs.chestType;
             }
         }
@@ -157,7 +157,7 @@ public class TileEntitySteelChest extends TileEntity implements IInventory {
                             xCoord - range, yCoord - range, zCoord - range,
                             xCoord + 1 + range, yCoord + 1 + range, zCoord + 1 + range))) {
                 EntityPlayer p = (EntityPlayer)o;
-                if (p.openContainer instanceof ContainerSteelChest cont) {
+                if (p.openContainer instanceof ContainerLocker cont) {
                     if (cont.getChestInventory() == this) ++numUsingPlayers;
                 }
             }
@@ -209,7 +209,7 @@ public class TileEntitySteelChest extends TileEntity implements IInventory {
     }
 
     public void closeChest() {
-        if (getBlockType() instanceof BlockSteelChest) {
+        if (getBlockType() instanceof BlockLocker) {
             --numUsingPlayers;
             worldObj.addBlockEvent(xCoord,yCoord,zCoord,getBlockType().blockID,1,numUsingPlayers);
             worldObj.notifyBlocksOfNeighborChange(xCoord,yCoord,zCoord,getBlockType().blockID);
