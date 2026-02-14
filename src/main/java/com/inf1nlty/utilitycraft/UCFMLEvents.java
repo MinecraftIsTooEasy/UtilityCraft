@@ -29,7 +29,7 @@ public class UCFMLEvents {
 
     @Subscribe
     public void onEntityRegister(EntityRegisterEvent event) {
-        event.register(EntityObsidianBoat.class, "utilitycraft", "EntityObsidianBoat", IdUtil.getNextEntityID(), 0, 0);
+        event.register(EntityObsidianBoat.class, "utilitycraft", "EntityObsidianBoat", IdUtil.getNextEntityID());
     }
 
     @Subscribe

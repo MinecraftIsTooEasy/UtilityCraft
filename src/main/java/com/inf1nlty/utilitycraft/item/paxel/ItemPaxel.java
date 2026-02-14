@@ -65,7 +65,6 @@ public class ItemPaxel extends ItemTool implements IPaxel {
 
     /**
      * Combine axe/pick/shovel decay behaviour:
-     * - axe special: sandStone -> 1.875F
      * - shovel special: certain crop/soft blocks -> 0.5F
      * - default -> 1.0F
      */
