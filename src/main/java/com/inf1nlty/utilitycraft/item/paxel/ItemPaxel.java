@@ -71,13 +71,8 @@ public class ItemPaxel extends ItemTool implements IPaxel {
      */
     @Override
     public float getBaseDecayRateForBreakingBlock(Block block) {
-        // axe special (from ItemAxe)
-        if (block == Block.sandStone) {
-            return 1.875F;
-        }
 
-        // shovel special (from ItemShovel)
-        if (block == Block.carrot || block == Block.onions || block == Block.potato || block == Block.thinGlass || block == Block.glass) {
+        if (block == Block.dirt || block == Block.sand || block == Block.grass || block == Block.gravel || block == Block.carrot || block == Block.onions || block == Block.potato || block == Block.thinGlass || block == Block.glass) {
             return 0.5F;
         }
 
