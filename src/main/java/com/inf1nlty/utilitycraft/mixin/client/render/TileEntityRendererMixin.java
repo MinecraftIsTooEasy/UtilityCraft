@@ -1,7 +1,7 @@
 package com.inf1nlty.utilitycraft.mixin.client.render;
 
 import com.inf1nlty.utilitycraft.block.tileentity.TileEntitySteelChest;
-import com.inf1nlty.utilitycraft.client.render.TileEntitySteelChestRenderer;
+import com.inf1nlty.utilitycraft.client.render.TileEntityLockerRenderer;
 import net.minecraft.TileEntityRenderer;
 import net.minecraft.TileEntitySpecialRenderer;
 import org.spongepowered.asm.mixin.Mixin;
@@ -20,7 +20,7 @@ public abstract class TileEntityRendererMixin {
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void customChestRendering(CallbackInfo ci) {
-        specialRendererMap.put(TileEntitySteelChest.class, new TileEntitySteelChestRenderer());
+        specialRendererMap.put(TileEntitySteelChest.class, new TileEntityLockerRenderer());
         TileEntityRenderer thisObj = (TileEntityRenderer) (Object) this;
 
         for (TileEntitySpecialRenderer renderer : specialRendererMap.values()) {

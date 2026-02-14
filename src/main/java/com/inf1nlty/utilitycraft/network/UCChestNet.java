@@ -7,11 +7,11 @@ import net.minecraft.*;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 
-public final class SteelChestNet {
+public final class UCChestNet {
 
     public static String CHANNEL;
 
-    private SteelChestNet(){}
+    private UCChestNet(){}
 
     public static void register(String modId){
         CHANNEL = modId + "|SC";

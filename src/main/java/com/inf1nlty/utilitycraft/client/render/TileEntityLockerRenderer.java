@@ -8,7 +8,7 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
 @Environment(value= EnvType.CLIENT)
-public class TileEntitySteelChestRenderer extends TileEntitySpecialRenderer {
+public class TileEntityLockerRenderer extends TileEntitySpecialRenderer {
 
     private final ModelChest chestModel = new ModelChest();
 

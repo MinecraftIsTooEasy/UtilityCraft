@@ -3,7 +3,7 @@ package com.inf1nlty.utilitycraft.block;
 import com.inf1nlty.utilitycraft.block.tileentity.TileEntitySteelChest;
 import com.inf1nlty.utilitycraft.creativetab.UCCreativeTab;
 import com.inf1nlty.utilitycraft.inventory.ContainerSteelChest;
-import com.inf1nlty.utilitycraft.network.SteelChestNet;
+import com.inf1nlty.utilitycraft.network.UCChestNet;
 import net.minecraft.*;
 
 import java.io.ByteArrayOutputStream;
@@ -170,7 +170,7 @@ public class BlockSteelChest extends BlockContainer {
             dos.writeInt(y);
             dos.writeInt(z);
             Packet250CustomPayload pkt =
-                    new Packet250CustomPayload(SteelChestNet.CHANNEL, bos.toByteArray());
+                    new Packet250CustomPayload(UCChestNet.CHANNEL, bos.toByteArray());
             mp.playerNetServerHandler.sendPacketToPlayer(pkt);
         } catch (Exception ignored){}
     }

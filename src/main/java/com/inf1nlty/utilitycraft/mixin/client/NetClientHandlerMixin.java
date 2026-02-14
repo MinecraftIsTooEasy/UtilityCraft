@@ -3,7 +3,7 @@ package com.inf1nlty.utilitycraft.mixin.client;
 import com.inf1nlty.utilitycraft.block.BlockSteelChest;
 import com.inf1nlty.utilitycraft.client.gui.GuiLocker;
 import com.inf1nlty.utilitycraft.entity.EntityObsidianBoat;
-import com.inf1nlty.utilitycraft.network.SteelChestNet;
+import com.inf1nlty.utilitycraft.network.UCChestNet;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -50,10 +50,10 @@ public abstract class NetClientHandlerMixin {
     private void utilitycraft$handlePacket(Packet250CustomPayload packet, CallbackInfo ci) {
         if (packet == null) return;
         String channel = packet.channel;
-        if (SteelChestNet.CHANNEL != null && SteelChestNet.CHANNEL.equals(channel)) {
+        if (UCChestNet.CHANNEL != null && UCChestNet.CHANNEL.equals(channel)) {
             EntityClientPlayerMP player = Minecraft.getMinecraft().thePlayer;
             if (!(player instanceof EntityClientPlayerMP)) return;
-            SteelChestNet.handleClientPacket(packet, player);
+            UCChestNet.handleClientPacket(packet, player);
             ci.cancel();
         }
     }
