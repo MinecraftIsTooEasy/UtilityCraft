@@ -9,6 +9,7 @@
     "entity.EntityPlayerHitMixin",
     "entity.EntityTrackerEntryMixin",
     "enchantment.PaxelEnchantmentMixin",
+    "enchantment.RapierEnchantmentMixin",
     "NetServerHandlerMixin"
   ],
   "client": [
