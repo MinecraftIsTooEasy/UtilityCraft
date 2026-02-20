@@ -88,3 +88,11 @@ utilitycraft.workbench.upgraded.ancient_metal=Workbench upgraded to: Ancient Met
 utilitycraft.workbench.upgraded.mithril=Workbench upgraded to: Mithril workbench
 utilitycraft.workbench.upgraded.adamantium=Workbench upgraded to: Adamantium workbench
 utilitycraft.workbench.upgraded.unknown=Workbench upgraded to:
+
+config.tab.misc=Misc
+
+config.name.utilitycraft.rapierAttackSound=Rapier attack sound
+config.comment.utilitycraft.rapierAttackSound=Enable rapier attack sound
+
+config.name.utilitycraft.saberAttackSound=Saber attack sound
+config.comment.utilitycraft.saberAttackSound=Enable saber attack sound

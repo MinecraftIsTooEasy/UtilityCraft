@@ -87,3 +87,11 @@ utilitycraft.workbench.upgraded.ancient_metal=工作台已升级为：远古金�
 utilitycraft.workbench.upgraded.mithril=工作台已升级为：秘银工作台
 utilitycraft.workbench.upgraded.adamantium=工作台已升级为：艾德曼工作台
 utilitycraft.workbench.upgraded.unknown=工作台已升级为：
+
+config.tab.misc=杂项
+
+config.name.utilitycraft.rapierAttackSound=迅捷剑攻击音效
+config.comment.utilitycraft.rapierAttackSound=是否启用迅捷剑的攻击音效
+
+config.name.utilitycraft.saberAttackSound=军刀攻击音效
+config.comment.utilitycraft.saberAttackSound=是否启用军刀的攻击音效

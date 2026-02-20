@@ -1,6 +1,7 @@
 package com.inf1nlty.utilitycraft;
 
 import com.inf1nlty.utilitycraft.network.UCChestNet;
+import fi.dy.masa.malilib.config.ConfigManager;
 import net.fabricmc.api.ModInitializer;
 import net.xiaoyu233.fml.ModResourceManager;
 import net.xiaoyu233.fml.reload.event.MITEEvents;
@@ -12,6 +13,9 @@ public class UtilityCraftMod implements ModInitializer {
     @Override
     public void onInitialize() {
         ModResourceManager.addResourcePackDomain(NAMESPACE);
+
+        UCConfigs.getInstance().load();
+        ConfigManager.getInstance().registerConfig(UCConfigs.getInstance());
 
         UCRICEvents.register();
 

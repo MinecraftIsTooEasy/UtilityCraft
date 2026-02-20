@@ -4,14 +4,11 @@
   "version": "${version}",
   "name": "Utility Craft",
   "icon": "assets/utilitycraft/icon.png",
-
   "depends": {
     "rusted_iron_core": ">=1.5.0",
-    "fishmodloader": ">=3.4.1"
+    "fishmodloader": ">=3.4.2"
   },
-
   "environment": "*",
-
   "description": "Add a series of new items to MITE",
   "authors": [
     "Inf1nlty",
@@ -20,16 +17,18 @@
   "contributors": [
   ],
   "contact": {
-    "homepage": "https://github.com/Inf1nlty/UtilityCraft-MITE",
-    "issues": "https://github.com/Inf1nlty/UtilityCraft-MITE/issues"
+    "homepage": "https://github.com/MinecraftIsTooEasy/UtilityCraft",
+    "issues": "https://github.com/MinecraftIsTooEasy/UtilityCraft/issues"
   },
-
   "entrypoints": {
     "preLaunch": [],
     "main": [
       "com.inf1nlty.utilitycraft.UtilityCraftMod"
     ]
   },
+  "modmenu": [
+    "com.inf1nlty.utilitycraft.compat.ModMenuImpl"
+  ],
   "mixins": [
     "utilitycraft.mixins.json"
   ],

@@ -1,5 +1,6 @@
 package com.inf1nlty.utilitycraft.item.saber;
 
+import com.inf1nlty.utilitycraft.UCConfigs;
 import com.inf1nlty.utilitycraft.UCEnchantments;
 import com.inf1nlty.utilitycraft.client.UCSounds;
 import com.inf1nlty.utilitycraft.creativetab.UCCreativeTab;
@@ -72,6 +73,11 @@ public class ItemSaber extends SwordItem implements ISaber, ISweepAttack {
 
     @Override
     public void playAttackSound(EntityPlayer player, EntityLivingBase target) {
+
+        if (!UCConfigs.saberAttackSound.getBooleanValue()) {
+            return;
+        }
+
         float volume = 0.4F;
         float pitch = 1.0F + (player.worldObj.rand.nextFloat() - 0.5F) * 0.4F;
         player.worldObj.playSoundAtEntity(player, UCSounds.weaponSweep.toString(), volume, pitch);

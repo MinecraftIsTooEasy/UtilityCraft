@@ -1,5 +1,6 @@
 package com.inf1nlty.utilitycraft.item.rapier;
 
+import com.inf1nlty.utilitycraft.UCConfigs;
 import com.inf1nlty.utilitycraft.client.UCSounds;
 import com.inf1nlty.utilitycraft.creativetab.UCCreativeTab;
 import net.minecraft.*;
@@ -43,6 +44,11 @@ public class ItemRapier extends SwordItem implements IRapier {
 
     @Override
     public void playAttackSound(EntityPlayer player, EntityLivingBase target) {
+
+        if (!UCConfigs.rapierAttackSound.getBooleanValue()) {
+            return;
+        }
+
         boolean hasArmor = false;
 
         for (int i = 1; i <= 4; i++) {

@@ -42,6 +42,15 @@ dependencies {
     implementation files(loom.getFML().toPath())
 
     implementation files("${lib_dir}/RustedIronCore-1.5.0.jar")
+    implementation files("${lib_dir}/ManyLib-2.2.2.jar")
+    implementation files("${lib_dir}//ModMenu-10.1.1.jar")
+
+    //emi
+    implementation files("${lib_dir}/fastutil-8.5.12.jar")
+    implementation files("${lib_dir}/emi-1.1.24+1.6.4-MITE+fish.jar")
+
+    //manylib
+    implementation files("${lib_dir}/gson-2.10.1.jar")
 
     compileOnly(files("${lib_dir}/Extreme-0.1.6.11.jar"))
     compileOnly(files("${lib_dir}/MITE-ITE-2.0.19.jar"))
