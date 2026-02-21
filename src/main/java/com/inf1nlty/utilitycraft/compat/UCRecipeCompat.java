@@ -25,57 +25,69 @@ public final class UCRecipeCompat {
 
         if (!ModChecker.HAS_ITFRB) return;
 
-        // ITF items class: Items
-        Item forgingNote = Items.forgingNote;
-        Item uruIngot = Items.uruIngot;
-
-        if (uruIngot != null) {
+        if (Items.uruIngot != null) {
 
             if (UCCompat.uru_paxel != null) {
 
-                event.registerShapelessRecipe(new ItemStack(UCCompat.uru_paxel, 1), false,
-                        forgingNote,
-                        uruIngot,
-                        Item.pickaxeMithril,
-                        Item.shovelMithril,
-                        Item.axeMithril,
-                        Item.ingotMithril
-                );
+                event.registerShapelessRecipe(new ItemStack(UCCompat.uru_paxel, 1), false, Items.forgingNote, Items.uruIngot, Item.pickaxeMithril, Item.shovelMithril, Item.axeMithril, Item.ingotMithril);
+                event.registerShapelessRecipe(new ItemStack(UCCompat.uru_paxel, 1), false, Items.forgingNote, Items.uruIngot, Item.pickaxeMithril, Item.shovelMithril, Item.axeMithril, UCItems.mithril_paxel).extendsNBT().keepQuality();
             }
 
             if (UCCompat.uru_saber != null && UCItems.mithril_saber != null) {
-                event.registerShapelessRecipe(new ItemStack(UCCompat.uru_saber, 1), false,
-                        forgingNote, uruIngot, UCItems.mithril_saber, Item.ingotMithril);
+                event.registerShapelessRecipe(new ItemStack(UCCompat.uru_saber, 1), false, Items.forgingNote, Items.uruIngot, UCItems.mithril_saber, Item.ingotMithril).extendsNBT().keepQuality();
             }
 
             if (UCCompat.uru_rapier != null && UCItems.mithril_rapier != null) {
-                event.registerShapelessRecipe(new ItemStack(UCCompat.uru_rapier, 1), false,
-                        forgingNote, uruIngot, UCItems.mithril_rapier, Item.ingotMithril);
+                event.registerShapelessRecipe(new ItemStack(UCCompat.uru_rapier, 1), false, Items.forgingNote, Items.uruIngot, UCItems.mithril_rapier, Item.ingotMithril).extendsNBT().keepQuality();
             }
         }
 
         if (UCCompat.nickel_saber != null) {
             event.registerShapedRecipe(new ItemStack(UCCompat.nickel_saber, 1), false, " C ", " C ", "CK ", 'C', Items.nickelIngot, 'K', Item.stick);
+            event.registerShapedRecipe(new ItemStack(UCCompat.nickel_saber, 1), false, " C ", " C ", "CK ", 'C', Items.nickelIngot, 'K', UCItems.copper_saber).extendsNBT().keepQuality();
+            event.registerShapedRecipe(new ItemStack(UCCompat.nickel_saber, 1), false, " C ", " C ", "CK ", 'C', Items.nickelIngot, 'K', UCItems.silver_saber).extendsNBT().keepQuality();
+            event.registerShapedRecipe(new ItemStack(UCCompat.nickel_saber, 1), false, " C ", " C ", "CK ", 'C', Items.nickelIngot, 'K', UCItems.golden_saber).extendsNBT().keepQuality();
+            event.registerShapedRecipe(new ItemStack(UCItems.ancient_metal_saber, 1), false, " A ", " A ", "AK ", 'A', Item.ingotAncientMetal, 'K', UCCompat.nickel_saber).extendsNBT().keepQuality();
         }
 
         if (UCCompat.nickel_rapier != null) {
             event.registerShapedRecipe(new ItemStack(UCCompat.nickel_rapier, 1), false, "  C", "CC ", "KC ", 'C', Items.nickelIngot, 'K', Item.stick);
+            event.registerShapedRecipe(new ItemStack(UCCompat.nickel_rapier, 1), false, "  C", "CC ", "KC ", 'C', Items.nickelIngot, 'K', UCItems.copper_rapier).extendsNBT().keepQuality();
+            event.registerShapedRecipe(new ItemStack(UCCompat.nickel_rapier, 1), false, "  C", "CC ", "KC ", 'C', Items.nickelIngot, 'K', UCItems.silver_rapier).extendsNBT().keepQuality();
+            event.registerShapedRecipe(new ItemStack(UCCompat.nickel_rapier, 1), false, "  C", "CC ", "KC ", 'C', Items.nickelIngot, 'K', UCItems.golden_rapier).extendsNBT().keepQuality();
+            event.registerShapedRecipe(new ItemStack(UCItems.ancient_metal_rapier, 1), false, "  A", "AA ", "KA ", 'A', Item.ingotAncientMetal, 'K', UCCompat.nickel_rapier).extendsNBT().keepQuality();
         }
 
         if (UCCompat.nickel_paxel != null) {
             event.registerShapedRecipe(new ItemStack(UCCompat.nickel_paxel, 1), false, "ASP", " K ", " K ", 'A', Items.nickelAxe, 'S', Items.nickelShovel, 'P', Items.nickelPickaxe, 'K', Item.stick);
+            event.registerShapedRecipe(new ItemStack(UCItems.ancient_metal_paxel, 1), false, "ASP", " K ", 'A', Item.axeAncientMetal, 'S', Item.shovelAncientMetal, 'P', Item.pickaxeAncientMetal, 'K', UCCompat.nickel_paxel).extendsNBT().keepQuality();
+
+            if (Items.nickelAxe != null && Items.nickelShovel != null && Items.nickelPickaxe != null) {
+                event.registerShapedRecipe(new ItemStack(UCCompat.nickel_paxel, 1), false, "ASP", " K ", "   ", 'A', Items.nickelAxe, 'S', Items.nickelShovel, 'P', Items.nickelPickaxe, 'K', UCItems.copper_paxel).extendsNBT().keepQuality();
+                event.registerShapedRecipe(new ItemStack(UCCompat.nickel_paxel, 1), false, "ASP", " K ", "   ", 'A', Items.nickelAxe, 'S', Items.nickelShovel, 'P', Items.nickelPickaxe, 'K', UCItems.silver_paxel).extendsNBT().keepQuality();
+                event.registerShapedRecipe(new ItemStack(UCCompat.nickel_paxel, 1), false, "ASP", " K ", "   ", 'A', Items.nickelAxe, 'S', Items.nickelShovel, 'P', Items.nickelPickaxe, 'K', UCItems.golden_paxel).extendsNBT().keepQuality();
+            }
         }
 
         if (UCCompat.tungsten_saber != null) {
             event.registerShapedRecipe(new ItemStack(UCCompat.tungsten_saber, 1), false, " C ", " C ", "CK ", 'C', Items.tungstenIngot, 'K', Item.stick);
+            event.registerShapedRecipe(new ItemStack(UCCompat.tungsten_saber, 1), false, " C ", " C ", "CK ", 'C', Items.tungstenIngot, 'K', UCItems.mithril_saber).extendsNBT().keepQuality();
+            event.registerShapedRecipe(new ItemStack(UCItems.adamantium_saber, 1), false, " A ", " A ", "AK ", 'A', Item.ingotAdamantium, 'K', UCCompat.tungsten_saber).extendsNBT().keepQuality();
         }
 
         if (UCCompat.tungsten_rapier != null) {
             event.registerShapedRecipe(new ItemStack(UCCompat.tungsten_rapier, 1), false, "  C", "CC ", "KC ", 'C', Items.tungstenIngot, 'K', Item.stick);
+            event.registerShapedRecipe(new ItemStack(UCCompat.tungsten_rapier, 1), false, "  C", "CC ", "KC ", 'C', Items.tungstenIngot, 'K', UCItems.mithril_rapier).extendsNBT().keepQuality();
+            event.registerShapedRecipe(new ItemStack(UCItems.adamantium_rapier, 1), false, "  A", "AA ", "KA ", 'A', Item.ingotAdamantium, 'K', UCCompat.tungsten_rapier).extendsNBT().keepQuality();
         }
 
         if (UCCompat.tungsten_paxel != null) {
             event.registerShapedRecipe(new ItemStack(UCCompat.tungsten_paxel, 1), false, "ASP", " K ", " K ", 'A', Items.tungstenAxe, 'S', Items.tungstenShovel, 'P', Items.tungstenPickaxe, 'K', Item.stick);
+            event.registerShapedRecipe(new ItemStack(UCItems.adamantium_paxel, 1), false, "ASP", " K ", "   ", 'A', Item.axeAdamantium, 'S', Item.shovelAdamantium, 'P', Item.pickaxeAdamantium, 'K', UCCompat.tungsten_paxel).extendsNBT().keepQuality();
+
+            if (Items.tungstenAxe != null && Items.tungstenShovel != null && Items.tungstenPickaxe != null) {
+                event.registerShapedRecipe(new ItemStack(UCCompat.tungsten_paxel, 1), false, "ASP", " K ", "   ", 'A', Items.tungstenAxe, 'S', Items.tungstenShovel, 'P', Items.tungstenPickaxe, 'K', UCItems.mithril_paxel).extendsNBT().keepQuality();
+            }
         }
     }
 
@@ -83,35 +95,22 @@ public final class UCRecipeCompat {
 
         if (!ModChecker.HAS_BEX) return;
 
-        Item enchantIngot = BEXItems.enchantIngot;
-        Item enchantPickaxe = BEXItems.enchantPickaxe;
-        Item obsidianStick = null;
-
-        if (ModChecker.HAS_ITE) {
-            obsidianStick = MITEITEItemRegistryInit.OBSIDIAN_STICK;
-        }
-
-        if (enchantIngot != null) {
+        if (BEXItems.enchantIngot != null) {
 
             if (UCCompat.enchant_saber != null) {
 
-                event.registerShapedRecipe(new ItemStack(UCCompat.enchant_saber, 1), false,
-                        " C ", " C ", "CK ", 'C', enchantIngot, 'K', obsidianStick != null ? obsidianStick : Item.stick);
+                event.registerShapedRecipe(new ItemStack(UCCompat.enchant_saber, 1), false, " C ", " C ", "CK ", 'C', BEXItems.enchantIngot, 'K', MITEITEItemRegistryInit.OBSIDIAN_STICK != null ? MITEITEItemRegistryInit.OBSIDIAN_STICK : Item.stick);
+                event.registerShapedRecipe(new ItemStack(UCCompat.enchant_saber, 1), false, " C ", " C ", "CK ", 'C', BEXItems.enchantIngot, 'K', UCItems.mithril_saber).extendsNBT().keepQuality();
             }
 
             if (UCCompat.enchant_rapier != null) {
-                event.registerShapedRecipe(new ItemStack(UCCompat.enchant_rapier, 1), false,
-                        "  C", "CC ", "KC ", 'C', enchantIngot, 'K', obsidianStick != null ? obsidianStick : Item.stick);
+                event.registerShapedRecipe(new ItemStack(UCCompat.enchant_rapier, 1), false, "  C", "CC ", "KC ", 'C', BEXItems.enchantIngot, 'K', MITEITEItemRegistryInit.OBSIDIAN_STICK != null ? MITEITEItemRegistryInit.OBSIDIAN_STICK : Item.stick);
+                event.registerShapedRecipe(new ItemStack(UCCompat.enchant_rapier, 1), false, "  C", "CC ", "KC ", 'C', BEXItems.enchantIngot, 'K', UCItems.mithril_rapier).extendsNBT().keepQuality();
             }
 
-            if (UCCompat.enchant_paxel != null && enchantPickaxe != null) {
-                event.registerShapedRecipe(new ItemStack(UCCompat.enchant_paxel, 1), false,
-                        "IIP",
-                        "II ",
-                        " K ",
-                        'I', enchantIngot,
-                        'P', enchantPickaxe,
-                        'K', obsidianStick != null ? obsidianStick : Item.stick);
+            if (UCCompat.enchant_paxel != null && BEXItems.enchantPickaxe != null) {
+                event.registerShapedRecipe(new ItemStack(UCCompat.enchant_paxel, 1), false, "IIP", "II ", " K ", 'I', BEXItems.enchantIngot, 'P', BEXItems.enchantPickaxe, 'K', MITEITEItemRegistryInit.OBSIDIAN_STICK != null ? MITEITEItemRegistryInit.OBSIDIAN_STICK : Item.stick);
+                event.registerShapedRecipe(new ItemStack(UCCompat.enchant_paxel, 1), false, "III", "IAP", "   ", 'A', UCItems.mithril_paxel, 'I', BEXItems.enchantIngot, 'P', BEXItems.enchantPickaxe).extendsNBT().keepQuality();
             }
         }
     }
@@ -120,34 +119,25 @@ public final class UCRecipeCompat {
 
         if (!ModChecker.HAS_ITE) return;
 
-        Item vibraniumIngot = MITEITEItemRegistryInit.VIBRANIUM_INGOT;
-        Item vibPick = MITEITEItemRegistryInit.VIBRANIUM_PICKAXE;
-        Item vibShovel = MITEITEItemRegistryInit.VIBRANIUM_SHOVEL;
-        Item vibAxe = MITEITEItemRegistryInit.VIBRANIUM_AXE;
-        Item obsidianStick = MITEITEItemRegistryInit.OBSIDIAN_STICK;
-        Item handleSword = Item.swordAncientMetal;
-        Item handleSaber = UCItems.ancient_metal_saber;
-        Item handleRapier = UCItems.ancient_metal_rapier;
-
-        if (vibraniumIngot != null) {
+        if (MITEITEItemRegistryInit.VIBRANIUM_INGOT != null) {
 
             if (UCCompat.vibranium_saber != null) {
-                event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_saber, 1), false,
-                        " C ", " C ", "CH ", 'C', vibraniumIngot, 'H', handleSword).extendsNBT().keepQuality();
-                event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_saber, 1), false,
-                        " C ", " C ", "CH ", 'C', vibraniumIngot, 'H', handleSaber).extendsNBT().keepQuality();
+                event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_saber, 1), false, " C ", " C ", "CH ", 'C', MITEITEItemRegistryInit.VIBRANIUM_INGOT, 'H', Item.swordAncientMetal).extendsNBT().keepQuality();
+                event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_saber, 1), false, " C ", " C ", "CH ", 'C', MITEITEItemRegistryInit.VIBRANIUM_INGOT, 'H', UCItems.ancient_metal_saber).extendsNBT().keepQuality();
+                event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_saber, 1), false, " C ", " C ", "CH ", 'C', MITEITEItemRegistryInit.VIBRANIUM_INGOT, 'H', UCItems.adamantium_saber).extendsNBT().keepQuality();
             }
 
             if (UCCompat.vibranium_rapier != null) {
-                event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_rapier, 1), false,
-                        "  C", "CC ", "HC ", 'C', vibraniumIngot, 'H', handleSword).extendsNBT().keepQuality();
-                event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_rapier, 1), false,
-                        "  C", "CC ", "HC ", 'C', vibraniumIngot, 'H', handleRapier).extendsNBT().keepQuality();
+                event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_rapier, 1), false, "  C", "CC ", "HC ", 'C', MITEITEItemRegistryInit.VIBRANIUM_INGOT, 'H', Item.swordAncientMetal).extendsNBT().keepQuality();
+                event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_rapier, 1), false, "  C", "CC ", "HC ", 'C', MITEITEItemRegistryInit.VIBRANIUM_INGOT, 'H', UCItems.ancient_metal_rapier).extendsNBT().keepQuality();
+                event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_rapier, 1), false, "  C", "CC ", "HC ", 'C', MITEITEItemRegistryInit.VIBRANIUM_INGOT, 'H', UCItems.adamantium_rapier).extendsNBT().keepQuality();
             }
 
-            if (UCCompat.vibranium_paxel != null && vibAxe != null && vibShovel != null && vibPick != null) {
-                event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_paxel, 1), false,
-                        "ASP", " K ", " K ", 'A', vibAxe, 'S', vibShovel, 'P', vibPick, 'K', obsidianStick != null ? obsidianStick : Item.stick).extendsNBT().keepQuality();
+            if (UCCompat.vibranium_paxel != null && MITEITEItemRegistryInit.VIBRANIUM_AXE != null && MITEITEItemRegistryInit.VIBRANIUM_SHOVEL != null && MITEITEItemRegistryInit.VIBRANIUM_PICKAXE != null) {
+                event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_paxel, 1), false, "ASP", " K ", " K ", 'A', MITEITEItemRegistryInit.VIBRANIUM_AXE, 'S', MITEITEItemRegistryInit.VIBRANIUM_SHOVEL, 'P', MITEITEItemRegistryInit.VIBRANIUM_PICKAXE, 'K', MITEITEItemRegistryInit.OBSIDIAN_STICK != null ? MITEITEItemRegistryInit.OBSIDIAN_STICK : Item.stick).extendsNBT().keepQuality();
+
+                event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_paxel, 1), false, "ASP", " K ", "   ", 'A', MITEITEItemRegistryInit.VIBRANIUM_AXE, 'S', MITEITEItemRegistryInit.VIBRANIUM_SHOVEL, 'P', MITEITEItemRegistryInit.VIBRANIUM_PICKAXE, 'K', UCItems.ancient_metal_paxel).extendsNBT().keepQuality();
+                event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_paxel, 1), false, "ASP", " K ", "   ", 'A', MITEITEItemRegistryInit.VIBRANIUM_AXE, 'S', MITEITEItemRegistryInit.VIBRANIUM_SHOVEL, 'P', MITEITEItemRegistryInit.VIBRANIUM_PICKAXE, 'K', UCItems.adamantium_paxel).extendsNBT().keepQuality();
             }
         }
     }
