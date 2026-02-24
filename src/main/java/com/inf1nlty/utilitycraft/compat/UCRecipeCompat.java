@@ -29,8 +29,7 @@ public final class UCRecipeCompat {
 
             if (UCCompat.uru_paxel != null) {
 
-                event.registerShapelessRecipe(new ItemStack(UCCompat.uru_paxel, 1), false, Items.forgingNote, Items.uruIngot, Item.pickaxeMithril, Item.shovelMithril, Item.axeMithril, Item.ingotMithril);
-                event.registerShapelessRecipe(new ItemStack(UCCompat.uru_paxel, 1), false, Items.forgingNote, Items.uruIngot, Item.pickaxeMithril, Item.shovelMithril, Item.axeMithril, UCItems.mithril_paxel).extendsNBT().keepQuality();
+                event.registerShapelessRecipe(new ItemStack(UCCompat.uru_paxel, 1), false, Items.forgingNote, Items.uruIngot, UCItems.mithril_paxel, Item.ingotMithril).extendsNBT().keepQuality();
             }
 
             if (UCCompat.uru_saber != null && UCItems.mithril_saber != null) {
