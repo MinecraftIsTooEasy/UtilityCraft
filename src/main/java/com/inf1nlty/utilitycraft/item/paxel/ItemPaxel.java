@@ -1,7 +1,9 @@
 package com.inf1nlty.utilitycraft.item.paxel;
 
 import com.inf1nlty.utilitycraft.creativetab.UCCreativeTab;
+import com.inf1nlty.utilitycraft.compat.ModChecker;
 import net.minecraft.*;
+import net.oilcake.mitelros.material.Materials;
 
 public class ItemPaxel extends ItemTool implements IPaxel {
 
@@ -19,6 +21,10 @@ public class ItemPaxel extends ItemTool implements IPaxel {
                 // shovel materials
                 Material.cake, Material.clay, Material.craftedSnow, Material.grass, Material.dirt, Material.sand, Material.snow
         });
+
+        if (ModChecker.HAS_ITFRB) {
+            this.addMaterialsEffectiveAgainst(new Material[] { Materials.crystal });
+        }
 
         // common + axe special blocks
         this.addBlocksEffectiveAgainst(new Block[] {
