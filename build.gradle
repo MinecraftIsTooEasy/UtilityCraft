@@ -34,7 +34,7 @@ dependencies {
 
     implementation "com.github.MinecraftIsTooEasy:Gson:2.10.1"
     implementation "com.github.MinecraftIsTooEasy:FastUtil:8.5.12"
-    implementation "com.github.MinecraftIsTooEasy:EMI:1.1.25"
+    implementation "com.github.MinecraftIsTooEasy:EMI:1.1.26"
 
     implementation "com.github.MinecraftIsTooEasy:SimpleStorage:1.0.1"
 
@@ -47,8 +47,14 @@ dependencies {
 def fmlResolvedFile = configurations.fml.files.iterator().next()
 
 loom {
+    if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+        runConfigs.named("client").get().getVmArgs().remove("-XstartOnFirstThread")
+    }
+
     accessWidenerPath = file("src/main/resources/utilitycraft.accessWidener")
+
     mergedMinecraftJar()
+
     mods {
         "UtilityCraft" {
             sourceSet sourceSets.main
