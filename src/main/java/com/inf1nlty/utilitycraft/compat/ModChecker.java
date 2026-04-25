@@ -8,4 +8,5 @@ public class ModChecker {
     public static final boolean HAS_EXTREME = FishModLoader.hasMod("extreme");
     public static final boolean HAS_BEX = FishModLoader.hasMod("bex");
     public static final boolean HAS_ITFRB = FishModLoader.hasMod("mite-itf-reborn");
+    public static final boolean HAS_MM = FishModLoader.hasMod("moremetals");
 }

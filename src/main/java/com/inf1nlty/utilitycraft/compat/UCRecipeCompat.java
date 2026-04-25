@@ -2,6 +2,7 @@ package com.inf1nlty.utilitycraft.compat;
 
 import com.inf1nlty.utilitycraft.item.UCItems;
 
+import com.moddedmite.mitemod.MoreMetals.items.MMItems;
 import net.minecraft.Item;
 import net.minecraft.ItemStack;
 
@@ -19,6 +20,7 @@ public final class UCRecipeCompat {
         registerItfCompat(event);
         registerBexCompat(event);
         registerMiteiteCompat(event);
+        registerMMCompat(event);
     }
 
     private static void registerItfCompat(CraftingRecipeRegisterEvent event) {
@@ -140,4 +142,107 @@ public final class UCRecipeCompat {
             }
         }
     }
+
+    private static void registerMMCompat(CraftingRecipeRegisterEvent event) {
+
+        if (!ModChecker.HAS_MM) return;
+
+        if (UCCompat.bronze_saber != null) {
+            event.registerShapedRecipe(new ItemStack(UCCompat.bronze_saber, 1), true, " B ", " B ", "BK ", 'B', MMItems.bronze_ingot, 'K', Item.stick);
+        }
+
+        if (UCCompat.bronze_rapier != null) {
+            event.registerShapedRecipe(new ItemStack(UCCompat.bronze_rapier, 1), true, "  B", "BB ", "BK ", 'B', MMItems.bronze_ingot, 'K', Item.stick);
+        }
+
+        if (UCCompat.bronze_paxel != null) {
+            event.registerShapedRecipe(new ItemStack(UCCompat.bronze_paxel, 1), true, "ASP", " K ", " K ", 'A', MMItems.bronze_axe, 'S', MMItems.bronze_shovel, 'P', MMItems.bronze_pickaxe, 'K', Item.stick);
+        }
+
+
+
+        if (UCCompat.steel_saber != null) {
+            event.registerShapedRecipe(new ItemStack(UCCompat.steel_saber, 1), true, " S ", " S ", "SK ", 'S', MMItems.steel_ingot, 'K', Item.stick);
+        }
+
+        if (UCCompat.steel_rapier != null) {
+            event.registerShapedRecipe(new ItemStack(UCCompat.steel_rapier, 1), true, "  S", "SS ", "SK ", 'S', MMItems.steel_ingot, 'K', Item.stick);
+        }
+
+        if (UCCompat.steel_paxel != null) {
+            event.registerShapedRecipe(new ItemStack(UCCompat.steel_paxel, 1), true, "ASP", " K ", " K ", 'A', MMItems.steel_axe, 'S', MMItems.steel_shovel, 'P', MMItems.steel_pickaxe, 'K', Item.stick);
+        }
+
+
+
+        if (UCCompat.titanium_alloy_saber != null) {
+            event.registerShapedRecipe(new ItemStack(UCCompat.titanium_alloy_saber, 1), true, " T ", " T ", "TK ", 'T', MMItems.titanium_alloy_ingot, 'K', Item.stick);
+        }
+
+        if (UCCompat.titanium_alloy_rapier != null) {
+            event.registerShapedRecipe(new ItemStack(UCCompat.titanium_alloy_rapier, 1), true, "  T", "TT ", "TK ", 'T', MMItems.titanium_alloy_ingot, 'K', Item.stick);
+        }
+
+        if (UCCompat.titanium_alloy_paxel != null) {
+            event.registerShapedRecipe(new ItemStack(UCCompat.titanium_alloy_paxel, 1), true, "ASP", " K ", " K ", 'A', MMItems.titanium_alloy_axe, 'S', MMItems.titanium_alloy_shovel, 'P', MMItems.titanium_alloy_pickaxe, 'K', Item.stick);
+        }
+
+
+
+
+        if (UCCompat.rose_gold_saber != null) {
+            event.registerShapedRecipe(new ItemStack(UCCompat.rose_gold_saber, 1), true, " R ", " R ", "RK ", 'R', MMItems.rose_gold_ingot, 'K', Item.stick);
+        }
+
+        if (UCCompat.rose_gold_rapier != null) {
+            event.registerShapedRecipe(new ItemStack(UCCompat.rose_gold_rapier, 1), true, "  R", "RR ", "RK ", 'R', MMItems.rose_gold_ingot, 'K', Item.stick);
+        }
+
+        if (UCCompat.rose_gold_paxel != null) {
+            event.registerShapedRecipe(new ItemStack(UCCompat.rose_gold_paxel, 1), true, "ASP", " K ", " K ", 'A', MMItems.rose_gold_axe, 'S', MMItems.rose_gold_shovel, 'P', MMItems.rose_gold_pickaxe, 'K', Item.stick);
+        }
+
+
+
+        if (UCCompat.platinum_saber != null) {
+            event.registerShapedRecipe(new ItemStack(UCCompat.platinum_saber, 1), true, " P ", " P ", "PK ", 'P', MMItems.platinum_ingot, 'K', Item.stick);
+        }
+
+        if (UCCompat.platinum_rapier != null) {
+            event.registerShapedRecipe(new ItemStack(UCCompat.platinum_rapier, 1), true, "  P", "PP ", "PK ", 'P', MMItems.platinum_ingot, 'K', Item.stick);
+        }
+
+        if (UCCompat.platinum_paxel != null) {
+            event.registerShapedRecipe(new ItemStack(UCCompat.platinum_paxel, 1), true, "ASP", " K ", " K ", 'A', MMItems.platinum_axe, 'S', MMItems.platinum_shovel, 'P', MMItems.platinum_pickaxe, 'K', Item.stick);
+        }
+
+
+
+        if (UCCompat.midas_gold_saber != null) {
+            event.registerShapedRecipe(new ItemStack(UCCompat.midas_gold_saber, 1), true, " M ", " M ", "MK ", 'M', MMItems.midas_gold_ingot, 'K', Item.stick);
+        }
+
+        if (UCCompat.midas_gold_rapier != null) {
+            event.registerShapedRecipe(new ItemStack(UCCompat.midas_gold_rapier, 1), true, "  M", "MM ", "MK ", 'M', MMItems.midas_gold_ingot, 'K', Item.stick);
+        }
+
+        if (UCCompat.midas_gold_paxel != null) {
+            event.registerShapedRecipe(new ItemStack(UCCompat.midas_gold_paxel, 1), true, "ASP", " K ", " K ", 'A', MMItems.midas_gold_axe, 'S', MMItems.midas_gold_shovel, 'P', MMItems.midas_gold_pickaxe, 'K', Item.stick);
+        }
+
+
+
+        if (UCCompat.adamium_mm_saber != null) {
+            event.registerShapedRecipe(new ItemStack(UCCompat.adamium_mm_saber, 1), true, " M ", " M ", "MK ", 'M', MMItems.adamantium_ingot, 'K', Item.stick);
+        }
+
+        if (UCCompat.adamium_mm_rapier != null) {
+            event.registerShapedRecipe(new ItemStack(UCCompat.adamium_mm_rapier, 1), true, "  M", "MM ", "MK ", 'M', MMItems.adamantium_ingot, 'K', Item.stick);
+        }
+
+        if (UCCompat.adamium_mm_paxel != null) {
+            event.registerShapedRecipe(new ItemStack(UCCompat.adamium_mm_paxel, 1), true, "ASP", " K ", " K ", 'A', MMItems.adamantium_axe, 'S', MMItems.adamantium_shovel, 'P', MMItems.adamantium_pickaxe, 'K', Item.stick);
+        }
+    }
+
 }
