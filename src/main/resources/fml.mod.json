@@ -32,7 +32,7 @@
   "mixins": [
     "utilitycraft.mixins.json"
   ],
-  "accessWidener": "utilitycraft.accessWidener",
+  "accessWidener": "utilitycraft.accesswidener",
   "custom": {
   }
 }

@@ -5,18 +5,21 @@ item.iron_saber.name=铁军刀
 item.ancient_metal_saber.name=远古金属军刀
 item.mithril_saber.name=秘银军刀
 item.adamantium_saber.name=艾德曼军刀
+
 item.nickel_saber.name=镍军刀
 item.tungsten_saber.name=钨钢军刀
 item.uru_saber.name=乌鲁金属军刀
+
 item.enchant_saber.name=附魔金属军刀
 item.vibranium_saber.name=振金军刀
+
 item.bronze_saber.name=青铜军刀
 item.rose_gold_saber.name=玫瑰金军刀
 item.platinum_saber.name=铂金军刀
 item.midas_gold_saber.name=迈达斯金军刀
-item.steel_saber.name=钢剑军刀
+item.steel_saber.name=钢军刀
 item.titanium_alloy_saber.name=钛合金军刀
-item.adamantium_mm_saber.name=艾德曼军刀
+item.adamantium_mm_saber.name=精金军刀
 
 item.copper_rapier.name=铜迅捷剑
 item.silver_rapier.name=银迅捷剑
@@ -25,18 +28,21 @@ item.iron_rapier.name=铁迅捷剑
 item.ancient_metal_rapier.name=远古金属迅捷剑
 item.mithril_rapier.name=秘银迅捷剑
 item.adamantium_rapier.name=艾德曼迅捷剑
+
 item.nickel_rapier.name=镍迅捷剑
 item.tungsten_rapier.name=钨钢迅捷剑
 item.uru_rapier.name=乌鲁金属迅捷剑
+
 item.enchant_rapier.name=附魔金属迅捷剑
 item.vibranium_rapier.name=振金迅捷剑
+
 item.bronze_rapier.name=青铜迅捷剑
 item.rose_gold_rapier.name=玫瑰金迅捷剑
 item.platinum_rapier.name=铂金迅捷剑
 item.midas_gold_rapier.name=迈达斯金迅捷剑
-item.steel_rapier.name=钢剑迅捷剑
+item.steel_rapier.name=钢迅捷剑
 item.titanium_alloy_rapier.name=钛合金迅捷剑
-item.adamantium_mm_rapier.name=艾德曼迅捷剑
+item.adamantium_mm_rapier.name=精金迅捷剑
 
 item.copper_paxel.name=铜镐尖斧
 item.silver_paxel.name=银镐尖斧
@@ -45,18 +51,21 @@ item.iron_paxel.name=铁镐尖斧
 item.ancient_metal_paxel.name=远古金属镐尖斧
 item.mithril_paxel.name=秘银镐尖斧
 item.adamantium_paxel.name=艾德曼镐尖斧
+
 item.nickel_paxel.name=镍镐尖斧
 item.tungsten_paxel.name=钨镐尖斧
 item.uru_paxel.name=乌鲁金属镐尖斧
+
 item.enchant_paxel.name=附魔金属镐尖斧
 item.vibranium_paxel.name=振金镐尖斧
+
 item.bronze_paxel.name=青铜镐尖斧
 item.rose_gold_paxel.name=玫瑰金镐尖斧
 item.platinum_paxel.name=铂金镐尖斧
 item.midas_gold_paxel.name=迈达斯金镐尖斧
-item.steel_paxel.name=钢剑尖斧
+item.steel_paxel.name=钢镐尖斧
 item.titanium_alloy_paxel.name=钛合金镐尖斧
-item.adamantium_mm_paxel.name=艾德曼镐尖斧
+item.adamantium_mm_paxel.name=精金镐尖斧
 
 item.obsidian_boat.name=黑曜石船
 
