@@ -24,6 +24,9 @@
     "preLaunch": [],
     "main": [
       "com.inf1nlty.utilitycraft.UtilityCraftMod"
+    ],
+    "mite_ite": [
+      "com.inf1nlty.utilitycraft.compat.UCITEPlugin"
     ]
   },
   "modmenu": [

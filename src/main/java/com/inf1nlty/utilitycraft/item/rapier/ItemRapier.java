@@ -3,6 +3,7 @@ package com.inf1nlty.utilitycraft.item.rapier;
 import com.inf1nlty.utilitycraft.UCConfigs;
 import com.inf1nlty.utilitycraft.client.UCSounds;
 import com.inf1nlty.utilitycraft.creativetab.UCCreativeTab;
+import com.inf1nlty.utilitycraft.util.UCItemNameUtils;
 import net.minecraft.*;
 import net.xiaoyu233.fml.api.item.SwordItem;
 import org.lwjgl.input.Keyboard;
@@ -13,11 +14,13 @@ public class ItemRapier extends SwordItem implements IRapier {
 
     private final float damage;
     private final Material material;
+    private final String materialKey;
 
     public ItemRapier(int id, Material material, float damage, String name) {
         super(id, material);
         this.damage = damage;
         this.material = material;
+        this.materialKey = UCItemNameUtils.materialKeyFromItemName(name, "_rapier");
         this.setUnlocalizedName(name);
         this.setCreativeTab(UCCreativeTab.TAB);
     }
@@ -30,6 +33,21 @@ public class ItemRapier extends SwordItem implements IRapier {
     @Override
     public Material getMaterial() {
         return this.material;
+    }
+
+    @Override
+    public String getItemStackDisplayName(ItemStack itemStack) {
+        return this.getItemDisplayName(itemStack);
+    }
+
+    @Override
+    public String getItemDisplayName(ItemStack itemStack) {
+        return this.getStatName();
+    }
+
+    @Override
+    public String getStatName() {
+        return UCItemNameUtils.composeName(this.materialKey, "rapier");
     }
 
     @Override
@@ -69,6 +87,8 @@ public class ItemRapier extends SwordItem implements IRapier {
     @Override
     @SuppressWarnings("unchecked")
     public void addInformation(ItemStack item_stack, EntityPlayer player, List info, boolean extended_info, Slot slot) {
+        super.addInformation(item_stack, player, info, extended_info, slot);
+
         if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT)) {
             info.add(StatCollector.translateToLocal("item.utilitycraft.rapier.desc"));
         } else {

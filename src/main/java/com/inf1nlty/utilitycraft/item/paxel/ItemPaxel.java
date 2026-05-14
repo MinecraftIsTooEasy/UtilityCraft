@@ -2,13 +2,20 @@ package com.inf1nlty.utilitycraft.item.paxel;
 
 import com.inf1nlty.utilitycraft.creativetab.UCCreativeTab;
 import com.inf1nlty.utilitycraft.compat.ModChecker;
+import com.inf1nlty.utilitycraft.util.UCItemNameUtils;
 import net.minecraft.*;
 import net.oilcake.mitelros.material.Materials;
 
 public class ItemPaxel extends ItemTool implements IPaxel {
+    private final String materialKey;
 
     public ItemPaxel(int id, Material material) {
+        this(id, material, material + "_paxel");
+    }
+
+    public ItemPaxel(int id, Material material, String name) {
         super(id, material);
+        this.materialKey = UCItemNameUtils.materialKeyFromItemName(name, "_paxel");
 
         this.addMaterialsEffectiveAgainst(new Material[] {
                 // pickaxe materials
@@ -43,7 +50,23 @@ public class ItemPaxel extends ItemTool implements IPaxel {
         }
 
         this.setMaxDamage(this.getMultipliedDurability());
+        this.setUnlocalizedName(name);
         this.setCreativeTab(UCCreativeTab.TAB);
+    }
+
+    @Override
+    public String getItemStackDisplayName(ItemStack itemStack) {
+        return this.getItemDisplayName(itemStack);
+    }
+
+    @Override
+    public String getItemDisplayName(ItemStack itemStack) {
+        return this.getStatName();
+    }
+
+    @Override
+    public String getStatName() {
+        return UCItemNameUtils.composeName(this.materialKey, "paxel");
     }
 
     @Override

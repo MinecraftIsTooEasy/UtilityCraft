@@ -1,71 +1,33 @@
-item.copper_saber.name=Copper Saber
-item.silver_saber.name=Silver Saber
-item.golden_saber.name=Golden Saber
-item.iron_saber.name=Iron Saber
-item.ancient_metal_saber.name=Ancient Metal Saber
-item.mithril_saber.name=Mithril Saber
-item.adamantium_saber.name=Adamantium Saber
+utilitycraft.item_name.format=%s %s
 
-item.nickel_saber.name=Nickel Saber
-item.tungsten_saber.name=Tungsten Saber
-item.uru_saber.name=Uru Saber
+utilitycraft.material.copper=Copper
+utilitycraft.material.silver=Silver
+utilitycraft.material.golden=Gold
+utilitycraft.material.iron=Iron
+utilitycraft.material.ancient_metal=Ancient Metal
+utilitycraft.material.mithril=Mithril
+utilitycraft.material.adamantium=Adamantium
+utilitycraft.material.nickel=Nickel
+utilitycraft.material.tungsten=Tungsten
+utilitycraft.material.uru=Uru
+utilitycraft.material.enchant=Experience
+utilitycraft.material.vibranium=Vibranium
+utilitycraft.material.bronze=Bronze
+utilitycraft.material.rose_gold=Rose Gold
+utilitycraft.material.platinum=Platinum
+utilitycraft.material.midas_gold=Midas Gold
+utilitycraft.material.steel=Steel
+utilitycraft.material.titanium_alloy=Titanium Alloy
+utilitycraft.material.adamantium_mm=Adamantium
 
-item.enchant_saber.name=Experience Saber
-item.vibranium_saber.name=Vibranium Saber
-
-item.bronze_saber.name=Bronze Saber
-item.rose_gold_saber.name=Rose Gold Saber
-item.platinum_saber.name=Platinum Saber
-item.midas_gold_saber.name=Midas Gold Saber
-item.steel_saber.name=Steel Saber
-item.titanium_alloy_saber.name=Titanium Alloy Saber
-item.adamantium_mm_saber.name=Adamantium Saber
-
-item.copper_rapier.name=Copper Rapier
-item.silver_rapier.name=Silver Rapier
-item.golden_rapier.name=Golden Rapier
-item.iron_rapier.name=Iron Rapier
-item.ancient_metal_rapier.name=Ancient Metal Rapier
-item.mithril_rapier.name=Mithril Rapier
-item.adamantium_rapier.name=Adamantium Rapier
-
-item.nickel_rapier.name=Nickel Rapier
-item.tungsten_rapier.name=Tungsten Rapier
-item.uru_rapier.name=Uru Rapier
-
-item.enchant_rapier.name=Experience Rapier
-item.vibranium_rapier.name=Vibranium Rapier
-
-item.bronze_rapier.name=Bronze Rapier
-item.rose_gold_rapier.name=Rose Gold Rapier
-item.platinum_rapier.name=Platinum Rapier
-item.midas_gold_rapier.name=Midas Gold Rapier
-item.steel_rapier.name=Steel Rapier
-item.titanium_alloy_rapier.name=Titanium Alloy Rapier
-item.adamantium_mm_rapier.name=Adamantium Rapier
-
-item.copper_paxel.name=Copper Paxel
-item.silver_paxel.name=Silver Paxel
-item.golden_paxel.name=Golden Paxel
-item.iron_paxel.name=Iron Paxel
-item.ancient_metal_paxel.name=AnciernMetal Paxel
-item.mithril_paxel.name=Mithril Paxel
-item.adamantium_paxel.name=Adamantium Paxel
-
-item.nickel_paxel.name=Nickel Paxel
-item.tungsten_paxel.name=Tungsten Paxel
-item.uru_paxel.name=Uru Paxel
-
-item.enchant_paxel.name=Enchant Paxel
-item.vibranium_paxel.name=Vibranium Paxel
-
-item.bronze_paxel.name=Bronze Paxel
-item.rose_gold_paxel.name=Rose Gold Paxel
-item.platinum_paxel.name=Platinum Paxel
-item.midas_gold_paxel.name=Midas Gold Paxel
-item.steel_paxel.name=Steel Paxel
-item.titanium_alloy_paxel.name=Titanium Alloy Paxel
-item.adamantium_mm_paxel.name=Adamantium Paxel
+utilitycraft.item_type.saber=Saber
+utilitycraft.item_type.rapier=Rapier
+utilitycraft.item_type.mace=Mace
+utilitycraft.item_type.paxel=Paxel
+utilitycraft.item_type.heavy_helmet=Heavy Helmet
+utilitycraft.item_type.heavy_chestplate=Heavy Chestplate
+utilitycraft.item_type.heavy_leggings=Heavy Leggings
+utilitycraft.item_type.heavy_boots=Heavy Boots
 
 item.obsidian_boat.name=Obsidian Boat
 
@@ -101,6 +63,7 @@ item.utilitycraft.rapier.tip=§7Hold §eShift§7 for more information
 item.utilitycraft.rapier.desc=§bAttacks faster. Armor penetration depends on the material level difference.
 item.utilitycraft.saber.tip=§7Hold §eShift§7 for more information
 item.utilitycraft.saber.desc=§bSweeping Damage: %.1f
+item.utilitycraft.mace.desc=§bEvery inch of reach is an inch of strength.
 
 utilitycraft.workbench.need_next_tier.group1=Cannot upgrade: need Copper/Silver/Gold ingot to upgrade
 utilitycraft.workbench.need_next_tier.group2=Cannot upgrade: need Iron ingot to upgrade

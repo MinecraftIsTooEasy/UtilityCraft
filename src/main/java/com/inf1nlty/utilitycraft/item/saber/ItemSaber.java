@@ -5,6 +5,7 @@ import com.inf1nlty.utilitycraft.UCEnchantments;
 import com.inf1nlty.utilitycraft.client.UCSounds;
 import com.inf1nlty.utilitycraft.creativetab.UCCreativeTab;
 import com.inf1nlty.utilitycraft.item.ISweepAttack;
+import com.inf1nlty.utilitycraft.util.UCItemNameUtils;
 import com.inf1nlty.utilitycraft.util.UCDamageUtils;
 import net.minecraft.*;
 import net.xiaoyu233.fml.api.item.SwordItem;
@@ -15,10 +16,12 @@ import java.util.List;
 public class ItemSaber extends SwordItem implements ISaber, ISweepAttack {
 
     private final float damage;
+    private final String materialKey;
 
     public ItemSaber(int id, Material material, float damage, String name) {
         super(id, material);
         this.damage = damage;
+        this.materialKey = UCItemNameUtils.materialKeyFromItemName(name, "_saber");
         this.setUnlocalizedName(name);
         this.setCreativeTab(UCCreativeTab.TAB);
     }
@@ -26,6 +29,21 @@ public class ItemSaber extends SwordItem implements ISaber, ISweepAttack {
     @Override
     public float getDamage() {
         return this.damage;
+    }
+
+    @Override
+    public String getItemStackDisplayName(ItemStack itemStack) {
+        return this.getItemDisplayName(itemStack);
+    }
+
+    @Override
+    public String getItemDisplayName(ItemStack itemStack) {
+        return this.getStatName();
+    }
+
+    @Override
+    public String getStatName() {
+        return UCItemNameUtils.composeName(this.materialKey, "saber");
     }
 
     @Override

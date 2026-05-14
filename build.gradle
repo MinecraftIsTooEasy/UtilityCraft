@@ -30,16 +30,17 @@ dependencies {
 
     implementation "com.github.MinecraftIsTooEasy:ManyLib:2.3.1"
     implementation "com.github.MinecraftIsTooEasy:ModMenu:10.1.1"
-    implementation "com.github.MinecraftIsTooEasy:RustedIronCore:1.5.3"
+    implementation "com.github.MinecraftIsTooEasy:RustedIronCore:1.5.5"
 
     localRuntime "com.github.MinecraftIsTooEasy:Gson:2.10.1"
     localRuntime "com.github.MinecraftIsTooEasy:FastUtil:8.5.12"
-    implementation "com.github.MinecraftIsTooEasy:EMI:1.1.26"
+    implementation "com.github.MinecraftIsTooEasy:EMI:1.1.27"
 
     localRuntime "com.github.MinecraftIsTooEasy:SimpleStorage:1.0.3"
+    localRuntime "com.github.MinecraftIsTooEasy:ModernMITE:3.7.5"
 
     implementation "com.github.MinecraftIsTooEasy:Extreme:0.1.6.12"
-    implementation "com.github.MinecraftIsTooEasy:MITE-ITE:2.0.25"
+    implementation "com.github.MinecraftIsTooEasy:MITE-ITE:2.0.27"
     implementation "com.github.MinecraftIsTooEasy:BeyondExtreme:3.0.8"
     implementation "com.github.MinecraftIsTooEasy:MITE-ITF-Reborn:17.2.28"
     implementation "com.github.MinecraftIsTooEasy:MoreMetals:1.2.3"

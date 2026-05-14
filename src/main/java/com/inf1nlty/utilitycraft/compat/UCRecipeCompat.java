@@ -8,6 +8,7 @@ import net.minecraft.ItemStack;
 
 import net.moddedmite.mitemod.bex.register.BEXItems;
 import net.oilcake.mitelros.registry.item.Items;
+import net.xiaoyu233.mitemod.miteite.block.MITEITEBlockRegistryInit;
 import net.xiaoyu233.mitemod.miteite.item.MITEITEItemRegistryInit;
 
 import moddedmite.rustedironcore.api.event.events.CraftingRecipeRegisterEvent;
@@ -134,11 +135,38 @@ public final class UCRecipeCompat {
                 event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_rapier, 1), true, "  C", "CC ", "HC ", 'C', MITEITEItemRegistryInit.VIBRANIUM_INGOT, 'H', UCItems.adamantium_rapier).extendsNBT().keepQuality();
             }
 
+            if (UCCompat.vibranium_mace != null) {
+                event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_mace, 1), true, "III", "IBI", " H ",
+                        'I', MITEITEItemRegistryInit.VIBRANIUM_INGOT,
+                        'B', MITEITEBlockRegistryInit.blockVibranium,
+                        'H', UCItems.ancient_metal_mace).extendsNBT().keepQuality();
+                event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_mace, 1), true, "III", "IBI", " H ",
+                        'I', MITEITEItemRegistryInit.VIBRANIUM_INGOT,
+                        'B', MITEITEBlockRegistryInit.blockVibranium,
+                        'H', UCItems.adamantium_mace).extendsNBT().keepQuality();
+            }
+
             if (UCCompat.vibranium_paxel != null && MITEITEItemRegistryInit.VIBRANIUM_AXE != null && MITEITEItemRegistryInit.VIBRANIUM_SHOVEL != null && MITEITEItemRegistryInit.VIBRANIUM_PICKAXE != null) {
                 event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_paxel, 1), true, "ASP", " K ", " K ", 'A', MITEITEItemRegistryInit.VIBRANIUM_AXE, 'S', MITEITEItemRegistryInit.VIBRANIUM_SHOVEL, 'P', MITEITEItemRegistryInit.VIBRANIUM_PICKAXE, 'K', MITEITEItemRegistryInit.OBSIDIAN_STICK != null ? MITEITEItemRegistryInit.OBSIDIAN_STICK : Item.stick).extendsNBT().keepQuality();
 
                 event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_paxel, 1), true, "ASP", " K ", "   ", 'A', MITEITEItemRegistryInit.VIBRANIUM_AXE, 'S', MITEITEItemRegistryInit.VIBRANIUM_SHOVEL, 'P', MITEITEItemRegistryInit.VIBRANIUM_PICKAXE, 'K', UCItems.ancient_metal_paxel).extendsNBT().keepQuality();
                 event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_paxel, 1), true, "ASP", " K ", "   ", 'A', MITEITEItemRegistryInit.VIBRANIUM_AXE, 'S', MITEITEItemRegistryInit.VIBRANIUM_SHOVEL, 'P', MITEITEItemRegistryInit.VIBRANIUM_PICKAXE, 'K', UCItems.adamantium_paxel).extendsNBT().keepQuality();
+            }
+
+            if (UCCompat.vibranium_heavy_helmet != null) {
+                event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_heavy_helmet, 1), true, "IHI", "I I", 'I', MITEITEItemRegistryInit.VIBRANIUM_INGOT, 'H', UCItems.adamantium_heavy_helmet).extendsNBT().keepQuality();
+            }
+
+            if (UCCompat.vibranium_heavy_chestplate != null) {
+                event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_heavy_chestplate, 1), true, "I I", "ICI", "III", 'I', MITEITEItemRegistryInit.VIBRANIUM_INGOT, 'C', UCItems.adamantium_heavy_chestplate).extendsNBT().keepQuality();
+            }
+
+            if (UCCompat.vibranium_heavy_leggings != null) {
+                event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_heavy_leggings, 1), true, "ILI", "I I", "I I", 'I', MITEITEItemRegistryInit.VIBRANIUM_INGOT, 'L', UCItems.adamantium_heavy_leggings).extendsNBT().keepQuality();
+            }
+
+            if (UCCompat.vibranium_heavy_boots != null) {
+                event.registerShapedRecipe(new ItemStack(UCCompat.vibranium_heavy_boots, 1), true, "I I", " B ", "I I", 'I', MITEITEItemRegistryInit.VIBRANIUM_INGOT, 'B', UCItems.adamantium_heavy_boots).extendsNBT().keepQuality();
             }
         }
     }
