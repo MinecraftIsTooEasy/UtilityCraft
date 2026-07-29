@@ -36,5 +36,6 @@ public class UCFMLEvents {
     public void registerSounds(SoundsRegisterEvent event) {
         event.registerSound(UCSounds.weaponSweep, 7);
         event.registerSound(UCSounds.weaponRapier, 4);
+        event.registerSound(UCSounds.weaponNunchaku, 1);
     }
 }

@@ -16,12 +16,16 @@
     "enchantment.MaceVampiricITFAnvilSystemMixin",
     "enchantment.PaxelEnchantmentMixin",
     "enchantment.RapierEnchantmentMixin",
+    "ItemInWorldManagerNunchakuMixin",
     "NetServerHandlerMixin"
   ],
   "client": [
     "client.WorldMixin",
     "client.NetClientHandlerMixin",
+    "client.MinecraftNunchakuMixin",
+    "client.PlayerControllerMPNunchakuMixin",
     "client.render.RenderBoatMixin",
+    "client.render.ItemRendererNunchakuMixin",
     "client.render.ChestItemRenderHelperMixin",
     "client.render.EffectRendererMixin",
     "client.render.TileEntityRendererMixin"

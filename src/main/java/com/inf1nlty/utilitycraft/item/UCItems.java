@@ -6,6 +6,7 @@ import com.inf1nlty.utilitycraft.item.armor.ItemHeavyCuirass;
 import com.inf1nlty.utilitycraft.item.armor.ItemHeavyHelmet;
 import com.inf1nlty.utilitycraft.item.armor.ItemHeavyLeggings;
 import com.inf1nlty.utilitycraft.item.mace.ItemMace;
+import com.inf1nlty.utilitycraft.item.nunchaku.ItemNunchaku;
 import com.inf1nlty.utilitycraft.item.paxel.ItemPaxel;
 import com.inf1nlty.utilitycraft.item.rapier.ItemRapier;
 import com.inf1nlty.utilitycraft.item.saber.ItemSaber;
@@ -43,6 +44,14 @@ public class UCItems {
     public static ItemMace ancient_metal_mace;
     public static ItemMace mithril_mace;
     public static ItemMace adamantium_mace;
+
+    public static ItemNunchaku copper_nunchaku;
+    public static ItemNunchaku silver_nunchaku;
+    public static ItemNunchaku golden_nunchaku;
+    public static ItemNunchaku iron_nunchaku;
+    public static ItemNunchaku ancient_metal_nunchaku;
+    public static ItemNunchaku mithril_nunchaku;
+    public static ItemNunchaku adamantium_nunchaku;
 
     public static ItemHeavyHelmet copper_heavy_helmet;
     public static ItemHeavyCuirass copper_heavy_chestplate;
@@ -157,6 +166,27 @@ public class UCItems {
 
         adamantium_mace = ItemMace.createAdamantium(IdUtil.getNextItemID());
         event.register(MOD_DISPLAY_NAME, RES_PREFIX + "mace/adamantium_mace", "adamantium_mace", adamantium_mace);
+
+        copper_nunchaku = ItemNunchaku.createCopper(IdUtil.getNextItemID());
+        event.register(MOD_DISPLAY_NAME, RES_PREFIX + "nunchaku/copper_nunchaku", "copper_nunchaku", copper_nunchaku);
+
+        silver_nunchaku = ItemNunchaku.createSilver(IdUtil.getNextItemID());
+        event.register(MOD_DISPLAY_NAME, RES_PREFIX + "nunchaku/silver_nunchaku", "silver_nunchaku", silver_nunchaku);
+
+        golden_nunchaku = ItemNunchaku.createGolden(IdUtil.getNextItemID());
+        event.register(MOD_DISPLAY_NAME, RES_PREFIX + "nunchaku/golden_nunchaku", "golden_nunchaku", golden_nunchaku);
+
+        iron_nunchaku = ItemNunchaku.createIron(IdUtil.getNextItemID());
+        event.register(MOD_DISPLAY_NAME, RES_PREFIX + "nunchaku/iron_nunchaku", "iron_nunchaku", iron_nunchaku);
+
+        ancient_metal_nunchaku = ItemNunchaku.createAncientMetal(IdUtil.getNextItemID());
+        event.register(MOD_DISPLAY_NAME, RES_PREFIX + "nunchaku/ancient_metal_nunchaku", "ancient_metal_nunchaku", ancient_metal_nunchaku);
+
+        mithril_nunchaku = ItemNunchaku.createMithril(IdUtil.getNextItemID());
+        event.register(MOD_DISPLAY_NAME, RES_PREFIX + "nunchaku/mithril_nunchaku", "mithril_nunchaku", mithril_nunchaku);
+
+        adamantium_nunchaku = ItemNunchaku.createAdamantium(IdUtil.getNextItemID());
+        event.register(MOD_DISPLAY_NAME, RES_PREFIX + "nunchaku/adamantium_nunchaku", "adamantium_nunchaku", adamantium_nunchaku);
 
         registerHeavyArmor(event);
 

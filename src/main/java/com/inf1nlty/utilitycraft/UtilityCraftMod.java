@@ -1,6 +1,7 @@
 package com.inf1nlty.utilitycraft;
 
 import com.inf1nlty.utilitycraft.network.UCChestNet;
+import com.inf1nlty.utilitycraft.network.UCNetworkPackets;
 import fi.dy.masa.malilib.config.ConfigManager;
 import net.fabricmc.api.ModInitializer;
 import net.xiaoyu233.fml.ModResourceManager;
@@ -20,6 +21,7 @@ public class UtilityCraftMod implements ModInitializer {
         UCRICEvents.register();
 
         UCChestNet.register("utilitycraft");
+        UCNetworkPackets.init();
 
         MITEEvents.MITE_EVENT_BUS.register(new UCFMLEvents());
     }

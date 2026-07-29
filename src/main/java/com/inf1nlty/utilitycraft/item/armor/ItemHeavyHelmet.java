@@ -7,6 +7,7 @@ import net.minecraft.ItemStack;
 import net.minecraft.Material;
 
 public class ItemHeavyHelmet extends ItemHelmet implements IHeavyArmor {
+
     private final String texturePrefix;
     private final String materialKey;
 
@@ -14,6 +15,7 @@ public class ItemHeavyHelmet extends ItemHelmet implements IHeavyArmor {
         super(id, material, false);
         this.texturePrefix = texturePrefix;
         this.materialKey = UCItemNameUtils.materialKeyFromItemName(name, "_heavy_helmet");
+        this.setMaxDamage((int)(13.0F * material.durability * 2.0F));
         this.setUnlocalizedName(name);
         this.setCreativeTab(UCCreativeTab.TAB);
     }

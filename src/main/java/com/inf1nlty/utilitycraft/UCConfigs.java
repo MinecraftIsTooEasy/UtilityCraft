@@ -22,6 +22,12 @@ public class UCConfigs extends SimpleConfigs {
             "utilitycraft.rapierAttackSound"
     );
 
+    public static final ConfigBoolean nunchakuAttackSound = new ConfigBoolean(
+            "utilitycraft.nunchakuAttackSound",
+            false,
+            "config.comment.utilitycraft.nunchakuAttackSound"
+    );
+
     private static final UCConfigs Instance;
 
     public static final List<ConfigBase<?>> MiscSettings;
@@ -46,7 +52,8 @@ public class UCConfigs extends SimpleConfigs {
 
         MiscSettings = List.of(
                 rapierAttackSound,
-                saberAttackSound
+                saberAttackSound,
+                nunchakuAttackSound
         );
 
         Total.addAll(MiscSettings);

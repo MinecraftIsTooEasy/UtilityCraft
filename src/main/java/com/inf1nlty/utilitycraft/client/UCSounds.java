@@ -5,4 +5,5 @@ import net.minecraft.ResourceLocation;
 public class UCSounds {
     public static final ResourceLocation weaponSweep = new ResourceLocation("utilitycraft", "weapon.sweep");
     public static final ResourceLocation weaponRapier = new ResourceLocation("utilitycraft", "weapon.rapier");
+    public static final ResourceLocation weaponNunchaku = new ResourceLocation("utilitycraft", "weapon.nunchaku");
 }

@@ -23,6 +23,7 @@ utilitycraft.material.adamantium_mm=精金
 utilitycraft.item_type.saber=军刀
 utilitycraft.item_type.rapier=迅捷剑
 utilitycraft.item_type.mace=狼牙棒
+utilitycraft.item_type.nunchaku=双节棍
 utilitycraft.item_type.paxel=镐尖斧
 utilitycraft.item_type.heavy_helmet=重型头盔
 utilitycraft.item_type.heavy_chestplate=重型胸甲
@@ -64,6 +65,7 @@ item.utilitycraft.rapier.desc=§b攻击速度更快， 无视护甲比例取决�
 item.utilitycraft.saber.tip=§7按住§eShift§7查看更多信息
 item.utilitycraft.saber.desc=§b横扫伤害: %.1f
 item.utilitycraft.mace.desc=§b一寸长, 一寸强
+item.utilitycraft.nunchaku.desc=§b按住左键持续挥舞，连续命中会提高伤害
 
 utilitycraft.workbench.need_next_tier.group1=无法升级：需要 铜锭/银锭/金锭 来升级
 utilitycraft.workbench.need_next_tier.group2=无法升级：需要 铁锭 来升级
@@ -88,3 +90,6 @@ config.comment.utilitycraft.rapierAttackSound=是否启用迅捷剑的攻击音�
 
 config.name.utilitycraft.saberAttackSound=军刀攻击音效
 config.comment.utilitycraft.saberAttackSound=是否启用军刀的攻击音效
+
+config.name.utilitycraft.nunchakuAttackSound=双节棍攻击音效
+config.comment.utilitycraft.nunchakuAttackSound=是否启用双节棍的攻击音效

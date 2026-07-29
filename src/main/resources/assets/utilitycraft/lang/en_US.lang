@@ -23,6 +23,7 @@ utilitycraft.material.adamantium_mm=Adamantium Alloy
 utilitycraft.item_type.saber=Saber
 utilitycraft.item_type.rapier=Rapier
 utilitycraft.item_type.mace=Mace
+utilitycraft.item_type.nunchaku=Nunchaku
 utilitycraft.item_type.paxel=Paxel
 utilitycraft.item_type.heavy_helmet=Heavy Helmet
 utilitycraft.item_type.heavy_chestplate=Heavy Chestplate
@@ -64,6 +65,7 @@ item.utilitycraft.rapier.desc=§bAttacks faster. Armor penetration depends on th
 item.utilitycraft.saber.tip=§7Hold §eShift§7 for more information
 item.utilitycraft.saber.desc=§bSweeping Damage: %.1f
 item.utilitycraft.mace.desc=§bEvery inch of reach is an inch of strength.
+item.utilitycraft.nunchaku.desc=§bHold left-click to spin; consecutive hits increase damage.
 
 utilitycraft.workbench.need_next_tier.group1=Cannot upgrade: need Copper/Silver/Gold ingot to upgrade
 utilitycraft.workbench.need_next_tier.group2=Cannot upgrade: need Iron ingot to upgrade
@@ -88,3 +90,6 @@ config.comment.utilitycraft.rapierAttackSound=Enable rapier attack sound
 
 config.name.utilitycraft.saberAttackSound=Saber attack sound
 config.comment.utilitycraft.saberAttackSound=Enable saber attack sound
+
+config.name.utilitycraft.nunchakuAttackSound=Nunchaku attack sound
+config.comment.utilitycraft.nunchakuAttackSound=Enable nunchaku attack sound

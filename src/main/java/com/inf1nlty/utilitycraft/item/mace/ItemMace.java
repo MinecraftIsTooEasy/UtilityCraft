@@ -39,6 +39,16 @@ public class ItemMace extends ItemClub {
     }
 
     @Override
+    public float getBaseDamageVsEntity() {
+        return super.getBaseDamageVsEntity() + 1.0F;
+    }
+
+    @Override
+    public int getNumComponentsForDurability() {
+        return 14;
+    }
+
+    @Override
     public String getToolType() {
         return "mace";
     }

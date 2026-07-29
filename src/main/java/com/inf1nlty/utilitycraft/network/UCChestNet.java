@@ -11,8 +11,6 @@ public final class UCChestNet {
 
     public static String CHANNEL;
 
-    private UCChestNet(){}
-
     public static void register(String modId){
         CHANNEL = modId + "|SC";
     }

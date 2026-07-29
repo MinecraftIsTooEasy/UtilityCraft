@@ -56,6 +56,14 @@ public class UCRecipes implements Consumer<CraftingRecipeRegisterEvent> {
         event.registerShapedRecipe(new ItemStack(UCItems.mithril_mace, 1), true, "MMM", "MBM", " K ", 'M', Item.ingotMithril, 'B', Block.blockMithril, 'K', Item.stick);
         event.registerShapedRecipe(new ItemStack(UCItems.adamantium_mace, 1), true, "AAA", "ABA", " K ", 'A', Item.ingotAdamantium, 'B', Block.blockAdamantium, 'K', Item.stick);
 
+        event.registerShapedRecipe(new ItemStack(UCItems.copper_nunchaku, 1), true, " S ", "C C", 'S', Item.silk, 'C', Item.ingotCopper);
+        event.registerShapedRecipe(new ItemStack(UCItems.silver_nunchaku, 1), true, " S ", "I I", 'S', Item.silk, 'I', Item.ingotSilver);
+        event.registerShapedRecipe(new ItemStack(UCItems.golden_nunchaku, 1), true, " S ", "G G", 'S', Item.silk, 'G', Item.ingotGold);
+        event.registerShapedRecipe(new ItemStack(UCItems.iron_nunchaku, 1), true, " S ", "I I", 'S', Item.silk, 'I', Item.ingotIron);
+        event.registerShapedRecipe(new ItemStack(UCItems.ancient_metal_nunchaku, 1), true, " S ", "A A", 'S', Item.silk, 'A', Item.ingotAncientMetal);
+        event.registerShapedRecipe(new ItemStack(UCItems.mithril_nunchaku, 1), true, " S ", "M M", 'S', Item.silk, 'M', Item.ingotMithril);
+        event.registerShapedRecipe(new ItemStack(UCItems.adamantium_nunchaku, 1), true, " S ", "A A", 'S', Item.silk, 'A', Item.ingotAdamantium);
+
         event.registerShapedRecipe(new ItemStack(UCItems.copper_heavy_helmet, 1), true, "ABA", "A A", 'A', Item.ingotCopper, 'B', Block.blockCopper);
         event.registerShapedRecipe(new ItemStack(UCItems.copper_heavy_chestplate, 1), true, "A A", "ABA", "AAA", 'A', Item.ingotCopper, 'B', Block.blockCopper);
         event.registerShapedRecipe(new ItemStack(UCItems.copper_heavy_leggings, 1), true, "ABA", "A A", "A A", 'A', Item.ingotCopper, 'B', Block.blockCopper);
@@ -145,6 +153,15 @@ public class UCRecipes implements Consumer<CraftingRecipeRegisterEvent> {
         event.registerShapedRecipe(new ItemStack(UCItems.ancient_metal_mace, 1), true, "AAA", "ABA", " K ", 'A', Item.ingotAncientMetal, 'B', Block.blockAncientMetal, 'K', UCItems.iron_mace).extendsNBT().keepQuality();
         event.registerShapedRecipe(new ItemStack(UCItems.mithril_mace, 1), true, "MMM", "MBM", " K ", 'M', Item.ingotMithril, 'B', Block.blockMithril, 'K', UCItems.ancient_metal_mace).extendsNBT().keepQuality();
         event.registerShapedRecipe(new ItemStack(UCItems.adamantium_mace, 1), true, "AAA", "ABA", " K ", 'A', Item.ingotAdamantium, 'B', Block.blockAdamantium, 'K', UCItems.mithril_mace).extendsNBT().keepQuality();
+
+        // Nunchaku upgrade recipes
+        event.registerShapedRecipe(new ItemStack(UCItems.iron_nunchaku, 1), true, " S ", "IHI", 'S', Item.silk, 'I', Item.ingotIron, 'H', UCItems.copper_nunchaku).extendsNBT().keepQuality();
+        event.registerShapedRecipe(new ItemStack(UCItems.iron_nunchaku, 1), true, " S ", "IHI", 'S', Item.silk, 'I', Item.ingotIron, 'H', UCItems.silver_nunchaku).extendsNBT().keepQuality();
+        event.registerShapedRecipe(new ItemStack(UCItems.iron_nunchaku, 1), true, " S ", "IHI", 'S', Item.silk, 'I', Item.ingotIron, 'H', UCItems.golden_nunchaku).extendsNBT().keepQuality();
+
+        event.registerShapedRecipe(new ItemStack(UCItems.ancient_metal_nunchaku, 1), true, " S ", "AHA", 'S', Item.silk, 'A', Item.ingotAncientMetal, 'H', UCItems.iron_nunchaku).extendsNBT().keepQuality();
+        event.registerShapedRecipe(new ItemStack(UCItems.mithril_nunchaku, 1), true, " S ", "MHM", 'S', Item.silk, 'M', Item.ingotMithril, 'H', UCItems.ancient_metal_nunchaku).extendsNBT().keepQuality();
+        event.registerShapedRecipe(new ItemStack(UCItems.adamantium_nunchaku, 1), true, " S ", "AHA", 'S', Item.silk, 'A', Item.ingotAdamantium, 'H', UCItems.mithril_nunchaku).extendsNBT().keepQuality();
 
         // Paxel upgrade recipes
         event.registerShapedRecipe(new ItemStack(UCItems.iron_paxel, 1), true, "ASP", " K ", "   ", 'A', Item.axeIron, 'S', Item.shovelIron, 'P', Item.pickaxeIron, 'K', UCItems.copper_paxel).extendsNBT().keepQuality();

@@ -1,5 +1,7 @@
 package com.inf1nlty.utilitycraft.mixin.entity;
 
+import com.inf1nlty.utilitycraft.item.nunchaku.ItemNunchaku;
+import com.inf1nlty.utilitycraft.item.nunchaku.INunchakuSpinState;
 import com.inf1nlty.utilitycraft.item.rapier.IRapier;
 import com.inf1nlty.utilitycraft.util.UCDamageUtils;
 
@@ -7,18 +9,43 @@ import net.minecraft.*;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(EntityLivingBase.class)
-public abstract class EntityLivingBaseMixin extends Entity {
+public abstract class EntityLivingBaseMixin extends Entity implements INunchakuSpinState {
 
     @Shadow public int maxHurtResistantTime;
 
+    @Unique private boolean utilitycraft$nunchakuSpinning;
+
     public EntityLivingBaseMixin(World par1World) {
         super(par1World);
+    }
+
+    @Override
+    public boolean isNunchakuSpinning() {
+        return this.utilitycraft$nunchakuSpinning;
+    }
+
+    @Override
+    public void setNunchakuSpinning(boolean spinning) {
+        this.utilitycraft$nunchakuSpinning = spinning;
+    }
+
+    @Inject(method = "getItemIcon", at = @At("HEAD"), cancellable = true)
+    private void utilitycraft$getNunchakuSpinningIcon(ItemStack itemStack, int renderPass, CallbackInfoReturnable<Icon> cir) {
+        if (!this.utilitycraft$nunchakuSpinning || itemStack == null || !(itemStack.getItem() instanceof ItemNunchaku nunchaku)) {
+            return;
+        }
+
+        Icon icon = nunchaku.getSpinningIcon();
+        if (icon != null) {
+            cir.setReturnValue(icon);
+        }
     }
 
     @Redirect(method = "getProtectionFromArmor", at = @At(value = "INVOKE", target = "Lnet/minecraft/ItemArmor;getTotalArmorProtection([Lnet/minecraft/ItemStack;Lnet/minecraft/DamageSource;ZLnet/minecraft/EntityLivingBase;)F"))
@@ -79,10 +106,12 @@ public abstract class EntityLivingBaseMixin extends Entity {
 
         ItemStack held = ((EntityLivingBase) attacker).getHeldItemStack();
 
-        if (held == null || !(held.getItem() instanceof IRapier)) return;
+        if (held == null) return;
 
-        if (this.hurtResistantTime == this.maxHurtResistantTime) {
+        if (held.getItem() instanceof IRapier && this.hurtResistantTime == this.maxHurtResistantTime) {
             this.hurtResistantTime = 18;
+        } else if (held.getItem() instanceof ItemNunchaku && this.hurtResistantTime == this.maxHurtResistantTime) {
+            this.hurtResistantTime = ItemNunchaku.AUTO_ATTACK_INTERVAL_TICKS;
         }
     }
 }

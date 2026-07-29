@@ -7,6 +7,7 @@ import com.inf1nlty.utilitycraft.item.armor.ItemHeavyCuirass;
 import com.inf1nlty.utilitycraft.item.armor.ItemHeavyHelmet;
 import com.inf1nlty.utilitycraft.item.armor.ItemHeavyLeggings;
 import com.inf1nlty.utilitycraft.item.mace.ItemMace;
+import com.inf1nlty.utilitycraft.item.nunchaku.ItemNunchaku;
 import com.inf1nlty.utilitycraft.item.paxel.ItemPaxel;
 import com.inf1nlty.utilitycraft.util.UCDamageUtils;
 import net.minecraft.Item;
@@ -26,33 +27,45 @@ public final class UCCompat {
 
     public static Item nickel_saber;
     public static Item nickel_rapier;
+    public static Item nickel_nunchaku;
     public static Item tungsten_saber;
     public static Item tungsten_rapier;
+    public static Item tungsten_nunchaku;
     public static Item uru_saber;
     public static Item uru_rapier;
+    public static Item uru_nunchaku;
     public static Item enchant_saber;
     public static Item enchant_rapier;
+    public static Item enchant_nunchaku;
     public static Item vibranium_saber;
     public static Item vibranium_rapier;
     public static Item vibranium_mace;
+    public static Item vibranium_nunchaku;
     public static Item vibranium_heavy_helmet;
     public static Item vibranium_heavy_chestplate;
     public static Item vibranium_heavy_leggings;
     public static Item vibranium_heavy_boots;
     public static Item bronze_saber;
     public static Item bronze_rapier;
+    public static Item bronze_nunchaku;
     public static Item steel_saber;
     public static Item steel_rapier;
+    public static Item steel_nunchaku;
     public static Item titanium_alloy_saber;
     public static Item titanium_alloy_rapier;
+    public static Item titanium_alloy_nunchaku;
     public static Item rose_gold_saber;
     public static Item rose_gold_rapier;
+    public static Item rose_gold_nunchaku;
     public static Item platinum_saber;
     public static Item platinum_rapier;
+    public static Item platinum_nunchaku;
     public static Item midas_gold_saber;
     public static Item midas_gold_rapier;
+    public static Item midas_gold_nunchaku;
     public static Item adamium_mm_saber;
     public static Item adamium_mm_rapier;
+    public static Item adamium_mm_nunchaku;
 
     // Paxels
     public static Item nickel_paxel;
@@ -85,6 +98,10 @@ public final class UCCompat {
                 event.register(MOD_NAMESPACE, RES_PREFIX + "rapier/nickel_rapier", "nickel_rapier", rapier);
                 nickel_rapier = rapier;
 
+                ItemNunchaku nunchaku = new ItemNunchaku(IdUtil.getNextItemID(), nickelMat, "nickel_nunchaku");
+                event.register(MOD_NAMESPACE, RES_PREFIX + "nunchaku/nickel_nunchaku", "nickel_nunchaku", nunchaku);
+                nickel_nunchaku = nunchaku;
+
                 ItemPaxel paxel = new ItemPaxel(IdUtil.getNextItemID(), nickelMat, "nickel_paxel");
                 event.register(MOD_NAMESPACE, RES_PREFIX + "paxel/nickel_paxel", "nickel_paxel", paxel);
                 nickel_paxel = paxel;
@@ -103,6 +120,10 @@ public final class UCCompat {
                 event.register(MOD_NAMESPACE, RES_PREFIX + "rapier/tungsten_rapier", "tungsten_rapier", rapier);
                 tungsten_rapier = rapier;
 
+                ItemNunchaku nunchaku = new ItemNunchaku(IdUtil.getNextItemID(), tungstenMat, "tungsten_nunchaku");
+                event.register(MOD_NAMESPACE, RES_PREFIX + "nunchaku/tungsten_nunchaku", "tungsten_nunchaku", nunchaku);
+                tungsten_nunchaku = nunchaku;
+
                 ItemPaxel paxel = new ItemPaxel(IdUtil.getNextItemID(), tungstenMat, "tungsten_paxel");
                 event.register(MOD_NAMESPACE, RES_PREFIX + "paxel/tungsten_paxel", "tungsten_paxel", paxel);
                 tungsten_paxel = paxel;
@@ -118,6 +139,10 @@ public final class UCCompat {
             ItemRapier rapier = new ItemRapier(IdUtil.getNextItemID(), uruMat, 9.0F, "uru_rapier");
             event.register(MOD_NAMESPACE, RES_PREFIX + "rapier/uru_rapier", "uru_rapier", rapier);
             uru_rapier = rapier;
+
+            ItemNunchaku nunchaku = new ItemNunchaku(IdUtil.getNextItemID(), uruMat, "uru_nunchaku");
+            event.register(MOD_NAMESPACE, RES_PREFIX + "nunchaku/uru_nunchaku", "uru_nunchaku", nunchaku);
+            uru_nunchaku = nunchaku;
 
             ItemPaxel paxel = new ItemPaxel(IdUtil.getNextItemID(), uruMat, "uru_paxel");
             event.register(MOD_NAMESPACE, RES_PREFIX + "paxel/uru_paxel", "uru_paxel", paxel);
@@ -137,6 +162,10 @@ public final class UCCompat {
             ItemRapier rapier = new ItemRapier(IdUtil.getNextItemID(), enchantMat, 11.0F, "enchant_rapier");
             event.register(MOD_NAMESPACE, RES_PREFIX + "rapier/enchant_rapier", "enchant_rapier", rapier);
             enchant_rapier = rapier;
+
+            ItemNunchaku nunchaku = new ItemNunchaku(IdUtil.getNextItemID(), enchantMat, "enchant_nunchaku");
+            event.register(MOD_NAMESPACE, RES_PREFIX + "nunchaku/enchant_nunchaku", "enchant_nunchaku", nunchaku);
+            enchant_nunchaku = nunchaku;
 
             ItemPaxel paxel = new ItemPaxel(IdUtil.getNextItemID(), enchantMat, "enchant_paxel");
             event.register(MOD_NAMESPACE, RES_PREFIX + "paxel/enchant_paxel", "enchant_paxel", paxel);
@@ -160,6 +189,10 @@ public final class UCCompat {
             ItemMace mace = new ItemMace(IdUtil.getNextItemID(), vibMat, "vibranium_mace");
             event.register(MOD_NAMESPACE, RES_PREFIX + "mace/vibranium_mace", "vibranium_mace", mace);
             vibranium_mace = mace;
+
+            ItemNunchaku nunchaku = new ItemNunchaku(IdUtil.getNextItemID(), vibMat, "vibranium_nunchaku");
+            event.register(MOD_NAMESPACE, RES_PREFIX + "nunchaku/vibranium_nunchaku", "vibranium_nunchaku", nunchaku);
+            vibranium_nunchaku = nunchaku;
 
             ItemPaxel paxel = new ItemPaxel(IdUtil.getNextItemID(), vibMat, "vibranium_paxel");
             event.register(MOD_NAMESPACE, RES_PREFIX + "paxel/vibranium_paxel", "vibranium_paxel", paxel);
@@ -197,6 +230,10 @@ public final class UCCompat {
                 event.register(MOD_NAMESPACE, RES_PREFIX + "rapier/bronze_rapier", "bronze_rapier", rapier);
                 bronze_rapier = rapier;
 
+                ItemNunchaku nunchaku = new ItemNunchaku(IdUtil.getNextItemID(), bronzeMat, "bronze_nunchaku");
+                event.register(MOD_NAMESPACE, RES_PREFIX + "nunchaku/bronze_nunchaku", "bronze_nunchaku", nunchaku);
+                bronze_nunchaku = nunchaku;
+
                 ItemPaxel paxel = new ItemPaxel(IdUtil.getNextItemID(), bronzeMat, "bronze_paxel");
                 event.register(MOD_NAMESPACE, RES_PREFIX + "paxel/bronze_paxel", "bronze_paxel", paxel);
                 bronze_paxel = paxel;
@@ -214,6 +251,10 @@ public final class UCCompat {
                 ItemRapier rapier = new ItemRapier(IdUtil.getNextItemID(), steelMat, 9.0F, "steel_rapier");
                 event.register(MOD_NAMESPACE, RES_PREFIX + "rapier/steel_rapier", "steel_rapier", rapier);
                 steel_rapier = rapier;
+
+                ItemNunchaku nunchaku = new ItemNunchaku(IdUtil.getNextItemID(), steelMat, "steel_nunchaku");
+                event.register(MOD_NAMESPACE, RES_PREFIX + "nunchaku/steel_nunchaku", "steel_nunchaku", nunchaku);
+                steel_nunchaku = nunchaku;
 
                 ItemPaxel paxel = new ItemPaxel(IdUtil.getNextItemID(), steelMat, "steel_paxel");
                 event.register(MOD_NAMESPACE, RES_PREFIX + "paxel/steel_paxel", "steel_paxel", paxel);
@@ -233,6 +274,10 @@ public final class UCCompat {
                 event.register(MOD_NAMESPACE, RES_PREFIX + "rapier/titanium_alloy_rapier", "titanium_alloy_rapier", rapier);
                 titanium_alloy_rapier = rapier;
 
+                ItemNunchaku nunchaku = new ItemNunchaku(IdUtil.getNextItemID(), titanium_alloyMat, "titanium_alloy_nunchaku");
+                event.register(MOD_NAMESPACE, RES_PREFIX + "nunchaku/titanium_alloy_nunchaku", "titanium_alloy_nunchaku", nunchaku);
+                titanium_alloy_nunchaku = nunchaku;
+
                 ItemPaxel paxel = new ItemPaxel(IdUtil.getNextItemID(), titanium_alloyMat, "titanium_alloy_paxel");
                 event.register(MOD_NAMESPACE, RES_PREFIX + "paxel/titanium_alloy_paxel", "titanium_alloy_paxel", paxel);
                 titanium_alloy_paxel = paxel;
@@ -251,6 +296,10 @@ public final class UCCompat {
                 event.register(MOD_NAMESPACE, RES_PREFIX + "rapier/rose_gold_rapier", "rose_gold_rapier", rapier);
                 rose_gold_rapier = rapier;
 
+                ItemNunchaku nunchaku = new ItemNunchaku(IdUtil.getNextItemID(), rose_goldMat, "rose_gold_nunchaku");
+                event.register(MOD_NAMESPACE, RES_PREFIX + "nunchaku/rose_gold_nunchaku", "rose_gold_nunchaku", nunchaku);
+                rose_gold_nunchaku = nunchaku;
+
                 ItemPaxel paxel = new ItemPaxel(IdUtil.getNextItemID(), rose_goldMat, "rose_gold_paxel");
                 event.register(MOD_NAMESPACE, RES_PREFIX + "paxel/rose_gold_paxel", "rose_gold_paxel", paxel);
                 rose_gold_paxel = paxel;
@@ -268,6 +317,10 @@ public final class UCCompat {
                 ItemRapier rapier = new ItemRapier(IdUtil.getNextItemID(), platinumMat, 7.5F, "platinum_rapier");
                 event.register(MOD_NAMESPACE, RES_PREFIX + "rapier/platinum_rapier", "platinum_rapier", rapier);
                 platinum_rapier = rapier;
+
+                ItemNunchaku nunchaku = new ItemNunchaku(IdUtil.getNextItemID(), platinumMat, "platinum_nunchaku");
+                event.register(MOD_NAMESPACE, RES_PREFIX + "nunchaku/platinum_nunchaku", "platinum_nunchaku", nunchaku);
+                platinum_nunchaku = nunchaku;
 
                 ItemPaxel paxel = new ItemPaxel(IdUtil.getNextItemID(), platinumMat, "platinum_paxel");
                 event.register(MOD_NAMESPACE, RES_PREFIX + "paxel/platinum_paxel", "platinum_paxel", paxel);
@@ -288,6 +341,10 @@ public final class UCCompat {
                 event.register(MOD_NAMESPACE, RES_PREFIX + "rapier/midas_gold_rapier", "midas_gold_rapier", rapier);
                 midas_gold_rapier = rapier;
 
+                ItemNunchaku nunchaku = new ItemNunchaku(IdUtil.getNextItemID(), midas_goldMat, "midas_gold_nunchaku");
+                event.register(MOD_NAMESPACE, RES_PREFIX + "nunchaku/midas_gold_nunchaku", "midas_gold_nunchaku", nunchaku);
+                midas_gold_nunchaku = nunchaku;
+
                 ItemPaxel paxel = new ItemPaxel(IdUtil.getNextItemID(), midas_goldMat, "midas_gold_paxel");
                 event.register(MOD_NAMESPACE, RES_PREFIX + "paxel/midas_gold_paxel", "midas_gold_paxel", paxel);
                 midas_gold_paxel = paxel;
@@ -306,6 +363,10 @@ public final class UCCompat {
                 ItemRapier rapier = new ItemRapier(IdUtil.getNextItemID(), adamantium_mmMat, 9F, "adamantium_mm_rapier");
                 event.register(MOD_NAMESPACE, RES_PREFIX + "rapier/adamantium_mm_rapier", "adamantium_mm_rapier", rapier);
                 adamium_mm_rapier = rapier;
+
+                ItemNunchaku nunchaku = new ItemNunchaku(IdUtil.getNextItemID(), adamantium_mmMat, "adamantium_mm_nunchaku");
+                event.register(MOD_NAMESPACE, RES_PREFIX + "nunchaku/adamantium_mm_nunchaku", "adamantium_mm_nunchaku", nunchaku);
+                adamium_mm_nunchaku = nunchaku;
 
                 ItemPaxel paxel = new ItemPaxel(IdUtil.getNextItemID(), adamantium_mmMat, "adamantium_mm_paxel");
                 event.register(MOD_NAMESPACE, RES_PREFIX + "paxel/adamantium_mm_paxel", "adamantium_mm_paxel", paxel);
