@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "utilitycraft",
+  "id": "${id}",
   "version": "${version}",
-  "name": "Utility Craft",
+  "name": "${name}",
   "icon": "assets/utilitycraft/icon.png",
   "depends": {
     "rusted_iron_core": ">=1.5.0",
