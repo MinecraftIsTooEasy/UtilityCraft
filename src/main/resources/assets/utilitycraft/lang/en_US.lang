@@ -65,7 +65,7 @@ item.utilitycraft.rapier.desc=§bAttacks faster. Armor penetration depends on th
 item.utilitycraft.saber.tip=§7Hold §eShift§7 for more information
 item.utilitycraft.saber.desc=§bSweeping Damage: %.1f
 item.utilitycraft.mace.desc=§bEvery inch of reach is an inch of strength.
-item.utilitycraft.nunchaku.desc=§bHold left-click to spin; consecutive hits increase damage.
+item.utilitycraft.nunchaku.desc=§bHold left-click to spin; consecutive hits increase damage by up to 100%.
 
 utilitycraft.workbench.need_next_tier.group1=Cannot upgrade: need Copper/Silver/Gold ingot to upgrade
 utilitycraft.workbench.need_next_tier.group2=Cannot upgrade: need Iron ingot to upgrade

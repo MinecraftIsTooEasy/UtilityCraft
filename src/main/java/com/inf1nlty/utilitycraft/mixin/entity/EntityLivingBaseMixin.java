@@ -27,12 +27,12 @@ public abstract class EntityLivingBaseMixin extends Entity implements INunchakuS
     }
 
     @Override
-    public boolean isNunchakuSpinning() {
+    public boolean utilitycraft$isNunchakuSpinning() {
         return this.utilitycraft$nunchakuSpinning;
     }
 
     @Override
-    public void setNunchakuSpinning(boolean spinning) {
+    public void utilitycraft$setNunchakuSpinning(boolean spinning) {
         this.utilitycraft$nunchakuSpinning = spinning;
     }
 

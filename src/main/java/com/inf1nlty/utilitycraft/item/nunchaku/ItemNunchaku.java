@@ -21,6 +21,7 @@ public class ItemNunchaku extends ItemCudgel {
 
     public ItemNunchaku(int id, Material material, String name) {
         super(id, material);
+        this.setReachBonus(0.5F);
         this.name = name;
         this.materialKey = UCItemNameUtils.materialKeyFromItemName(name, "_nunchaku");
         this.addMaterialsEffectiveAgainst(new Material[]{Material.web, Material.plants});

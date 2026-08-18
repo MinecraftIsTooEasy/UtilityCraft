@@ -3,8 +3,6 @@ package com.inf1nlty.utilitycraft.util;
 import net.minecraft.StatCollector;
 
 public final class UCItemNameUtils {
-    private UCItemNameUtils() {
-    }
 
     public static String composeName(String materialKey, String itemTypeKey) {
         String materialName = StatCollector.translateToLocal("utilitycraft.material." + materialKey);

@@ -29,7 +29,7 @@ public class EntityTrackerEntryMixin {
     @Inject(method = "tryStartWachingThis", at = @At("RETURN"))
     private void utilitycraft$syncNunchakuSpinningToNewTracker(ServerPlayer player, CallbackInfo ci) {
         Entity self = ((EntityTrackerEntry)(Object)this).myEntity;
-        if (self instanceof INunchakuSpinState spinState && spinState.isNunchakuSpinning()) {
+        if (self instanceof INunchakuSpinState spinState && spinState.utilitycraft$isNunchakuSpinning()) {
             Network.sendToClient(player, new S2CNunchakuSpinPacket(self.entityId, true));
         }
     }

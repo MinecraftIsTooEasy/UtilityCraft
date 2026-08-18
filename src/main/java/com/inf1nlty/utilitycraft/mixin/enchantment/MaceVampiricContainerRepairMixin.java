@@ -12,10 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(ContainerRepair.class)
 public class MaceVampiricContainerRepairMixin {
 
-    @WrapOperation(
-            method = "updateRepairOutput",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/Enchantment;canEnchantItem(Lnet/minecraft/Item;)Z")
-    )
+    @WrapOperation(method = "updateRepairOutput", at = @At(value = "INVOKE", target = "Lnet/minecraft/Enchantment;canEnchantItem(Lnet/minecraft/Item;)Z"))
     private boolean utilitycraft$allowVampiricMaceOnAnvil(Enchantment enchantment, Item item, Operation<Boolean> original) {
         return UCEnchantmentCompat.canEnchantVampiricVibraniumMace(enchantment, item, original.call(enchantment, item));
     }

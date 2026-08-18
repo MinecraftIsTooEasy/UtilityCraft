@@ -39,7 +39,7 @@ public class S2CNunchakuSpinPacket implements Packet {
 
         Entity entity = player.entityId == this.entityId ? player : getEntity(player.worldObj, this.entityId);
         if (entity instanceof INunchakuSpinState spinState) {
-            spinState.setNunchakuSpinning(this.spinning);
+            spinState.utilitycraft$setNunchakuSpinning(this.spinning);
         }
     }
 

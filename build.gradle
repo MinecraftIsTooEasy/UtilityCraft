@@ -43,8 +43,8 @@ dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    fml "com.github.MinecraftIsTooEasy:FishModLoader:3.4.2"
-    implementation "com.github.MinecraftIsTooEasy:FishModLoader:3.4.2"
+    fml "com.github.MinecraftIsTooEasy:FishModLoader:3.4.3"
+    implementation "com.github.MinecraftIsTooEasy:FishModLoader:3.4.3"
 
     implementation "com.github.MinecraftIsTooEasy:ManyLib:2.3.1"
     implementation "com.github.MinecraftIsTooEasy:ModMenu:10.1.1"
@@ -56,6 +56,7 @@ dependencies {
 
     localRuntime "com.github.MinecraftIsTooEasy:SimpleStorage:1.0.3"
     localRuntime "com.github.MinecraftIsTooEasy:ModernMITE:3.7.5"
+    localRuntime "com.github.MinecraftIsTooEasy:BetterTips:1.5.1"
 
     implementation "com.github.MinecraftIsTooEasy:Extreme:0.1.6.12"
     implementation "com.github.MinecraftIsTooEasy:MITE-ITE:2.0.27"

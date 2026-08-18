@@ -89,11 +89,11 @@ public class MinecraftNunchakuMixin {
     @Unique
     private void utilitycraft$setNunchakuSpinning(Minecraft mc, boolean spinning) {
         INunchakuSpinState spinState = INunchakuSpinState.as(mc.thePlayer);
-        if (spinState == null || spinState.isNunchakuSpinning() == spinning) {
+        if (spinState == null || spinState.utilitycraft$isNunchakuSpinning() == spinning) {
             return;
         }
 
-        spinState.setNunchakuSpinning(spinning);
+        spinState.utilitycraft$setNunchakuSpinning(spinning);
         UCNunchakuC2S.sendSpinning(spinning);
     }
 

@@ -38,7 +38,7 @@ public class ItemRendererNunchakuMixin {
     @Unique
     private static boolean isSpinning(EntityLivingBase entity) {
         INunchakuSpinState spinState = INunchakuSpinState.as(entity);
-        return spinState != null && spinState.isNunchakuSpinning();
+        return spinState != null && spinState.utilitycraft$isNunchakuSpinning();
     }
 
     @Unique

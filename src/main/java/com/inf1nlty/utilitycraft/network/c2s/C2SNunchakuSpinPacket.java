@@ -53,7 +53,7 @@ public class C2SNunchakuSpinPacket implements Packet {
 
     private static void setSpinning(EntityPlayer player, boolean spinning) {
         if (player instanceof INunchakuSpinState spinState) {
-            spinState.setNunchakuSpinning(spinning);
+            spinState.utilitycraft$setNunchakuSpinning(spinning);
         }
     }
 }

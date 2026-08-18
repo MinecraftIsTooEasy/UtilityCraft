@@ -2,9 +2,9 @@ package com.inf1nlty.utilitycraft.item.nunchaku;
 
 public interface INunchakuSpinState {
 
-    boolean isNunchakuSpinning();
+    boolean utilitycraft$isNunchakuSpinning();
 
-    void setNunchakuSpinning(boolean spinning);
+    void utilitycraft$setNunchakuSpinning(boolean spinning);
 
     static INunchakuSpinState as(Object entity) {
         return entity instanceof INunchakuSpinState spinState ? spinState : null;
