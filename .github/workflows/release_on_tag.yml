@@ -1,35 +1,49 @@
-name: Release on tag
-
-permissions:
-  contents: write
-  issues: write
+name: Release to GitHub and Modrinth
 
 on:
   push:
     tags:
-      - '*'
+      - "*"
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v6
         with:
-          persist-credentials: false
           fetch-depth: 0
-          fetch-tags: true
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
+      - name: Set up JDK
+        uses: actions/setup-java@v5
         with:
-          distribution: 'temurin'
-          java-version: '17'
-          cache: 'gradle'
+          java-version: "17"
+          distribution: "temurin"
 
-      - name: Make gradlew executable
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v6
+        with:
+          gradle-version: 9.5.0
+
+      - name: Add permission
         run: chmod +x ./gradlew
+
+      - name: Get changes between tags
+        id: changes
+        uses: simbo/changes-between-tags-action@v1
+        with:
+          validate-tag: "false"
+
+      - name: Resolve release version
+        id: version
+        shell: bash
+        run: |
+          TAG='${{ steps.changes.outputs.tag }}'
+          echo "value=${TAG#v}" >> "$GITHUB_OUTPUT"
 
       - name: Ensure jar in fml-loom cache
         run: |
@@ -49,16 +63,27 @@ jobs:
           DOWNLOAD_URL="https://maven.limingzxc.top/repository/maven-releases/com/mojang/minecraft/$MITE_VER/minecraft-$MITE_VER.jar"
 
           echo "Downloading $DOWNLOAD_URL ..."
-          # download to temp file then move into place
           curl -fSL "$DOWNLOAD_URL" -o "$TARGET_JAR.tmp"
           mv "$TARGET_JAR.tmp" "$TARGET_JAR"
           echo "Saved $TARGET_JAR"
 
       - name: Build
-        run: ./gradlew build
+        run: ./gradlew "-Pmod_version=${{ steps.version.outputs.value }}" build
 
-      - name: Create GitHub Release
-        uses: ncipollo/release-action@v1.14.0
+      - name: Publish
+        uses: Kir-Antipov/mc-publish@v3.3.0
         with:
-          artifacts: "build/libs/*.jar"
-          generateReleaseNotes: true
+          modrinth-id: B4FzFtgM
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+          files: |
+            build/libs/!(*-@(dev|sources|javadoc)).jar
+            build/libs/*-@(dev|sources|javadoc).jar
+          loaders: legacy-fabric
+          game-versions: 1.6.4
+          java: |
+            17
+          version: ${{ steps.version.outputs.value }}
+          changelog: ${{ steps.changes.outputs.changes }}
