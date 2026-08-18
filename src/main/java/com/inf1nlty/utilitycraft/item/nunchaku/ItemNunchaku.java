@@ -1,14 +1,14 @@
 package com.inf1nlty.utilitycraft.item.nunchaku;
 
-import com.inf1nlty.utilitycraft.UCConfigs;
-import com.inf1nlty.utilitycraft.client.UCSounds;
 import com.inf1nlty.utilitycraft.creativetab.UCCreativeTab;
+import com.inf1nlty.utilitycraft.item.IWeaponAttackSound;
+import com.inf1nlty.utilitycraft.item.WeaponAttackSoundType;
 import com.inf1nlty.utilitycraft.util.UCItemNameUtils;
 import net.minecraft.*;
 
 import java.util.List;
 
-public class ItemNunchaku extends ItemCudgel {
+public class ItemNunchaku extends ItemCudgel implements IWeaponAttackSound {
 
     public static final int AUTO_ATTACK_INTERVAL_TICKS = 6;
 
@@ -83,12 +83,14 @@ public class ItemNunchaku extends ItemCudgel {
         return this.spinningIcon;
     }
 
-    public void playAttackSound(EntityPlayer player) {
-        if (!UCConfigs.nunchakuAttackSound.getBooleanValue()) {
-            return;
-        }
+    @Override
+    public WeaponAttackSoundType getAttackSoundType() {
+        return WeaponAttackSoundType.NUNCHAKU;
+    }
 
-        player.worldObj.playSoundAtEntity(player, UCSounds.weaponNunchaku.toString(), 1.0F, 1.0F);
+    @Override
+    public float getAttackSoundPitch(World world) {
+        return 1.0F;
     }
 
     @Override

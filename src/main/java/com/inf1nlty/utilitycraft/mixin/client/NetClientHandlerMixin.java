@@ -3,6 +3,7 @@ package com.inf1nlty.utilitycraft.mixin.client;
 import com.inf1nlty.utilitycraft.block.BlockLocker;
 import com.inf1nlty.utilitycraft.client.gui.GuiLocker;
 import com.inf1nlty.utilitycraft.entity.EntityObsidianBoat;
+import com.inf1nlty.utilitycraft.item.WeaponAttackSoundType;
 import com.inf1nlty.utilitycraft.network.UCChestNet;
 import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
@@ -13,6 +14,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(NetClientHandler.class)
 public abstract class NetClientHandlerMixin {
+
+    @Inject(method = "handleLevelSound", at = @At("HEAD"), cancellable = true)
+    private void utilitycraft$filterWeaponAttackSound(Packet62LevelSound packet, CallbackInfo ci) {
+        WeaponAttackSoundType soundType = WeaponAttackSoundType.fromSoundName(packet.getSoundName());
+        if (soundType != null && !soundType.isEnabled()) {
+            ci.cancel();
+        }
+    }
 
     @Inject(method = "handleOpenWindow", at = @At("HEAD"), cancellable = true)
     private void utilitycraft$handleOpenWindow(Packet100OpenWindow packet, CallbackInfo ci) {

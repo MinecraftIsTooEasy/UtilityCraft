@@ -83,6 +83,7 @@ utilitycraft.workbench.upgraded.mithril=Workbench upgraded to: Mithril workbench
 utilitycraft.workbench.upgraded.adamantium=Workbench upgraded to: Adamantium workbench
 utilitycraft.workbench.upgraded.unknown=Workbench upgraded to:
 
+config.menu.name.UtilityCraft=Utility Craft
 config.tab.misc=Misc
 
 config.name.utilitycraft.rapierAttackSound=Rapier attack sound

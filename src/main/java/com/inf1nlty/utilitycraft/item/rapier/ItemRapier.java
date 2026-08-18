@@ -1,8 +1,8 @@
 package com.inf1nlty.utilitycraft.item.rapier;
 
-import com.inf1nlty.utilitycraft.UCConfigs;
-import com.inf1nlty.utilitycraft.client.UCSounds;
 import com.inf1nlty.utilitycraft.creativetab.UCCreativeTab;
+import com.inf1nlty.utilitycraft.item.IWeaponAttackSound;
+import com.inf1nlty.utilitycraft.item.WeaponAttackSoundType;
 import com.inf1nlty.utilitycraft.util.UCItemNameUtils;
 import net.minecraft.*;
 import net.xiaoyu233.fml.api.item.SwordItem;
@@ -10,7 +10,7 @@ import org.lwjgl.input.Keyboard;
 
 import java.util.List;
 
-public class ItemRapier extends SwordItem implements IRapier {
+public class ItemRapier extends SwordItem implements IRapier, IWeaponAttackSound {
 
     private final float damage;
     private final Material material;
@@ -61,27 +61,27 @@ public class ItemRapier extends SwordItem implements IRapier {
     }
 
     @Override
-    public void playAttackSound(EntityPlayer player, EntityLivingBase target) {
+    public WeaponAttackSoundType getAttackSoundType() {
+        return WeaponAttackSoundType.RAPIER;
+    }
 
-        if (!UCConfigs.rapierAttackSound.getBooleanValue()) {
-            return;
+    @Override
+    public boolean canPlayAttackSound(EntityLivingBase target) {
+        return hasArmor(target);
+    }
+
+    public static boolean hasArmor(EntityLivingBase target) {
+        if (target == null) {
+            return false;
         }
 
-        boolean hasArmor = false;
-
         for (int i = 1; i <= 4; i++) {
-            ItemStack armor = target.getCurrentItemOrArmor(i);
-            if (armor != null) {
-                hasArmor = true;
-                break;
+            if (target.getCurrentItemOrArmor(i) != null) {
+                return true;
             }
         }
 
-        if (hasArmor) {
-            float volume = 0.4F;
-            float pitch = 1.0F + (player.worldObj.rand.nextFloat() - 0.5F) * 0.4F;
-            player.worldObj.playSoundAtEntity(player, UCSounds.weaponRapier.toString(), volume, pitch);
-        }
+        return false;
     }
 
     @Override

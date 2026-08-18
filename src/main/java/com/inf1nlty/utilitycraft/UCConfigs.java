@@ -19,7 +19,7 @@ public class UCConfigs extends SimpleConfigs {
     public static final ConfigBoolean rapierAttackSound = new ConfigBoolean(
             "utilitycraft.rapierAttackSound",
             false,
-            "utilitycraft.rapierAttackSound"
+            "config.comment.utilitycraft.rapierAttackSound"
     );
 
     public static final ConfigBoolean nunchakuAttackSound = new ConfigBoolean(

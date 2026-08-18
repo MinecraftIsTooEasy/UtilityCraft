@@ -83,6 +83,7 @@ utilitycraft.workbench.upgraded.mithril=工作台已升级为：秘银工作台
 utilitycraft.workbench.upgraded.adamantium=工作台已升级为：艾德曼工作台
 utilitycraft.workbench.upgraded.unknown=工作台已升级为：
 
+config.menu.name.UtilityCraft=实用工艺
 config.tab.misc=杂项
 
 config.name.utilitycraft.rapierAttackSound=迅捷剑攻击音效

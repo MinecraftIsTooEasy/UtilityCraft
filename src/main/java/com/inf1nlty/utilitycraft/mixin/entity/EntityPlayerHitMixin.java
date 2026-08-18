@@ -1,13 +1,14 @@
 package com.inf1nlty.utilitycraft.mixin.entity;
 
+import com.inf1nlty.utilitycraft.item.IWeaponAttackSound;
 import com.inf1nlty.utilitycraft.item.nunchaku.ItemNunchaku;
-import com.inf1nlty.utilitycraft.item.rapier.IRapier;
 import com.inf1nlty.utilitycraft.item.saber.ISaber;
 
 import net.minecraft.Damage;
 import net.minecraft.Entity;
 import net.minecraft.EntityLivingBase;
 import net.minecraft.EntityPlayer;
+import net.minecraft.Item;
 import net.minecraft.ItemStack;
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(EntityPlayer.class)
 public class EntityPlayerHitMixin {
 
-    @ModifyArg(method = "attackTargetEntityWithCurrentItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/Entity;attackEntityFrom(Lnet/minecraft/Damage;)Lnet/minecraft/EntityDamageResult;"), index = 0)
+    @ModifyArg(method = "attackTargetEntityWithCurrentItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/Entity;attackEntityFrom(Lnet/minecraft/Damage;)Lnet/minecraft/EntityDamageResult;"))
     private Damage utilitycraft$scaleNunchakuComboDamage(Damage damage) {
         EntityPlayer player = (EntityPlayer)(Object)this;
         ItemStack stack = player.getHeldItemStack();
@@ -32,33 +33,38 @@ public class EntityPlayerHitMixin {
     }
 
     @Inject(method = "attackTargetEntityWithCurrentItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/ItemStack;hitEntity(Lnet/minecraft/EntityLivingBase;Lnet/minecraft/EntityPlayer;)V", shift = At.Shift.AFTER))
-    private void playWeaponHitEffects(Entity targetEntity, CallbackInfo ci) {
+    private void playWeaponHitEffects(Entity target, CallbackInfo ci) {
 
         EntityPlayer player = (EntityPlayer)(Object)this;
-        ItemStack stack = player.getHeldItemStack();
+        if (player.worldObj.isRemote) {
+            return;
+        }
 
+        ItemStack stack = player.getHeldItemStack();
         if (stack == null) {
             return;
         }
 
-        if (targetEntity instanceof EntityLivingBase living && living.hurtTime == living.maxHurtTime) {
-            if (stack.getItem() instanceof ItemNunchaku nunchaku) {
-                nunchaku.playAttackSound(player);
-            }
-            else if (stack.getItem() instanceof IRapier rapier) {
-                rapier.playAttackSound(player, living);
-            }
-            else if (stack.getItem() instanceof ISaber saber) {
-                saber.playAttackSound(player, living);
+        if (!(target instanceof EntityLivingBase living) || living.hurtTime != living.maxHurtTime) {
+            return;
+        }
 
-                if (!player.worldObj.isRemote) {
-                    float yaw = player.rotationYaw;
-                    double x = player.posX - Math.sin(Math.toRadians(yaw)) * 0.5D;
-                    double y = player.posY + player.getEyeHeight() - 0.4D;
-                    double z = player.posZ + Math.cos(Math.toRadians(yaw)) * 0.5D;
+        Item item = stack.getItem();
+        if (!(item instanceof IWeaponAttackSound attackSound)) {
+            return;
+        }
 
-                    player.worldObj.playAuxSFX(2010, (int)x, (int)y, (int)z, Float.floatToIntBits(yaw));
-                }
+        if (attackSound.canPlayAttackSound(living)) {
+            attackSound.getAttackSoundType().broadcast(player, attackSound.getAttackSoundPitch(player.worldObj)
+            );
+
+            if (item instanceof ISaber) {
+                float yaw = player.rotationYaw;
+                double x = player.posX - Math.sin(Math.toRadians(yaw)) * 0.5D;
+                double y = player.posY + player.getEyeHeight() - 0.4D;
+                double z = player.posZ + Math.cos(Math.toRadians(yaw)) * 0.5D;
+
+                player.worldObj.playAuxSFX(2010, (int)x, (int)y, (int)z, Float.floatToIntBits(yaw));
             }
         }
     }
